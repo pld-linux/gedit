@@ -9,11 +9,12 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.3/gedit-%{version}.tar.b
 # Source0-md5:	e5db5597561219b87cafaee5fa63be52
 URL:		http://gedit.sourceforge.net/
 BuildRequires:	GConf2-devel >= 2.2.0
-BuildRequires:	xft-devel >= 2.1.2
 BuildRequires:	aspell-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	eel-devel >= 2.2.0
 BuildRequires:	glib2-devel >= 2.2.0
+BuildRequires:	gtksourceview-devel >= 0.4.0
 BuildRequires:	intltool >= 0.25
 BuildRequires:	libbonoboui-devel >= 2.2.0
 BuildRequires:	libglade2-devel >= 2.0.1
@@ -22,10 +23,9 @@ BuildRequires:	libgnomeui-devel >= 2.2.0
 BuildRequires:	libtool
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	scrollkeeper >= 0.3.11
-BuildRequires:	eel-devel >= 2.2.0
-BuildRequires:	gtksourceview-devel >= 0.4.0
-Requires:	libgnomeprintui >= 2.2.1
+BuildRequires:	xft-devel >= 2.1.2
 Requires(post,postun):	scrollkeeper
+Requires:	libgnomeprintui >= 2.2.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
@@ -101,7 +101,7 @@ scrollkeeper-update
 %{_libdir}/bonobo/servers/*
 %{_pixmapsdir}/*
 %{_datadir}/application-registry/*
-%{_datadir}/applications/*
+%{_desktopdir}/*
 %{_datadir}/gedit-2
 %{_datadir}/gnome-2.0/ui/*
 %{_datadir}/mime-info/*
