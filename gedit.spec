@@ -1,7 +1,7 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.1.2.1
+Version:	2.1.3
 Release:	1
 License:	GPL
 Group:		X11/Applications/Editors
@@ -12,7 +12,7 @@ BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	GConf2-devel >= 1.2.1
 BuildRequires:	intltool >= 0.22
-BuildRequires:	libgnomeui-devel >= 2.1.0
+BuildRequires:	libgnomeui-devel >= 2.1.2
 BuildRequires:	libglade2-devel >= 2.0.1
 BuildRequires:	libgnomeprintui-devel >= 2.1.1
 BuildRequires:	libbonoboui-devel >= 2.1.0
@@ -28,6 +28,7 @@ Obsoletes:	gedit-devel
 %define		_sysconfdir	/etc/X11/GNOME2
 %define		_mandir		%{_prefix}/man
 %define         _omf_dest_dir   %(scrollkeeper-config --omfdir)
+%define		_serverdir	/usr/lib/bonobo/servers
 
 %description
 gEdit is a small but powerful text editor for GTK+ and/or GNOME. It
@@ -63,7 +64,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	omf_dest_dir=%{_omf_dest_dir}/%{name} 
+	omf_dest_dir=%{_omf_dest_dir}/%{name} \
+	serverdir=%{_serverdir}
 
 
 %find_lang %{name} --with-gnome --all-name
@@ -73,8 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 scrollkeeper-update
-GCONF_CONFIG_SOURCE="`%{_bindir}/gconftool-2 --get-default-source`" \
-%{_bindir}/gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/*.schemas > /dev/null 
+%gconf_schema_install
 
 %postun
 scrollkeeper-update
@@ -87,7 +88,8 @@ scrollkeeper-update
 %dir %{_libdir}/gedit-2
 %dir %{_libdir}/gedit-2/plugins
 %attr(755,root,root) %{_libdir}/gedit-2/plugins/*.so*
-%{_libdir}/bonobo/servers/*
+%{_libdir}/gedit-2/plugins/*.gedit-plugin
+%{_serverdir}/*
 %{_pixmapsdir}/*
 %{_datadir}/applications/*
 %{_datadir}/gedit-2
