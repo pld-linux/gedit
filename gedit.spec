@@ -2,7 +2,7 @@ Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
 Version:	2.7.91
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.7/gedit-%{version}.tar.bz2
@@ -11,18 +11,18 @@ Patch0:		%{name}-use_default_font.patch
 Patch1:		%{name}-locale-names.patch
 Patch2:		%{name}-po.patch
 URL:		http://gedit.sourceforge.net/
-BuildRequires:	GConf2-devel >= 2.7.3
+BuildRequires:	GConf2-devel >= 2.7.91
 BuildRequires:	ORBit2-devel
 BuildRequires:	aspell-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.7.3
+BuildRequires:	eel-devel >= 2.7.4
 BuildRequires:	gnome-common >= 2.4.0
-BuildRequires:	gtksourceview-devel >= 1.0.1
+BuildRequires:	gtksourceview-devel >= 1.1.0
 BuildRequires:	intltool >= 0.31
 BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	libgnomeprintui-devel >= 2.7.1
-BuildRequires:	libgnomeui-devel >= 2.7.2
+BuildRequires:	libgnomeui-devel >= 2.7.91
 BuildRequires:	libtool
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
@@ -54,11 +54,11 @@ Summary:	gEdit header files
 Summary(pl):	pliki nag³ówkowe gEdit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	eel-devel >= 2.7.3
-Requires:	gtksourceview-devel >= 1.0.1
+Requires:	eel-devel >= 2.7.4
+Requires:	gtksourceview-devel >= 1.1.0
 Requires:	libglade2-devel >= 1:2.4.0
 Requires:	libgnomeprintui-devel >= 2.7.1
-Requires:	libgnomeui-devel >= 2.7.2
+Requires:	libgnomeui-devel >= 2.7.91
 
 %description devel
 gEdit header files
