@@ -47,7 +47,7 @@ dokumentów naraz i wiele innych.
 rm -f missing acinclude.m4
 %{__libtoolize}
 glib-gettextize --copy --force
-aclocal 
+%{__aclocal} 
 %{__autoconf}
 sed -e 's/-ourdir/ourdir/' xmldocs.make >xmldocs.make.tmp
 mv xmldocs.make.tmp xmldocs.make
