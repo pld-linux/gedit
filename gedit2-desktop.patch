@@ -1,12 +1,12 @@
-diff -urN gedit-2.8.1.orig/data/gedit.desktop.in gedit-2.8.1/data/gedit.desktop.in
---- gedit-2.8.1.orig/data/gedit.desktop.in	2004-11-17 12:21:33.509163576 +0100
-+++ gedit-2.8.1/data/gedit.desktop.in	2004-11-17 12:21:52.934210520 +0100
+diff -urN gedit-2.8.1.orig/data/gedit.desktop.in.in gedit-2.8.1/data/gedit.desktop.in.in
+--- gedit-2.8.1.orig/data/gedit.desktop.in.in	2004-11-17 12:21:33.509163576 +0100
++++ gedit-2.8.1/data/gedit.desktop.in.in	2004-11-17 12:21:52.934210520 +0100
 @@ -7,7 +7,7 @@
- Type=Application
+ StartupNotify=true
+ MimeType=text/plain;
  Icon=gedit-icon.png
- X-GNOME-DocPath=gedit/gedit.xml
 -Categories=Application;Utility;TextEditor;
 +Categories=GTK;GNOME;TextEditor;
+ X-GNOME-DocPath=gedit/gedit.xml
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=gedit
- X-GNOME-Bugzilla-Component=general
