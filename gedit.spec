@@ -1,28 +1,27 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.7.91
-Release:	2
+Version:	2.7.92
+Release:	1
 License:	GPL
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.7/gedit-%{version}.tar.bz2
-# Source0-md5:	eb4c8042b7f6b927566f3f3075e5d0f3
+# Source0-md5:	0aea91dc47571879dd30f650a270c469
 Patch0:		%{name}-use_default_font.patch
-Patch1:		%{name}-locale-names.patch
-Patch2:		%{name}-po.patch
+Patch1:		%{name}-po.patch
 URL:		http://gedit.sourceforge.net/
-BuildRequires:	GConf2-devel >= 2.7.91
+BuildRequires:	GConf2-devel >= 2.7.92
 BuildRequires:	ORBit2-devel
 BuildRequires:	aspell-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.7.4
+BuildRequires:	eel-devel >= 2.7.92
 BuildRequires:	gnome-common >= 2.4.0
 BuildRequires:	gtksourceview-devel >= 1.1.0
 BuildRequires:	intltool >= 0.31
 BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	libgnomeprintui-devel >= 2.7.1
-BuildRequires:	libgnomeui-devel >= 2.7.91
+BuildRequires:	libgnomeui-devel >= 2.7.92
 BuildRequires:	libtool
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
@@ -54,11 +53,11 @@ Summary:	gEdit header files
 Summary(pl):	pliki nag³ówkowe gEdit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	eel-devel >= 2.7.4
+Requires:	eel-devel >= 2.7.92
 Requires:	gtksourceview-devel >= 1.1.0
 Requires:	libglade2-devel >= 1:2.4.0
 Requires:	libgnomeprintui-devel >= 2.7.1
-Requires:	libgnomeui-devel >= 2.7.91
+Requires:	libgnomeui-devel >= 2.7.92
 
 %description devel
 gEdit header files
@@ -70,9 +69,6 @@ Pliki nag³ówkowe gEdit.
 %setup -q -n gedit-%{version}
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
-
-mv po/{no,nb}.po
 
 %build
 cp -f /usr/share/automake/config.sub .
@@ -97,6 +93,8 @@ rm -rf $RPM_BUILD_ROOT
 # Remove obsoleted *.la files
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.la
 rm -f $RPM_BUILD_ROOT%{_libdir}/bonobo/*.la
+
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name} --with-gnome --all-name
 
