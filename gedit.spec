@@ -7,20 +7,20 @@ License:	GPL
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.1/gedit-%{version}.tar.bz2
 URL:		http://gedit.sourceforge.net/
+BuildRequires:	GConf2-devel >= 1.2.1
+BuildRequires:	Xft-devel >= 2.1-2
+BuildRequires:	aspell-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool
-BuildRequires:	GConf2-devel >= 1.2.1
+BuildRequires:	glib2-devel >= 2.1.5
 BuildRequires:	intltool >= 0.22
-BuildRequires:	libgnomeui-devel >= 2.1.5
+BuildRequires:	libbonoboui-devel >= 2.1.0
 BuildRequires:	libglade2-devel >= 2.0.1
 BuildRequires:	libgnomeprintui-devel >= 2.1.1
-BuildRequires:	libbonoboui-devel >= 2.1.0
-BuildRequires:	glib2-devel >= 2.1.5
-BuildRequires:	aspell-devel
-BuildRequires:	scrollkeeper >= 0.3.11
+BuildRequires:	libgnomeui-devel >= 2.1.5
+BuildRequires:	libtool
 BuildRequires:	rpm-build >= 4.1-8.2
-BuildRequires:	Xft-devel >= 2.1-2
+BuildRequires:	scrollkeeper >= 0.3.11
 Requires:	libgnomeprintui >= 2.1.1
 Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -62,7 +62,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT  \
 	omf_dest_dir=%{_omf_dest_dir}/%{name}
 
-
 %find_lang %{name} --with-gnome --all-name
 
 %clean
@@ -92,4 +91,4 @@ scrollkeeper-update
 %{_datadir}/mime-info/*
 %{_datadir}/idl/*
 %{_omf_dest_dir}/%{name}
-%{_mandir}/man1/*.gz
+%{_mandir}/man1/*
