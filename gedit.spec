@@ -1,28 +1,28 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.3.5
+Version:	2.4.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.3/gedit-%{version}.tar.bz2
-# Source0-md5:	3b98f443f5fc9f019d2b3596db3a641a
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.4/gedit-%{version}.tar.bz2
+# Source0-md5:	0d8039773fd2f533bec4c9653854a4de
 URL:		http://gedit.sourceforge.net/
-BuildRequires:	GConf2-devel >= 2.2.0
+BuildRequires:	GConf2-devel >= 2.4.0
 BuildRequires:	aspell-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.3.7-2
+BuildRequires:	eel-devel >= 2.4.0
 BuildRequires:	glib2-devel >= 2.2.0
 BuildRequires:	gtksourceview-devel >= 0.6.0
 BuildRequires:	intltool >= 0.25
-BuildRequires:	libbonoboui-devel >= 2.3.3-2
+BuildRequires:	libbonoboui-devel >= 2.4.0
 BuildRequires:	libglade2-devel >= 2.0.1
 BuildRequires:	libgnomeprintui-devel >= 2.2.1
-BuildRequires:	libgnomeui-devel >= 2.3.3.1-2
+BuildRequires:	libgnomeui-devel >= 2.4.0.1
 BuildRequires:	libtool
 BuildRequires:	rpm-build >= 4.1-10
-BuildRequires:	scrollkeeper >= 0.3.11
+BuildRequires:	scrollkeeper >= 0.3.12
 BuildRequires:	xft-devel >= 2.1.2
 Requires(post,postun):	scrollkeeper
 Requires:	libgnomeprintui >= 2.2.1
