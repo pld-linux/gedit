@@ -1,27 +1,27 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.9.7
+Version:	2.10.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.9/gedit-%{version}.tar.bz2
-# Source0-md5:	617b4179dcdad83f3e24ea64d287128c
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.10/gedit-%{version}.tar.bz2
+# Source0-md5:	933f551489ca8303a07f3cd0c42d5881
 Patch0:		%{name}-use_default_font.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://gedit.sourceforge.net/
-BuildRequires:	GConf2-devel >= 2.9.91
+BuildRequires:	GConf2-devel >= 2.10.0
 BuildRequires:	ORBit2-devel
 BuildRequires:	aspell-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.9.92
+BuildRequires:	eel-devel >= 2.10.0
 BuildRequires:	gnome-common >= 2.8.0-2
-BuildRequires:	gtksourceview-devel >= 1.1.93
-BuildRequires:	intltool >= 0.31
-BuildRequires:	libglade2-devel >= 1:2.5.0
-BuildRequires:	libgnomeprintui-devel >= 2.8.2
-BuildRequires:	libgnomeui-devel >= 2.9.1
+BuildRequires:	gtksourceview-devel >= 1.2.0
+BuildRequires:	intltool >= 0.33
+BuildRequires:	libglade2-devel >= 1:2.5.1
+BuildRequires:	libgnomeprintui-devel >= 2.10.0
+BuildRequires:	libgnomeui-devel >= 2.10.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
@@ -31,7 +31,7 @@ BuildRequires:	xft-devel >= 2.1.2
 Requires(post):	GConf2
 Requires(post,postun):	/sbin/ldconfig
 Requires(post,postun):	scrollkeeper
-Requires:	libgnomeprintui >= 2.8.2
+Requires:	libgnomeprintui >= 2.10.0
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -54,11 +54,11 @@ Summary:	gEdit header files
 Summary(pl):	pliki nag³ówkowe gEdit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	eel-devel >= 2.9.92
-Requires:	gtksourceview-devel >= 1.1.93
-Requires:	libglade2-devel >= 1:2.5.0
-Requires:	libgnomeprintui-devel >= 2.8.2
-Requires:	libgnomeui-devel >= 2.9.1
+Requires:	eel-devel >= 2.10.0
+Requires:	gtksourceview-devel >= 1.2.0
+Requires:	libglade2-devel >= 1:2.5.1
+Requires:	libgnomeprintui-devel >= 2.10.0
+Requires:	libgnomeui-devel >= 2.10.0
 
 %description devel
 gEdit header files
