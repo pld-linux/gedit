@@ -14,7 +14,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	eel-devel >= 2.3.7-2
 BuildRequires:	glib2-devel >= 2.2.0
-BuildRequires:	gtksourceview-devel >= 0.4.0
+BuildRequires:	gtksourceview-devel >= 0.6.0
 BuildRequires:	intltool >= 0.25
 BuildRequires:	libbonoboui-devel >= 2.3.3-2
 BuildRequires:	libglade2-devel >= 2.0.1
