@@ -1,7 +1,7 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	1.121.1
+Version:	1.199.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Editors
@@ -10,12 +10,12 @@ URL:		http://gedit.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
-BuildRequires:	GConf2-devel
-BuildRequires:	intltool >= 0.21
-BuildRequires:	libgnomeui-devel >= 1.117.2
-BuildRequires:	libglade2-devel >= 1.99.12
-BuildRequires:	libgnomeprintui-devel >= 1.114.0
-BuildRequires:	libbonoboui-devel >= 1.117.1
+BuildRequires:	GConf2-devel >= 1.1.11
+BuildRequires:	intltool >= 0.22
+BuildRequires:	libgnomeui-devel >= 2.0.1
+BuildRequires:	libglade2-devel >= 2.0.0
+BuildRequires:	libgnomeprintui-devel >= 1.115.0
+BuildRequires:	libbonoboui-devel >= 2.0.0
 BuildRequires:	glib2-devel >= 2.0.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gedit-devel
