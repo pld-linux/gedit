@@ -17,6 +17,7 @@ BuildRequires:	libglade2-devel >= 2.0.1
 BuildRequires:	libgnomeprintui-devel >= 1.116.0
 BuildRequires:	libbonoboui-devel >= 2.0.3
 BuildRequires:	glib2-devel >= 2.1.0
+BuildRequires:	aspell-devel
 BuildRequires:	scrollkeeper >= 0.3.11
 Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
