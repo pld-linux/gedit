@@ -28,8 +28,10 @@ BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	scrollkeeper >= 0.3.12
 BuildRequires:	xft-devel >= 2.1.2
+Requires(post):	GConf2
+Requires(post,postun):	/sbin/ldconfig
 Requires(post,postun):	scrollkeeper
-Requires:	libgnomeprintui >= 2.4.0
+Requires:	libgnomeprintui >= 2.5.0
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
