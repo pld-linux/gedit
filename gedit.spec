@@ -5,7 +5,7 @@ Version:	2.0.5
 Release:	1
 License:	GPL
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/GNOME/2.0.1/sources/gedit/gedit-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/2.0/gedit-%{version}.tar.bz2
 URL:		http://gedit.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
