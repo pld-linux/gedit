@@ -1,25 +1,26 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.5.3
+Version:	2.5.90
 Release:	1
 License:	GPL
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.5/gedit-%{version}.tar.bz2
-# Source0-md5:	e6f24e886979c11e4c9dbe147c33af76
+# Source0-md5:	c79b2cbc5014d3a39be79bd50efe6275
+Patch0:		%{name}-locale-names.patch
 URL:		http://gedit.sourceforge.net/
 BuildRequires:	GConf2-devel >= 2.5.0
 BuildRequires:	aspell-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.5.2
-BuildRequires:	glib2-devel >= 2.3.1
-BuildRequires:	gtksourceview-devel >= 0.7.0
+BuildRequires:	eel-devel >= 2.5.8
+BuildRequires:	glib2-devel >= 2.3.2
+BuildRequires:	gtksourceview-devel >= 0.9.1
 BuildRequires:	intltool >= 0.29
-BuildRequires:	libbonoboui-devel >= 2.5.0
+BuildRequires:	libbonoboui-devel >= 2.5.3
 BuildRequires:	libglade2-devel >= 2.3.1
 BuildRequires:	libgnomeprintui-devel >= 2.5.0
-BuildRequires:	libgnomeui-devel >= 2.5.0
+BuildRequires:	libgnomeui-devel >= 2.5.90
 BuildRequires:	libtool
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	scrollkeeper >= 0.3.12
@@ -57,8 +58,12 @@ Pliki nag³ówkowe gEdit.
 
 %prep
 %setup -q -n gedit-%{version}
+%patch0 -p1
+
+mv po/{no,nb}.po
 
 %build
+%{__autoconf}
 %configure
 %{__make}
 
