@@ -1,27 +1,27 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.7.1
+Version:	2.7.90
 Release:	1
 License:	GPL
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.7/gedit-%{version}.tar.bz2
-# Source0-md5:	e908e378977660772df6b16c354d1a1b
+# Source0-md5:	1c99006b7eceeb82f4e1417fc6be24f7
 Patch0:		%{name}-use_default_font.patch
 Patch1:		%{name}-locale-names.patch
 URL:		http://gedit.sourceforge.net/
-BuildRequires:	GConf2-devel >= 2.7.1
+BuildRequires:	GConf2-devel >= 2.7.3
 BuildRequires:	ORBit2-devel
 BuildRequires:	aspell-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.7.1
+BuildRequires:	eel-devel >= 2.7.3
 BuildRequires:	gnome-common >= 2.4.0
 BuildRequires:	gtksourceview-devel >= 1.0.1
 BuildRequires:	intltool >= 0.29
 BuildRequires:	libglade2-devel >= 1:2.4.0
-BuildRequires:	libgnomeprintui-devel >= 2.7.0
-BuildRequires:	libgnomeui-devel >= 2.7.1
+BuildRequires:	libgnomeprintui-devel >= 2.7.1
+BuildRequires:	libgnomeui-devel >= 2.7.2
 BuildRequires:	libtool
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
@@ -30,7 +30,7 @@ BuildRequires:	xft-devel >= 2.1.2
 Requires(post):	GConf2
 Requires(post,postun):	/sbin/ldconfig
 Requires(post,postun):	scrollkeeper
-Requires:	libgnomeprintui >= 2.7.0
+Requires:	libgnomeprintui >= 2.7.1
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -53,11 +53,11 @@ Summary:	gEdit header files
 Summary(pl):	pliki nag³ówkowe gEdit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	eel-devel >= 2.7.1
+Requires:	eel-devel >= 2.7.3
 Requires:	gtksourceview-devel >= 1.0.1
 Requires:	libglade2-devel >= 1:2.4.0
-Requires:	libgnomeprintui-devel >= 2.7.0
-Requires:	libgnomeui-devel >= 2.7.1
+Requires:	libgnomeprintui-devel >= 2.7.1
+Requires:	libgnomeui-devel >= 2.7.2
 
 %description devel
 gEdit header files
@@ -75,6 +75,7 @@ mv po/{no,nb}.po
 %build
 cp -f /usr/share/automake/config.sub .
 %{__libtoolize}
+intltoolize --copy --force
 %{__aclocal} -I %{_aclocaldir}/gnome2-macros
 %{__autoconf}
 %{__automake}
