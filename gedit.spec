@@ -1,30 +1,27 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.6.2
-Release:	2
+Version:	2.8.0
+Release:	1
 License:	GPL
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.6/gedit-%{version}.tar.bz2
-# Source0-md5:	a4773bd9884371041cf6236f0fe1505f
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.8/gedit-%{version}.tar.bz2
+# Source0-md5:	500cdb9abff303c39bfd645858ac7856
 Patch0:		%{name}-use_default_font.patch
-Patch1:		%{name}-locale-names.patch
-Patch2:		%{name}-po.patch
+Patch1:		%{name}-po.patch
 URL:		http://gedit.sourceforge.net/
-BuildRequires:	GConf2-devel >= 2.6.1
+BuildRequires:	GConf2-devel >= 2.7.92
 BuildRequires:	ORBit2-devel
 BuildRequires:	aspell-devel
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.6.1
-BuildRequires:	glib2-devel >= 1:2.4.0
+BuildRequires:	eel-devel >= 2.7.92
 BuildRequires:	gnome-common >= 2.4.0
-BuildRequires:	gtksourceview-devel >= 1.0.1
-BuildRequires:	intltool >= 0.29
-BuildRequires:	libbonoboui-devel >= 2.6.0
-BuildRequires:	libglade2-devel >= 1:2.3.6
-BuildRequires:	libgnomeprintui-devel >= 2.6.1
-BuildRequires:	libgnomeui-devel >= 2.6.1
+BuildRequires:	gtksourceview-devel >= 1.1.0
+BuildRequires:	intltool >= 0.31
+BuildRequires:	libglade2-devel >= 1:2.4.0
+BuildRequires:	libgnomeprintui-devel >= 2.7.90
+BuildRequires:	libgnomeui-devel >= 2.7.92
 BuildRequires:	libtool
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
@@ -33,7 +30,7 @@ BuildRequires:	xft-devel >= 2.1.2
 Requires(post):	GConf2
 Requires(post,postun):	/sbin/ldconfig
 Requires(post,postun):	scrollkeeper
-Requires:	libgnomeprintui >= 2.6.1
+Requires:	libgnomeprintui >= 2.7.90
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -56,6 +53,11 @@ Summary:	gEdit header files
 Summary(pl):	pliki nag³ówkowe gEdit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	eel-devel >= 2.7.92
+Requires:	gtksourceview-devel >= 1.1.0
+Requires:	libglade2-devel >= 1:2.4.0
+Requires:	libgnomeprintui-devel >= 2.7.90
+Requires:	libgnomeui-devel >= 2.7.92
 
 %description devel
 gEdit header files
@@ -67,13 +69,10 @@ Pliki nag³ówkowe gEdit.
 %setup -q -n gedit-%{version}
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
-
-mv po/{no,nb}.po
 
 %build
-cp -f /usr/share/automake/config.sub .
 %{__libtoolize}
+intltoolize --copy --force
 %{__aclocal} -I %{_aclocaldir}/gnome2-macros
 %{__autoconf}
 %{__automake}
@@ -94,19 +93,25 @@ rm -rf $RPM_BUILD_ROOT
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.la
 rm -f $RPM_BUILD_ROOT%{_libdir}/bonobo/*.la
 
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
+
 %find_lang %{name} --with-gnome --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
+umask 022
 scrollkeeper-update
 %gconf_schema_install
 /sbin/ldconfig
+[ ! -x /usr/bin/update-desktop-database ] || /usr/bin/update-desktop-database >/dev/null 2>&1 ||:
 
 %postun
+umask 022
 scrollkeeper-update
 /sbin/ldconfig
+[ ! -x /usr/bin/update-desktop-database ] || /usr/bin/update-desktop-database >/dev/null 2>&1
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
