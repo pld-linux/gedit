@@ -1,29 +1,29 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.6.0
+Version:	2.6.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.6/gedit-%{version}.tar.bz2
-# Source0-md5:	1c023363f917b99a57ee866da67dd66b
+# Source0-md5:	4b70327b3a4c11727a4443ae6516b31c
 Patch0:		%{name}-use_default_font.patch
 Patch1:		%{name}-locale-names.patch
 URL:		http://gedit.sourceforge.net/
-BuildRequires:	GConf2-devel >= 2.6.0
+BuildRequires:	GConf2-devel >= 2.6.1
 BuildRequires:	ORBit2-devel
 BuildRequires:	aspell-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.6.0
+BuildRequires:	eel-devel >= 2.6.1
 BuildRequires:	glib2-devel >= 1:2.4.0
 BuildRequires:	gnome-common >= 2.4.0
-BuildRequires:	gtksourceview-devel >= 0.9.2
+BuildRequires:	gtksourceview-devel >= 1.0.1
 BuildRequires:	intltool >= 0.29
-BuildRequires:	libbonoboui-devel >= 2.5.4
+BuildRequires:	libbonoboui-devel >= 2.6.0
 BuildRequires:	libglade2-devel >= 1:2.3.6
-BuildRequires:	libgnomeprintui-devel >= 2.6.0
-BuildRequires:	libgnomeui-devel >= 2.6.0
+BuildRequires:	libgnomeprintui-devel >= 2.6.1
+BuildRequires:	libgnomeui-devel >= 2.6.1
 BuildRequires:	libtool
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
@@ -32,7 +32,7 @@ BuildRequires:	xft-devel >= 2.1.2
 Requires(post):	GConf2
 Requires(post,postun):	/sbin/ldconfig
 Requires(post,postun):	scrollkeeper
-Requires:	libgnomeprintui >= 2.6.0
+Requires:	libgnomeprintui >= 2.6.1
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
