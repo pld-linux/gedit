@@ -19,7 +19,7 @@ BuildRequires:	automake
 BuildRequires:	eel-devel >= 2.7.3
 BuildRequires:	gnome-common >= 2.4.0
 BuildRequires:	gtksourceview-devel >= 1.0.1
-BuildRequires:	intltool >= 0.29
+BuildRequires:	intltool >= 0.31
 BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	libgnomeprintui-devel >= 2.7.1
 BuildRequires:	libgnomeui-devel >= 2.7.2
