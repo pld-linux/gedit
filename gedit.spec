@@ -16,7 +16,7 @@ BuildRequires:	aspell-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	eel-devel >= 2.7.92
-BuildRequires:	gnome-common >= 2.4.0
+BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gtksourceview-devel >= 1.1.0
 BuildRequires:	intltool >= 0.31
 BuildRequires:	libglade2-devel >= 1:2.4.0
@@ -73,7 +73,7 @@ Pliki nag³ówkowe gEdit.
 %build
 %{__libtoolize}
 intltoolize --copy --force
-%{__aclocal} -I %{_aclocaldir}/gnome2-macros
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
