@@ -1,7 +1,7 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.3.0
+Version:	2.3.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Editors
@@ -22,6 +22,7 @@ BuildRequires:	libtool
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	scrollkeeper >= 0.3.11
 BuildRequires:	eel-devel >= 2.2.0
+BuildRequires:	gtksourceview-devel
 Requires:	libgnomeprintui >= 2.2.1
 Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -78,9 +79,11 @@ rm -rf $RPM_BUILD_ROOT
 %post
 scrollkeeper-update
 %gconf_schema_install
+/sbin/ldconfig
 
 %postun
 scrollkeeper-update
+/sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -89,6 +92,7 @@ scrollkeeper-update
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/gedit-2
 %dir %{_libdir}/gedit-2/plugins
+%attr(755,root,root) %{_libdir}/libgedit-control.so.*.*.*
 %attr(755,root,root) %{_libdir}/gedit-2/plugins/*.so*
 %{_libdir}/gedit-2/plugins/*.gedit-plugin
 %{_libdir}/bonobo/servers/*
@@ -96,6 +100,7 @@ scrollkeeper-update
 %{_datadir}/application-registry/*
 %{_datadir}/applications/*
 %{_datadir}/gedit-2
+%{_datadir}/gnome-2.0/ui/*
 %{_datadir}/mime-info/*
 %{_datadir}/idl/*
 %{_omf_dest_dir}/%{name}
@@ -103,5 +108,7 @@ scrollkeeper-update
 
 %files devel
 %defattr(644,root,root,755)
+%{_libdir}/libgedit-control.so
+%{_libdir}/libgedit-control.la
 %{_includedir}/gedit-2.4
 %{_pkgconfigdir}/gedit-2.4.pc
