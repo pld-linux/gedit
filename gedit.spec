@@ -1,7 +1,7 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.1.4
+Version:	2.1.5
 Release:	1
 License:	GPL
 Group:		X11/Applications/Editors
@@ -12,15 +12,15 @@ BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	GConf2-devel >= 1.2.1
 BuildRequires:	intltool >= 0.22
-BuildRequires:	libgnomeui-devel >= 2.1.4
+BuildRequires:	libgnomeui-devel >= 2.1.5
 BuildRequires:	libglade2-devel >= 2.0.1
 BuildRequires:	libgnomeprintui-devel >= 2.1.1
 BuildRequires:	libbonoboui-devel >= 2.1.0
-BuildRequires:	glib2-devel >= 2.1.0
+BuildRequires:	glib2-devel >= 2.1.5
 BuildRequires:	aspell-devel
 BuildRequires:	scrollkeeper >= 0.3.11
 BuildRequires:	rpm-build >= 4.1-8.2
-BuildRequires:	Xft-devel >= 2.0-6
+BuildRequires:	Xft-devel >= 2.1-2
 Requires:	libgnomeprintui >= 2.1.1
 Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -59,7 +59,7 @@ mv xmldocs.make.tmp xmldocs.make
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
+	DESTDIR=$RPM_BUILD_ROOT  \
 	omf_dest_dir=%{_omf_dest_dir}/%{name}
 
 
@@ -86,6 +86,7 @@ scrollkeeper-update
 %{_libdir}/gedit-2/plugins/*.gedit-plugin
 %{_libdir}/bonobo/servers/*
 %{_pixmapsdir}/*
+%{_datadir}/application-registry/*
 %{_datadir}/applications/*
 %{_datadir}/gedit-2
 %{_datadir}/mime-info/*
