@@ -1,25 +1,29 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	1.120.0
-Release:	0.1
+Version:	1.121.0
+Release:	1
 License:	GPL
 Group:		X11/Applications/Editors
-Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/%{name}/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/%{name}/gedit2-%{version}.tar.bz2
 URL:		http://gedit.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	GConf2-devel
-BuildRequires:	intltool >= 0.21.0
-BuildRequires:	libgnomeui-devel >= 1.116.1
-BuildRequires:	libglade2-devel >= 1.99.11
-BuildRequires:	libgnomeprintui-devel >= 1.113.0
+BuildRequires:	intltool >= 0.21
+BuildRequires:	libgnomeui-devel >= 1.117.2
+BuildRequires:	libglade2-devel >= 1.99.12
+BuildRequires:	libgnomeprintui-devel >= 1.114.0
+BuildRequires:	libbonoboui-devel >= 1.117.1
+BuildRequires:	glib2-devel >= 2.0.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gedit-devel
 
 %define		_prefix		/usr/X11R6
+%define		_sysconfdir	/etc/X11/GNOME2
 %define		_mandir		%{_prefix}/man
+%define         _omf_dest_dir   %(scrollkeeper-config --omfdir)
 
 %description
 gEdit is a small but powerful text editor for GTK+ and/or GNOME. It
@@ -40,7 +44,7 @@ dokumentów naraz i wiele innych.
 %build
 rm -f missing acinclude.m4
 libtoolize --copy --force
-gettextize --copy --force
+glib-gettextize --copy --force
 aclocal 
 %{__autoconf}
 sed -e 's/-ourdir/ourdir/' xmldocs.make >xmldocs.make.tmp
@@ -54,24 +58,28 @@ mv xmldocs.make.tmp xmldocs.make
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT 
+	DESTDIR=$RPM_BUILD_ROOT \
+	omf_dest_dir=%{_omf_dest_dir}/%{name} 
 
 
-%find_lang %{name} --with-gnome
+%find_lang %{name} --with-gnome --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+GCONF_CONFIG_SOURCE="" \
+%{_bindir}/gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/*.schemas > /dev/null 
+
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc FAQ README README.plugins ChangeLog TODO AUTHORS THANKS
-%attr(755,root,root) %{_bindir}/gedit
-%dir %{_libdir}/gedit
-%dir %{_libdir}/gedit/plugins
-%attr(755,root,root) %{_libdir}/gedit/plugins/*.so.*.*
-%{_libdir}/gedit/plugins/*.so
+%{_sysconfdir}/gconf/schemas/*
+%attr(755,root,root) %{_bindir}/*
+%dir %{_libdir}/gedit-2
+%dir %{_libdir}/gedit-2/plugins
+%attr(755,root,root) %{_libdir}/gedit-2/plugins/*.so*
 %{_pixmapsdir}/*
-%{_datadir}/gedit
-%{_datadir}/mime-info/*
-%{_applnkdir}/Office/Editors/gedit.desktop
-%{_mandir}/man1/*
+%{_datadir}/applications/*
+%{_datadir}/gedit-2
+%{_omf_dest_dir}/%{name}
