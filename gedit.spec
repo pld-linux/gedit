@@ -1,31 +1,31 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.4.0
+Version:	2.4.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.4/gedit-%{version}.tar.bz2
-# Source0-md5:	0d8039773fd2f533bec4c9653854a4de
+# Source0-md5:	ebc37dbf48451dcacb04313bcdf2e3a6
 URL:		http://gedit.sourceforge.net/
 BuildRequires:	GConf2-devel >= 2.4.0
 BuildRequires:	aspell-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.4.0
+BuildRequires:	eel-devel >= 2.4.1
 BuildRequires:	glib2-devel >= 2.2.0
-BuildRequires:	gtksourceview-devel >= 0.6.0
+BuildRequires:	gtksourceview-devel >= 0.7.0
 BuildRequires:	intltool >= 0.25
 BuildRequires:	libbonoboui-devel >= 2.4.0
 BuildRequires:	libglade2-devel >= 2.0.1
-BuildRequires:	libgnomeprintui-devel >= 2.2.1
+BuildRequires:	libgnomeprintui-devel >= 2.4.0
 BuildRequires:	libgnomeui-devel >= 2.4.0.1
 BuildRequires:	libtool
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	scrollkeeper >= 0.3.12
 BuildRequires:	xft-devel >= 2.1.2
 Requires(post,postun):	scrollkeeper
-Requires:	libgnomeprintui >= 2.2.1
+Requires:	libgnomeprintui >= 2.4.0
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
