@@ -1,12 +1,12 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.10.1
+Version:	2.10.2
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.10/gedit-%{version}.tar.bz2
-# Source0-md5:	0d2ba96283451922dfbae216c1dd36d9
+# Source0-md5:	e3cf99b9233377583a69c4ad235e8494
 Patch0:		%{name}-use_default_font.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://gedit.sourceforge.net/
@@ -20,18 +20,20 @@ BuildRequires:	gnome-common >= 2.8.0-2
 BuildRequires:	gtksourceview-devel >= 1.2.0
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel >= 1:2.5.1
-BuildRequires:	libgnomeprintui-devel >= 2.10.0
+BuildRequires:	libgnomeprintui-devel >= 2.10.2
 BuildRequires:	libgnomeui-devel >= 2.10.0-2
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
+BuildRequires:	rpmbuild(macros) >= 1.196
 BuildRequires:	scrollkeeper >= 0.3.12
 BuildRequires:	xft-devel >= 2.1.2
-Requires(post):	GConf2
+Requires(post,preun):	GConf2
 Requires(post,postun):	/sbin/ldconfig
+Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
-Requires:	libgnomeprintui >= 2.10.0
+Requires:	libgnomeprintui >= 2.10.2
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -57,7 +59,7 @@ Requires:	%{name} = %{version}-%{release}
 Requires:	eel-devel >= 2.10.0
 Requires:	gtksourceview-devel >= 1.2.0
 Requires:	libglade2-devel >= 1:2.5.1
-Requires:	libgnomeprintui-devel >= 2.10.0
+Requires:	libgnomeprintui-devel >= 2.10.2
 Requires:	libgnomeui-devel >= 2.10.0-2
 
 %description devel
@@ -93,6 +95,9 @@ rm -rf $RPM_BUILD_ROOT
 # Remove obsoleted *.la files
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.la
 
+rm -r $RPM_BUILD_ROOT%{_datadir}/application-registry
+rm -r $RPM_BUILD_ROOT%{_datadir}/mime-info
+
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name} --with-gnome --all-name
@@ -101,17 +106,22 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -rf $RPM_BUILD_ROOT
 
 %post
-umask 022
-scrollkeeper-update
-%gconf_schema_install
+%gconf_schema_install /etc/gconf/schemas/gedit.schemas
 /sbin/ldconfig
-[ ! -x /usr/bin/update-desktop-database ] || /usr/bin/update-desktop-database >/dev/null 2>&1 ||:
+/usr/bin/scrollkeeper-update -q
+/usr/bin/update-desktop-database
+
+%preun
+if [ $1 = 0 ]; then
+	%gconf_schema_uninstall /etc/gconf/schemas/gedit.schemas
+fi
 
 %postun
-umask 022
-scrollkeeper-update
-/sbin/ldconfig
-[ ! -x /usr/bin/update-desktop-database ] || /usr/bin/update-desktop-database >/dev/null 2>&1
+if [ $1 = 0 ]; then
+	/sbin/ldconfig
+	/usr/bin/scrollkeeper-update -q
+	/usr/bin/update-desktop-database
+fi
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -124,10 +134,8 @@ scrollkeeper-update
 %{_libdir}/gedit-2/plugins/*.gedit-plugin
 %{_libdir}/bonobo/servers/*
 %{_pixmapsdir}/*
-%{_datadir}/application-registry/*
 %{_desktopdir}/*
 %{_datadir}/gedit-2
-%{_datadir}/mime-info/*
 %{_datadir}/idl/*
 %{_omf_dest_dir}/%{name}
 %{_mandir}/man1/*
