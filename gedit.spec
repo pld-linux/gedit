@@ -1,11 +1,11 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.2.1
+Version:	2.3.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.2/gedit-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.3/gedit-%{version}.tar.bz2
 URL:		http://gedit.sourceforge.net/
 BuildRequires:	GConf2-devel >= 2.2.0
 BuildRequires:	Xft-devel >= 2.1-2
@@ -40,19 +40,23 @@ który umo¿liwia rozszerzenie funkcji gEdita o dodatkowe mo¿liwo¶ci,
 nie zwiêkszaj±c rozmiarów samego programu, mo¿liwo¶æ edycji wielu
 dokumentów naraz i wiele innych.
 
+%package devel
+Summary:	gEdit header files
+Summary(pl):	pliki nag³ówkowe gEdit
+Group:		X11/Development/Libraries
+Requires:	%{name} = %{version}
+
+%description devel
+gEdit header files
+
+%description devel -l pl
+Pliki nag³ówkowe gEdit.
+
 %prep
 %setup -q -n gedit-%{version}
 
 %build
-#rm -f missing acinclude.m4
-#%%{__libtoolize}
-#glib-gettextize --copy --force
-#%%{__aclocal} 
-#%%{__autoconf}
-#sed -e 's/-ourdir/ourdir/' xmldocs.make >xmldocs.make.tmp
-#mv xmldocs.make.tmp xmldocs.make
-#%%{__automake}
-%configure 
+%configure
 
 %{__make}
 
@@ -60,8 +64,11 @@ dokumentów naraz i wiele innych.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT  \
+	DESTDIR=$RPM_BUILD_ROOT \
 	omf_dest_dir=%{_omf_dest_dir}/%{name}
+
+# Remove obsoleted *.la files
+rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.la
 
 %find_lang %{name} --with-gnome --all-name
 
@@ -93,3 +100,8 @@ scrollkeeper-update
 %{_datadir}/idl/*
 %{_omf_dest_dir}/%{name}
 %{_mandir}/man1/*
+
+%files devel
+%defattr(644,root,root,755)
+%{_includedir}/gedit-2.4
+%{_pkgconfigdir}/gedit-2.4.pc
