@@ -2,7 +2,7 @@ Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
 Version:	2.3.3
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.3/gedit-%{version}.tar.bz2
@@ -12,23 +12,23 @@ BuildRequires:	GConf2-devel >= 2.2.0
 BuildRequires:	aspell-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.2.0
+BuildRequires:	eel-devel >= 2.3.7-2
 BuildRequires:	glib2-devel >= 2.2.0
 BuildRequires:	gtksourceview-devel >= 0.4.0
 BuildRequires:	intltool >= 0.25
-BuildRequires:	libbonoboui-devel >= 2.2.0
+BuildRequires:	libbonoboui-devel >= 2.3.3-2
 BuildRequires:	libglade2-devel >= 2.0.1
 BuildRequires:	libgnomeprintui-devel >= 2.2.1
-BuildRequires:	libgnomeui-devel >= 2.2.0
+BuildRequires:	libgnomeui-devel >= 2.3.3.1-2
 BuildRequires:	libtool
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	scrollkeeper >= 0.3.11
 BuildRequires:	xft-devel >= 2.1.2
 Requires(post,postun):	scrollkeeper
 Requires:	libgnomeprintui >= 2.2.1
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 gEdit is a small but powerful text editor for GTK+ and/or GNOME. It
