@@ -28,7 +28,7 @@ Obsoletes:	gedit-devel
 %define		_sysconfdir	/etc/X11/GNOME2
 %define		_mandir		%{_prefix}/man
 %define         _omf_dest_dir   %(scrollkeeper-config --omfdir)
-%define		_serverdir	/usr/lib/bonobo/servers
+%define		_bonobo_server_dir	/usr/lib/bonobo/servers
 
 %description
 gEdit is a small but powerful text editor for GTK+ and/or GNOME. It
@@ -65,7 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	omf_dest_dir=%{_omf_dest_dir}/%{name} \
-	serverdir=%{_serverdir}
+	serverdir=%{_bonobo_server_dir}
 
 
 %find_lang %{name} --with-gnome --all-name
@@ -89,7 +89,7 @@ scrollkeeper-update
 %dir %{_libdir}/gedit-2/plugins
 %attr(755,root,root) %{_libdir}/gedit-2/plugins/*.so*
 %{_libdir}/gedit-2/plugins/*.gedit-plugin
-%{_serverdir}/*
+%{_bonobo_server_dir}/*
 %{_pixmapsdir}/*
 %{_datadir}/applications/*
 %{_datadir}/gedit-2
