@@ -1,7 +1,7 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.1.5
+Version:	2.1.6
 Release:	1
 License:	GPL
 Group:		X11/Applications/Editors
@@ -12,16 +12,16 @@ BuildRequires:	Xft-devel >= 2.1-2
 BuildRequires:	aspell-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	glib2-devel >= 2.1.5
-BuildRequires:	intltool >= 0.22
-BuildRequires:	libbonoboui-devel >= 2.1.0
+BuildRequires:	glib2-devel >= 2.2.0
+BuildRequires:	intltool >= 0.25
+BuildRequires:	libbonoboui-devel >= 2.1.2
 BuildRequires:	libglade2-devel >= 2.0.1
-BuildRequires:	libgnomeprintui-devel >= 2.1.1
+BuildRequires:	libgnomeprintui-devel >= 2.1.7
 BuildRequires:	libgnomeui-devel >= 2.1.5
 BuildRequires:	libtool
-BuildRequires:	rpm-build >= 4.1-8.2
+BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	scrollkeeper >= 0.3.11
-Requires:	libgnomeprintui >= 2.1.1
+Requires:	libgnomeprintui >= 2.1.7
 Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gedit-devel
@@ -43,14 +43,14 @@ dokumentów naraz i wiele innych.
 %setup -q -n gedit-%{version}
 
 %build
-rm -f missing acinclude.m4
-%{__libtoolize}
-glib-gettextize --copy --force
-%{__aclocal} 
-%{__autoconf}
-sed -e 's/-ourdir/ourdir/' xmldocs.make >xmldocs.make.tmp
-mv xmldocs.make.tmp xmldocs.make
-%{__automake}
+#rm -f missing acinclude.m4
+#%%{__libtoolize}
+#glib-gettextize --copy --force
+#%%{__aclocal} 
+#%%{__autoconf}
+#sed -e 's/-ourdir/ourdir/' xmldocs.make >xmldocs.make.tmp
+#mv xmldocs.make.tmp xmldocs.make
+#%%{__automake}
 %configure 
 
 %{__make}
