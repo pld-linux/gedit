@@ -43,7 +43,7 @@ dokumentów naraz i wiele innych.
 
 %build
 rm -f missing acinclude.m4
-libtoolize --copy --force
+%{__libtoolize}
 glib-gettextize --copy --force
 aclocal 
 %{__autoconf}
