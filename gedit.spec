@@ -73,7 +73,7 @@ GCONF_CONFIG_SOURCE="" \
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc FAQ README README.plugins ChangeLog TODO AUTHORS THANKS
+%doc README ChangeLog TODO AUTHORS THANKS
 %{_sysconfdir}/gconf/schemas/*
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/gedit-2
