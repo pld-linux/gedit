@@ -17,6 +17,8 @@ BuildRequires:	libglade2-devel >= 2.0.0
 BuildRequires:	libgnomeprintui-devel >= 1.116.0
 BuildRequires:	libbonoboui-devel >= 2.0.1
 BuildRequires:	glib2-devel >= 2.0.6
+BuildRequires:	scrollkeeper >= 0.3.11
+Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gedit-devel
 
@@ -68,8 +70,12 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %post
+scrollkeeper-update
 GCONF_CONFIG_SOURCE="`%{_bindir}/gconftool-2 --get-default-source`" \
 %{_bindir}/gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/*.schemas > /dev/null 
+
+%postun
+scrollkeeper-update
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
