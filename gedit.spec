@@ -19,6 +19,7 @@ BuildRequires:	libbonoboui-devel >= 2.1.0
 BuildRequires:	glib2-devel >= 2.1.0
 BuildRequires:	aspell-devel
 BuildRequires:	scrollkeeper >= 0.3.11
+BuildRequires:	rpm-build >= 4.1-7
 Requires:	libgnomeprintui >= 2.1.1
 Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
