@@ -68,7 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %post
-GCONF_CONFIG_SOURCE="" \
+GCONF_CONFIG_SOURCE="`%{_bindir}/gconftool-2 --get-default-source`" \
 %{_bindir}/gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/*.schemas > /dev/null 
 
 %files -f %{name}.lang
