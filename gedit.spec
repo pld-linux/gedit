@@ -28,7 +28,7 @@ Requires:	libgnomeprintui >= 2.2.1
 Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gedit-devel
-Obsoletes:	gedit-plugins < 2.3.3
+Obsoletes:	gedit-plugins < 2.3.3-2
 
 %description
 gEdit is a small but powerful text editor for GTK+ and/or GNOME. It
