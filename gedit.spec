@@ -105,6 +105,7 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -rf $RPM_BUILD_ROOT
 
 %post
+umask 022
 %gconf_schema_install /etc/gconf/schemas/gedit.schemas
 /sbin/ldconfig
 /usr/bin/scrollkeeper-update -q
@@ -117,6 +118,7 @@ fi
 
 %postun
 if [ $1 = 0 ]; then
+	umask 022
 	/sbin/ldconfig
 	/usr/bin/scrollkeeper-update -q
 	/usr/bin/update-desktop-database
