@@ -1,16 +1,15 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.8.1
-Release:	2
+Version:	2.8.2
+Release:	1
 License:	GPL
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.8/gedit-%{version}.tar.bz2
-# Source0-md5:	89052aec40b7447eb11d73134d71e812
+# Source0-md5:	5060336a0bca39db25c5ca41af3e21e0
 # Source0-size:	2520837
 Patch0:		%{name}-use_default_font.patch
-Patch1:		%{name}-po.patch
-Patch2:		%{name}-desktop.patch
+Patch1:		%{name}-desktop.patch
 URL:		http://gedit.sourceforge.net/
 BuildRequires:	GConf2-devel >= 2.7.92
 BuildRequires:	ORBit2-devel
@@ -18,7 +17,7 @@ BuildRequires:	aspell-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	eel-devel >= 2.7.92
-BuildRequires:	gnome-common >= 2.8.0
+BuildRequires:	gnome-common >= 2.8.0-2
 BuildRequires:	gtksourceview-devel >= 1.1.0
 BuildRequires:	intltool >= 0.31
 BuildRequires:	libglade2-devel >= 1:2.4.0
@@ -71,9 +70,9 @@ Pliki nag³ówkowe gEdit.
 %setup -q -n gedit-%{version}
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
+cp /usr/share/gnome-common/data/omf.make .
 %{__libtoolize}
 intltoolize --copy --force
 %{__aclocal}
