@@ -57,7 +57,7 @@ Requires:	eel-devel >= 2.7.1
 Requires:	gtksourceview-devel >= 1.0.1
 Requires:	libglade2-devel >= 1:2.4.0
 Requires:	libgnomeprintui-devel >= 2.7.0
-equires:	libgnomeui-devel >= 2.7.1
+Requires:	libgnomeui-devel >= 2.7.1
 
 %description devel
 gEdit header files
