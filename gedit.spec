@@ -79,7 +79,11 @@ GCONF_CONFIG_SOURCE="" \
 %dir %{_libdir}/gedit-2
 %dir %{_libdir}/gedit-2/plugins
 %attr(755,root,root) %{_libdir}/gedit-2/plugins/*.so*
+%{_libdir}/bonobo/servers/*
 %{_pixmapsdir}/*
 %{_datadir}/applications/*
 %{_datadir}/gedit-2
+%{_datadir}/mime-info/*
+%{_datadir}/idl/*
 %{_omf_dest_dir}/%{name}
+%{_mandir}/man1/*.gz
