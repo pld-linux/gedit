@@ -10,7 +10,7 @@ URL:		http://gedit.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
-BuildRequires:	GConf2-devel >= 1.1.11
+BuildRequires:	GConf2-devel >= 1.2.0
 BuildRequires:	intltool >= 0.22
 BuildRequires:	libgnomeui-devel >= 2.0.1
 BuildRequires:	libglade2-devel >= 2.0.0
