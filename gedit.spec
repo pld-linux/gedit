@@ -1,29 +1,29 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.8.2
-Release:	2
+Version:	2.9.6
+Release:	1
 License:	GPL
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.8/gedit-%{version}.tar.bz2
-# Source0-md5:	5060336a0bca39db25c5ca41af3e21e0
-# Source0-size:	2520837
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.9/gedit-%{version}.tar.bz2
+# Source0-md5:	2fd5921fc23ff9371e0f856202b3b11e
 Patch0:		%{name}-use_default_font.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://gedit.sourceforge.net/
-BuildRequires:	GConf2-devel >= 2.7.92
+BuildRequires:	GConf2-devel >= 2.9.91
 BuildRequires:	ORBit2-devel
 BuildRequires:	aspell-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.7.92
+BuildRequires:	eel-devel >= 2.9.90
 BuildRequires:	gnome-common >= 2.8.0-2
-BuildRequires:	gtksourceview-devel >= 1.1.0
+BuildRequires:	gtksourceview-devel >= 1.1.92
 BuildRequires:	intltool >= 0.31
-BuildRequires:	libglade2-devel >= 1:2.4.0
-BuildRequires:	libgnomeprintui-devel >= 2.7.90
-BuildRequires:	libgnomeui-devel >= 2.7.92
+BuildRequires:	libglade2-devel >= 1:2.5.0
+BuildRequires:	libgnomeprintui-devel >= 2.8.2
+BuildRequires:	libgnomeui-devel >= 2.9.1
 BuildRequires:	libtool
+BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	scrollkeeper >= 0.3.12
@@ -31,7 +31,7 @@ BuildRequires:	xft-devel >= 2.1.2
 Requires(post):	GConf2
 Requires(post,postun):	/sbin/ldconfig
 Requires(post,postun):	scrollkeeper
-Requires:	libgnomeprintui >= 2.7.90
+Requires:	libgnomeprintui >= 2.8.2
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -54,11 +54,11 @@ Summary:	gEdit header files
 Summary(pl):	pliki nag³ówkowe gEdit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	eel-devel >= 2.7.92
-Requires:	gtksourceview-devel >= 1.1.0
-Requires:	libglade2-devel >= 1:2.4.0
-Requires:	libgnomeprintui-devel >= 2.7.90
-Requires:	libgnomeui-devel >= 2.7.92
+Requires:	eel-devel >= 2.9.90
+Requires:	gtksourceview-devel >= 1.1.92
+Requires:	libglade2-devel >= 1:2.5.0
+Requires:	libgnomeprintui-devel >= 2.8.2
+Requires:	libgnomeui-devel >= 2.9.1
 
 %description devel
 gEdit header files
@@ -93,7 +93,6 @@ rm -rf $RPM_BUILD_ROOT
 
 # Remove obsoleted *.la files
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.la
-rm -f $RPM_BUILD_ROOT%{_libdir}/bonobo/*.la
 
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
@@ -122,7 +121,6 @@ scrollkeeper-update
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/gedit-2
 %dir %{_libdir}/gedit-2/plugins
-%attr(755,root,root) %{_libdir}/bonobo/libgedit-control.so
 %attr(755,root,root) %{_libdir}/gedit-2/plugins/*.so*
 %{_libdir}/gedit-2/plugins/*.gedit-plugin
 %{_libdir}/bonobo/servers/*
@@ -130,7 +128,6 @@ scrollkeeper-update
 %{_datadir}/application-registry/*
 %{_desktopdir}/*
 %{_datadir}/gedit-2
-%{_datadir}/gnome-2.0/ui/*
 %{_datadir}/mime-info/*
 %{_datadir}/idl/*
 %{_omf_dest_dir}/%{name}
