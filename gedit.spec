@@ -26,11 +26,11 @@ BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
-BuildRequires:	rpmbuild(macros) >= 1.196
+BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.3.12
 BuildRequires:	xft-devel >= 2.1.2
-Requires(post,preun):	GConf2
 Requires(post,postun):	/sbin/ldconfig
+Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires:	libgnomeprintui >= 2.10.2
@@ -76,7 +76,7 @@ Pliki nag³ówkowe gEdit.
 %build
 cp /usr/share/gnome-common/data/omf.make .
 %{__libtoolize}
-intltoolize --copy --force
+%{__intltoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
@@ -105,24 +105,18 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -rf $RPM_BUILD_ROOT
 
 %post
-umask 022
-%gconf_schema_install /etc/gconf/schemas/gedit.schemas
-/sbin/ldconfig
-/usr/bin/scrollkeeper-update -q
-/usr/bin/update-desktop-database
+%gconf_schema_install gedit.schemas
+%ldconfig_post
+%scrollkeeper_update_post
+%update_desktop_database_post
 
 %preun
-if [ $1 = 0 ]; then
-	%gconf_schema_uninstall /etc/gconf/schemas/gedit.schemas
-fi
+%gconf_schema_uninstall gedit.schemas
 
 %postun
-if [ $1 = 0 ]; then
-	umask 022
-	/sbin/ldconfig
-	/usr/bin/scrollkeeper-update -q
-	/usr/bin/update-desktop-database
-fi
+%ldconfig_postun
+%scrollkeeper_update_postun
+%update_desktop_database_postun
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
