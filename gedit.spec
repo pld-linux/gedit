@@ -105,8 +105,8 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -rf $RPM_BUILD_ROOT
 
 %post
+/sbin/ldconfig
 %gconf_schema_install gedit.schemas
-%ldconfig_post
 %scrollkeeper_update_post
 %update_desktop_database_post
 
@@ -114,7 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 %gconf_schema_uninstall gedit.schemas
 
 %postun
-%ldconfig_postun
+/sbin/ldconfig
 %scrollkeeper_update_postun
 %update_desktop_database_postun
 
