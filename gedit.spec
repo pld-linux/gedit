@@ -16,6 +16,7 @@ BuildRequires:	aspell-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	eel-devel >= 2.10.0
+BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.8.0-2
 BuildRequires:	gtksourceview-devel >= 1.2.0
 BuildRequires:	intltool >= 0.33
