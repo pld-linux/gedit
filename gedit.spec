@@ -9,6 +9,7 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.10/gedit-%{version}.tar.
 # Source0-md5:	da859e7b87f96290d1d961f0c8dee5ee
 Patch0:		%{name}-use_default_font.patch
 Patch1:		%{name}-desktop.patch
+Patch2:		%{name}-tabs-on-the-left.patch
 URL:		http://gedit.sourceforge.net/
 BuildRequires:	GConf2-devel >= 2.10.0
 BuildRequires:	ORBit2-devel
@@ -73,6 +74,7 @@ Pliki nag³ówkowe gEdit.
 %setup -q -n gedit-%{version}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 cp /usr/share/gnome-common/data/omf.make .
