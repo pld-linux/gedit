@@ -1,0 +1,2 @@
+- updated to 0.9.3
+- BuildRequires: gnome-print-devel >= 0.24.
