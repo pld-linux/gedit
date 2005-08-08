@@ -1,0 +1,4 @@
+- release 2,
+- rebuild against gnome-print 0.28,
+- remove in %preps acinclude.m4 with own copy gettext.m4,
+- added use_AM_GNU_GETTEXT patch and regenerate am, ac files.
