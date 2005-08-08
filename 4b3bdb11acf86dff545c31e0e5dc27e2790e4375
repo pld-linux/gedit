@@ -1,0 +1,4 @@
+- updated to 0.7.0,
+- added --disable-staic to ./configure parameters and --with-gnome for
+  %%find_lang macro,
+- updated BuildRequires and %files list.
