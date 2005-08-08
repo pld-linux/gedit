@@ -1,0 +1,3 @@
+- cleaned up spec file
+- new/updated patches
+- removed Go plugins from package and added Requires: go
