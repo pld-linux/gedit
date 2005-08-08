@@ -1,0 +1,2 @@
+- added 'gettextize --copy --force' on top of %build
+- redefined _libexecdir
