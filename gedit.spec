@@ -1,12 +1,12 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.11.93
+Version:	2.12.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.11/gedit-%{version}.tar.bz2
-# Source0-md5:	2358acce8b95857fa1e04de7ea2beb0c
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.12/gedit-%{version}.tar.bz2
+# Source0-md5:	fd4d4b56933a792b33b8ef575836d4b2
 Patch0:		%{name}-use_default_font.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://gedit.sourceforge.net/
