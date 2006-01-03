@@ -1,12 +1,12 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.12.1
+Version:	2.13.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.12/gedit-%{version}.tar.bz2
-# Source0-md5:	13f376c6c63b0fbd25ba9b6c7d6fb97c
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.13/gedit-%{version}.tar.bz2
+# Source0-md5:	9606f4af2c751a9c1ccca11a17b12a38
 Patch0:		%{name}-use_default_font.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://gedit.sourceforge.net/
@@ -18,6 +18,7 @@ BuildRequires:	automake
 BuildRequires:	eel-devel >= 2.10.0
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.8.0-2
+BuildRequires:	gnome-doc-utils >= 0.3.2
 BuildRequires:	gnome-menus-devel >= 2.12.0
 BuildRequires:	gtksourceview-devel >= 1.3.91
 BuildRequires:	intltool >= 0.33
@@ -76,6 +77,7 @@ Pliki nag³ówkowe gEdit.
 %patch1 -p1
 
 %build
+cat m4/*.m4 > acinclude.m4
 %{__gnome_doc_common}
 %{__libtoolize}
 %{__intltoolize}
@@ -128,10 +130,8 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/gedit-2
 %dir %{_libdir}/gedit-2/plugins
 %attr(755,root,root) %{_libdir}/gedit-2/plugins/*.so*
-%{_libdir}/bonobo/servers/*
 %{_libdir}/gedit-2/plugins/*.gedit-plugin
 %{_datadir}/gedit-2
-%{_datadir}/idl/*
 %{_desktopdir}/*
 %{_mandir}/man1/*
 %{_omf_dest_dir}/%{name}
