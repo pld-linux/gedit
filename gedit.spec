@@ -28,6 +28,7 @@ BuildRequires:	libgnomeui-devel >= 2.11.2-2
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
+BuildRequires:	python-gnome-extras-devel >= 2.8.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.3.12
@@ -37,6 +38,7 @@ Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires:	libgnomeprintui >= 2.10.2
+#Suggests:	python-gnome-extras-gtksourceview >= 2.10.0
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -78,6 +80,7 @@ Pliki nag³ówkowe gEdit.
 
 %build
 cat m4/*.m4 > acinclude.m4
+sed -i 's/codegen.py/codegen.pyc/' configure.ac
 %{__gnome_doc_common}
 %{__libtoolize}
 %{__intltoolize}
@@ -85,7 +88,8 @@ cat m4/*.m4 > acinclude.m4
 %{__autoconf}
 %{__automake}
 %configure \
-	--disable-schemas-install
+	--disable-schemas-install \
+	--enable-python
 %{__make}
 
 %install
@@ -130,6 +134,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/gedit-2
 %dir %{_libdir}/gedit-2/plugins
 %attr(755,root,root) %{_libdir}/gedit-2/plugins/*.so*
+%attr(755,root,root) %{_libdir}/gedit-2/plugins/*.py
 %{_libdir}/gedit-2/plugins/*.gedit-plugin
 %{_datadir}/gedit-2
 %{_desktopdir}/*
