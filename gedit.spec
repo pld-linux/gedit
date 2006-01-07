@@ -77,19 +77,19 @@ Pliki nag³ówkowe gEdit.
 %setup -q -n gedit-%{version}
 %patch0 -p1
 %patch1 -p1
+sed -i 's/codegen.py/codegen.pyc/' configure.ac
 
 %build
-cat m4/*.m4 > acinclude.m4
-sed -i 's/codegen.py/codegen.pyc/' configure.ac
 %{__gnome_doc_common}
 %{__libtoolize}
 %{__intltoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
 %configure \
 	--disable-schemas-install \
-	--enable-python
+	--enable-python \
+	--with-omf-dir=%{_omf_dest_dir}/%{name}
 %{__make}
 
 %install
@@ -97,15 +97,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	omf_dest_dir=%{_omf_dest_dir}/%{name} \
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
 # Remove obsoleted *.la files
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.la
-
 rm -r $RPM_BUILD_ROOT%{_datadir}/{application-registry,mime-info}
-
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
+rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.py
 
 %find_lang %{name} --with-gnome --all-name
 
@@ -134,7 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/gedit-2
 %dir %{_libdir}/gedit-2/plugins
 %attr(755,root,root) %{_libdir}/gedit-2/plugins/*.so*
-%attr(755,root,root) %{_libdir}/gedit-2/plugins/*.py
+%attr(755,root,root) %{_libdir}/gedit-2/plugins/*.py[co]
 %{_libdir}/gedit-2/plugins/*.gedit-plugin
 %{_datadir}/gedit-2
 %{_desktopdir}/*
