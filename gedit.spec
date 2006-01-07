@@ -88,6 +88,7 @@ sed -i 's/codegen.py/codegen.pyc/' configure.ac
 %{__automake}
 %configure \
 	--disable-schemas-install \
+	--disable-scrollkeeper \
 	--enable-python \
 	--with-omf-dir=%{_omf_dest_dir}/%{name}
 %{__make}
