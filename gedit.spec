@@ -132,7 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/gedit-2
 %dir %{_libdir}/gedit-2/plugins
-%attr(755,root,root) %{_libdir}/gedit-2/plugins/*.so*
+%attr(755,root,root) %{_libdir}/gedit-2/plugins/*.so
 %attr(755,root,root) %{_libdir}/gedit-2/plugins/*.py[co]
 %{_libdir}/gedit-2/plugins/*.gedit-plugin
 %{_datadir}/gedit-2
