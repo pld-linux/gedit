@@ -134,12 +134,12 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/gedit-2/plugins/externaltools
 %dir %{_libdir}/gedit-2/plugins/snippets
 %attr(755,root,root) %{_libdir}/gedit-2/plugins/*.so
-%attr(755,root,root) %{_libdir}/gedit-2/plugins/*.py[co]
-%attr(755,root,root) %{_libdir}/gedit-2/plugins/externaltools/*.py[co]
-%attr(755,root,root) %{_libdir}/gedit-2/plugins/snippets/*.py[co]
 %{_libdir}/gedit-2/plugins/externaltools/*.glade
-%{_libdir}/gedit-2/plugins/snippets/*.glade
+%{_libdir}/gedit-2/plugins/externaltools/*.py[co]
 %{_libdir}/gedit-2/plugins/*.gedit-plugin
+%{_libdir}/gedit-2/plugins/*.py[co]
+%{_libdir}/gedit-2/plugins/snippets/*.glade
+%{_libdir}/gedit-2/plugins/snippets/*.py[co]
 %{_datadir}/gedit-2
 %{_desktopdir}/*
 %{_mandir}/man1/*
