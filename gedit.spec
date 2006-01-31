@@ -1,12 +1,12 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.13.2
+Version:	2.13.90
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.13/gedit-%{version}.tar.bz2
-# Source0-md5:	a10042484fe2e9b5d44909f62fc51fad
+# Source0-md5:	62973491fe639ebf17ed0d11139ceb1b
 Patch0:		%{name}-use_default_font.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://gedit.sourceforge.net/
@@ -28,17 +28,16 @@ BuildRequires:	libgnomeui-devel >= 2.11.2-2
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
-BuildRequires:	python-gnome-extras-devel >= 2.12.0
+BuildRequires:	python-gnome-desktop-devel >= 2.12.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.3.12
 BuildRequires:	xft-devel >= 2.1.2
-Requires(post,postun):	/sbin/ldconfig
 Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires:	libgnomeprintui >= 2.10.2
-#Suggests:	python-gnome-extras-gtksourceview >= 2.10.0
+#Suggests:	python-gnome-desktop-gtksourceview >= 2.13.3
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -102,9 +101,9 @@ rm -rf $RPM_BUILD_ROOT
 
 # Remove obsoleted *.la files
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.la
-rm -r $RPM_BUILD_ROOT%{_datadir}/{application-registry,mime-info}
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.py
+rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/{externaltools,snippets}/*.py
 
 %find_lang %{name} --with-gnome --all-name
 
@@ -127,13 +126,19 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc README ChangeLog TODO AUTHORS THANKS
+%doc README ChangeLog TODO AUTHORS
 %{_sysconfdir}/gconf/schemas/gedit.schemas
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/gedit-2
 %dir %{_libdir}/gedit-2/plugins
+%dir %{_libdir}/gedit-2/plugins/externaltools
+%dir %{_libdir}/gedit-2/plugins/snippets
 %attr(755,root,root) %{_libdir}/gedit-2/plugins/*.so
 %attr(755,root,root) %{_libdir}/gedit-2/plugins/*.py[co]
+%attr(755,root,root) %{_libdir}/gedit-2/plugins/externaltools/*.py[co]
+%attr(755,root,root) %{_libdir}/gedit-2/plugins/snippets/*.py[co]
+%{_libdir}/gedit-2/plugins/externaltools/*.glade
+%{_libdir}/gedit-2/plugins/snippets/*.glade
 %{_libdir}/gedit-2/plugins/*.gedit-plugin
 %{_datadir}/gedit-2
 %{_desktopdir}/*
