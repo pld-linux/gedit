@@ -1,11 +1,11 @@
-diff -urN gedit-2.9.7.orig/data/gedit.desktop.in gedit-2.9.7/data/gedit.desktop.in
---- gedit-2.9.7.orig/data/gedit.desktop.in	2005-03-01 13:37:50.346344976 +0100
-+++ gedit-2.9.7/data/gedit.desktop.in	2005-03-01 13:38:28.449552408 +0100
+diff -aurN gedit-2.13.90.orig/data/gedit.desktop.in.in gedit-2.13.90/data/gedit.desktop.in.in
+--- gedit-2.13.90.orig/data/gedit.desktop.in.in	2006-01-21 18:57:01.000000000 +0100
++++ gedit-2.13.90/data/gedit.desktop.in.in	2006-01-31 17:26:49.070754000 +0100
 @@ -8,7 +8,7 @@
  StartupNotify=true
  MimeType=text/plain;
  Icon=text-editor
--Categories=Application;Utility;TextEditor;
+-Categories=GNOME;GTK;Application;Utility;TextEditor;
 +Categories=GTK;GNOME;Utility;TextEditor;
  X-GNOME-DocPath=gedit/gedit.xml
  X-GNOME-Bugzilla-Bugzilla=GNOME
