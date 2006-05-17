@@ -10,33 +10,33 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.14/gedit-%{version}.tar.
 Patch0:		%{name}-use_default_font.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://gedit.sourceforge.net/
-BuildRequires:	GConf2-devel >= 2.10.0
+BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	ORBit2-devel
 BuildRequires:	aspell-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.10.0
+BuildRequires:	eel-devel >= 2.14.0
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.8.0-2
 BuildRequires:	gnome-doc-utils >= 0.3.2
-BuildRequires:	gnome-menus-devel >= 2.12.0
+BuildRequires:	gnome-menus-devel >= 2.14.0
 BuildRequires:	gtksourceview-devel >= 1.3.91
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel >= 1:2.5.1
-BuildRequires:	libgnomeprintui-devel >= 2.10.2
-BuildRequires:	libgnomeui-devel >= 2.11.2-2
+BuildRequires:	libgnomeprintui-devel >= 2.12.0
+BuildRequires:	libgnomeui-devel >= 2.14.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
-BuildRequires:	python-gnome-desktop-devel >= 2.12.0
+BuildRequires:	python-gnome-desktop-devel >= 2.14.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.3.12
 Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
-Requires:	libgnomeprintui >= 2.10.2
-#Suggests:	python-gnome-desktop-gtksourceview >= 2.13.3
+Requires:	libgnomeprintui >= 2.12.0
+#Suggests:	python-gnome-desktop-gtksourceview >= 2.14.0
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -59,11 +59,11 @@ Summary:	gEdit header files
 Summary(pl):	pliki nag³ówkowe gEdit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	eel-devel >= 2.10.0
+Requires:	eel-devel >= 2.14.0
 Requires:	gtksourceview-devel >= 1.2.0
 Requires:	libglade2-devel >= 1:2.5.1
-Requires:	libgnomeprintui-devel >= 2.10.2
-Requires:	libgnomeui-devel >= 2.10.0-2
+Requires:	libgnomeprintui-devel >= 2.12.0
+Requires:	libgnomeui-devel >= 2.14.0
 
 %description devel
 gEdit header files
