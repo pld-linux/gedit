@@ -1,12 +1,12 @@
 Summary:	gEdit - small but powerful text editor for X Window
 Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.14.3
+Version:	2.15.2
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.14/gedit-%{version}.tar.bz2
-# Source0-md5:	114abc77de4e9720503b9146c48d6133
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.15/gedit-%{version}.tar.bz2
+# Source0-md5:	a265839769777898047c1832a042d39b
 Patch0:		%{name}-use_default_font.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://gedit.sourceforge.net/
@@ -15,20 +15,20 @@ BuildRequires:	ORBit2-devel
 BuildRequires:	aspell-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.14.0
+BuildRequires:	eel-devel >= 2.15.1
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-common >= 2.8.0-2
-BuildRequires:	gnome-doc-utils >= 0.3.2
+BuildRequires:	gnome-common >= 2.12.0
+BuildRequires:	gnome-doc-utils >= 0.6.0
 BuildRequires:	gnome-menus-devel >= 2.14.0
-BuildRequires:	gtksourceview-devel >= 1.4.0
-BuildRequires:	intltool >= 0.33
+BuildRequires:	gtksourceview-devel >= 1.6.1
+BuildRequires:	intltool >= 0.35
 BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libgnomeprintui-devel >= 2.12.0
-BuildRequires:	libgnomeui-devel >= 2.14.1
+BuildRequires:	libgnomeui-devel >= 2.15.1
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
-BuildRequires:	python-gnome-desktop-devel >= 2.14.0
+BuildRequires:	python-gnome-desktop-devel >= 2.15.2
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.3.12
@@ -36,7 +36,7 @@ Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires:	libgnomeprintui >= 2.12.0
-Requires:	libgnomeui >= 2.14.1
+Requires:	libgnomeui >= 2.15.1
 #Suggests:	python-gnome-desktop-gtksourceview >= 2.14.0
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
@@ -60,11 +60,11 @@ Summary:	gEdit header files
 Summary(pl):	pliki nag³ówkowe gEdit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	eel-devel >= 2.14.0
-Requires:	gtksourceview-devel >= 1.4.0
+Requires:	eel-devel >= 2.15.1
+Requires:	gtksourceview-devel >= 1.6.1
 Requires:	libglade2-devel >= 1:2.5.1
 Requires:	libgnomeprintui-devel >= 2.12.0
-Requires:	libgnomeui-devel >= 2.14.1
+Requires:	libgnomeui-devel >= 2.15.1
 
 %description devel
 gEdit header files
@@ -101,9 +101,9 @@ rm -rf $RPM_BUILD_ROOT
 
 # Remove obsoleted *.la files
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.la
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/tk
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.py
-rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/{externaltools,snippets}/*.py
+rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*/*.py
 
 %find_lang %{name} --with-gnome --all-name
 
@@ -132,12 +132,14 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/gedit-2
 %dir %{_libdir}/gedit-2/plugins
 %dir %{_libdir}/gedit-2/plugins/externaltools
+%dir %{_libdir}/gedit-2/plugins/pythonconsole
 %dir %{_libdir}/gedit-2/plugins/snippets
 %attr(755,root,root) %{_libdir}/gedit-2/plugins/*.so
 %{_libdir}/gedit-2/plugins/externaltools/*.glade
 %{_libdir}/gedit-2/plugins/externaltools/*.py[co]
 %{_libdir}/gedit-2/plugins/*.gedit-plugin
 %{_libdir}/gedit-2/plugins/*.py[co]
+%{_libdir}/gedit-2/plugins/pythonconsole/*.py[co]
 %{_libdir}/gedit-2/plugins/snippets/*.glade
 %{_libdir}/gedit-2/plugins/snippets/*.py[co]
 %{_datadir}/gedit-2
@@ -145,7 +147,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %{_omf_dest_dir}/%{name}
 %{_omf_dest_dir}/gedit
-%{_pixmapsdir}/*
 
 %files devel
 %defattr(644,root,root,755)
