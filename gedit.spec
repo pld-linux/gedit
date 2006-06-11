@@ -37,7 +37,7 @@ Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires:	libgnomeprintui >= 2.12.0
 Requires:	libgnomeui >= 2.15.1
-#Suggests:	python-gnome-desktop-gtksourceview >= 2.14.0
+Requires:	python-gnome-desktop-gtksourceview >= 2.15.2
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
