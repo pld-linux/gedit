@@ -1,5 +1,5 @@
-Summary:	gEdit - small but powerful text editor for X Window
-Summary(pl):	gEdit - ma³y ale potê¿ny edytor tekstu dla X Window
+Summary:	gedit - small but powerful text editor for X Window
+Summary(pl):	gedit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
 Version:	2.15.2
 Release:	1
@@ -43,21 +43,21 @@ Obsoletes:	gedit-plugins < 2.3.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-gEdit is a small but powerful text editor for GTK+ and/or GNOME. It
+gedit is a small but powerful text editor for GTK+ and/or GNOME. It
 includes such features as split-screen mode, a plugin API, which
-allows gEdit to be extended to support many features while remaining
+allows gedit to be extended to support many features while remaining
 small at its core, multiple document editing and many more functions.
 
 %description -l pl
-gEdit jest ma³ym ale potê¿nym edytorem tekstu dla GTK+ i/lub GNOME.
+gedit jest ma³ym ale potê¿nym edytorem tekstu dla GTK+ i/lub GNOME.
 Zawiera takie funkcje jak tryb podzielonego ekranu, API dla "wtyczek",
-który umo¿liwia rozszerzenie funkcji gEdita o dodatkowe mo¿liwo¶ci,
+który umo¿liwia rozszerzenie funkcji gedita o dodatkowe mo¿liwo¶ci,
 nie zwiêkszaj±c rozmiarów samego programu, mo¿liwo¶æ edycji wielu
 dokumentów naraz i wiele innych.
 
 %package devel
-Summary:	gEdit header files
-Summary(pl):	pliki nag³ówkowe gEdit
+Summary:	gedit header files
+Summary(pl):	pliki nag³ówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	eel-devel >= 2.15.1
@@ -67,10 +67,10 @@ Requires:	libgnomeprintui-devel >= 2.12.0
 Requires:	libgnomeui-devel >= 2.15.1
 
 %description devel
-gEdit header files
+gedit header files
 
 %description devel -l pl
-Pliki nag³ówkowe gEdit.
+Pliki nag³ówkowe gedit.
 
 %prep
 %setup -q -n gedit-%{version}
