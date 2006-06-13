@@ -1,25 +1,26 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl):	gedit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.15.2
+Version:	2.15.3
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.15/gedit-%{version}.tar.bz2
-# Source0-md5:	a265839769777898047c1832a042d39b
+# Source0-md5:	e43046da726b9df3119ff8db00c7f4ad
 Patch0:		%{name}-use_default_font.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://gedit.sourceforge.net/
 BuildRequires:	GConf2-devel >= 2.14.0
-BuildRequires:	ORBit2-devel
+BuildRequires:	ORBit2-devel >= 1:2.14.0
 BuildRequires:	aspell-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.15.1
+BuildRequires:	eel-devel >= 2.15.2
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gnome-doc-utils >= 0.6.0
+BuildRequires:	gnome-doc-utils >= 0.7.1
 BuildRequires:	gnome-menus-devel >= 2.14.0
+BuildRequires:	gtk-doc >= 1.6
 BuildRequires:	gtksourceview-devel >= 1.6.1
 BuildRequires:	intltool >= 0.35
 BuildRequires:	libglade2-devel >= 1:2.5.1
@@ -28,16 +29,16 @@ BuildRequires:	libgnomeui-devel >= 2.15.1
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
-BuildRequires:	python-gnome-desktop-devel >= 2.15.2
+BuildRequires:	python-gnome-desktop-devel >= 2.15.3
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.3.12
-Requires(post,preun):	GConf2
+Requires(post,preun):	GConf2 >= 2.14.0
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires:	libgnomeprintui >= 2.12.0
 Requires:	libgnomeui >= 2.15.1
-Requires:	python-gnome-desktop-gtksourceview >= 2.15.2
+Requires:	python-gnome-desktop-gtksourceview >= 2.15.3
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -60,7 +61,7 @@ Summary:	gedit header files
 Summary(pl):	pliki nag³ówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	eel-devel >= 2.15.1
+Requires:	eel-devel >= 2.15.2
 Requires:	gtksourceview-devel >= 1.6.1
 Requires:	libglade2-devel >= 1:2.5.1
 Requires:	libgnomeprintui-devel >= 2.12.0
@@ -89,6 +90,8 @@ sed -i 's/codegen.py/codegen.pyc/' configure.ac
 	--disable-schemas-install \
 	--disable-scrollkeeper \
 	--enable-python \
+	--enable-gtk-doc \
+	--with-html-dir=%{_gtkdocdir} \
 	--with-omf-dir=%{_omf_dest_dir}/%{name}
 %{__make}
 
@@ -152,3 +155,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_includedir}/gedit-*
 %{_pkgconfigdir}/gedit-*.pc
+%{_gtkdocdir}/gedit
