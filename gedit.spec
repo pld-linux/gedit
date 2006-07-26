@@ -1,35 +1,35 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl):	gedit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.15.4
+Version:	2.15.5
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.15/gedit-%{version}.tar.bz2
-# Source0-md5:	7f9e6a27cd674598a291b3124c4b9b33
+# Source0-md5:	252a105dfdf6488e21fa7cc9eb080418
 Patch0:		%{name}-use_default_font.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://gedit.sourceforge.net/
 BuildRequires:	GConf2-devel >= 2.14.0
-BuildRequires:	ORBit2-devel >= 1:2.14.0
+BuildRequires:	ORBit2-devel >= 1:2.14.2
 BuildRequires:	aspell-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.15.4
+BuildRequires:	eel-devel >= 2.15.90
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.12.0
 BuildRequires:	gnome-doc-utils >= 0.7.1
-BuildRequires:	gnome-menus-devel >= 2.15.4.1
+BuildRequires:	gnome-menus-devel >= 2.15.90
 BuildRequires:	gtk-doc >= 1.6
-BuildRequires:	gtksourceview-devel >= 1.6.1
+BuildRequires:	gtksourceview-devel >= 1.7.1
 BuildRequires:	intltool >= 0.35
 BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libgnomeprintui-devel >= 2.12.1
-BuildRequires:	libgnomeui-devel >= 2.15.2
+BuildRequires:	libgnomeui-devel >= 2.15.90
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
-BuildRequires:	python-gnome-desktop-devel >= 2.15.4
+BuildRequires:	python-gnome-desktop-devel >= 2.15.90
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.3.12
@@ -37,8 +37,8 @@ Requires(post,preun):	GConf2 >= 2.14.0
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires:	libgnomeprintui >= 2.12.0
-Requires:	libgnomeui >= 2.15.2
-Requires:	python-gnome-desktop-gtksourceview >= 2.15.4
+Requires:	libgnomeui >= 2.15.90
+Requires:	python-gnome-desktop-gtksourceview >= 2.15.90
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -61,11 +61,11 @@ Summary:	gedit header files
 Summary(pl):	pliki nag³ówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	eel-devel >= 2.15.4
-Requires:	gtksourceview-devel >= 1.6.1
+Requires:	eel-devel >= 2.15.90
+Requires:	gtksourceview-devel >= 1.7.1
 Requires:	libglade2-devel >= 1:2.6.0
 Requires:	libgnomeprintui-devel >= 2.12.1
-Requires:	libgnomeui-devel >= 2.15.2
+Requires:	libgnomeui-devel >= 2.15.90
 
 %description devel
 gedit header files
@@ -86,7 +86,6 @@ sed -i 's/codegen.py/codegen.pyc/' configure.ac
 %{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
-LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure \
 	--disable-schemas-install \
 	--disable-scrollkeeper \
@@ -116,11 +115,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/ldconfig
+%gconf_schema_install filebrowser.schemas
 %gconf_schema_install gedit.schemas
 %scrollkeeper_update_post
 %update_desktop_database_post
 
 %preun
+%gconf_schema_uninstall filebrowser.schemas
 %gconf_schema_uninstall gedit.schemas
 
 %postun
@@ -132,6 +133,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README ChangeLog TODO AUTHORS
 %{_sysconfdir}/gconf/schemas/gedit.schemas
+%{_sysconfdir}/gconf/schemas/filebrowser.schemas
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/gedit-2
 %dir %{_libdir}/gedit-2/plugins
