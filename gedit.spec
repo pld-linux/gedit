@@ -107,7 +107,7 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/tk
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.py
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*/*.py
 
-%find_lang %{name} --with-gnome --all-name
+%find_lang gedit --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -128,7 +128,7 @@ rm -rf $RPM_BUILD_ROOT
 %scrollkeeper_update_postun
 %update_desktop_database_postun
 
-%files -f %{name}.lang
+%files -f gedit.lang
 %defattr(644,root,root,755)
 %doc README ChangeLog TODO AUTHORS
 %{_sysconfdir}/gconf/schemas/gedit.schemas
