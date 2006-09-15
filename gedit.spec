@@ -2,7 +2,7 @@ Summary:	gedit - small but powerful text editor for X Window
 Summary(pl):	gedit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
 Version:	2.16.0
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.16/gedit-%{version}.tar.bz2
@@ -38,6 +38,7 @@ Requires(post,postun):	scrollkeeper
 Requires:	libgnomeprintui >= 2.12.1
 Requires:	libgnomeui >= 2.16.0
 Requires:	python-gnome-desktop-gtksourceview >= 2.16.0
+Requires:	gnome-vfs2 >= 2.16.0
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
