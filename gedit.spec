@@ -1,12 +1,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl):	gedit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.16.0
-Release:	2
+Version:	2.16.1
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.16/gedit-%{version}.tar.bz2
-# Source0-md5:	5d71b7f2bedc7ed059b325353163d9aa
+# Source0-md5:	989bf8c2726d12fb825014f3b2d7e587
 Patch0:		%{name}-use_default_font.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://gedit.sourceforge.net/
@@ -21,7 +21,7 @@ BuildRequires:	gnome-common >= 2.12.0
 BuildRequires:	gnome-doc-utils >= 0.8.0
 BuildRequires:	gnome-menus-devel >= 2.16.0
 BuildRequires:	gtk-doc >= 1.7
-BuildRequires:	gtksourceview-devel >= 1.8.0
+BuildRequires:	gtksourceview-devel >= 1.8.1
 BuildRequires:	intltool >= 0.35
 BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libgnomeprintui-devel >= 2.12.1
@@ -38,7 +38,7 @@ Requires(post,postun):	scrollkeeper
 Requires:	libgnomeprintui >= 2.12.1
 Requires:	libgnomeui >= 2.16.0
 Requires:	python-gnome-desktop-gtksourceview >= 2.16.0
-Requires:	gnome-vfs2 >= 2.16.0
+Requires:	gnome-vfs2 >= 2.16.1
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -62,7 +62,7 @@ Summary(pl):	pliki nag³ówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	eel-devel >= 2.16.0
-Requires:	gtksourceview-devel >= 1.8.0
+Requires:	gtksourceview-devel >= 1.8.1
 Requires:	libglade2-devel >= 1:2.6.0
 Requires:	libgnomeprintui-devel >= 2.12.1
 Requires:	libgnomeui-devel >= 2.16.0
