@@ -104,7 +104,6 @@ rm -rf $RPM_BUILD_ROOT
 
 # Remove obsoleted *.la files
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.la
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/tk
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.py
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*/*.py
 
