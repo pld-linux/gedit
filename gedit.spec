@@ -148,7 +148,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gedit-2/plugins/snippets/*.glade
 %{_libdir}/gedit-2/plugins/snippets/*.py[co]
 %{_datadir}/gedit-2
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 %{_mandir}/man1/*
 %{_omf_dest_dir}/%{name}
 %{_omf_dest_dir}/gedit
