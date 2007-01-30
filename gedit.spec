@@ -1,13 +1,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl):	gedit - ma³y ale potê¿ny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.16.2
+Version:	2.17.4
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.16/gedit-%{version}.tar.bz2
-# Source0-md5:	9ed4fb2891d07c022b487723d1c72161
-Patch0:		%{name}-use_default_font.patch
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.17/gedit-%{version}.tar.bz2
+# Source0-md5:	c23767b8109a76335a80ee59a443395d
 Patch1:		%{name}-desktop.patch
 URL:		http://gedit.sourceforge.net/
 BuildRequires:	GConf2-devel >= 2.16.0
@@ -75,7 +74,6 @@ Pliki nag³ówkowe gedit.
 
 %prep
 %setup -q -n gedit-%{version}
-%patch0 -p1
 %patch1 -p1
 sed -i 's/codegen.py/codegen.pyc/' configure.ac
 
@@ -130,7 +128,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f gedit.lang
 %defattr(644,root,root,755)
-%doc README ChangeLog TODO AUTHORS
+%doc README ChangeLog AUTHORS
 %{_sysconfdir}/gconf/schemas/gedit.schemas
 %{_sysconfdir}/gconf/schemas/gedit-file-browser.schemas
 %attr(755,root,root) %{_bindir}/*
@@ -143,7 +141,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gedit-2/plugins/externaltools/*.glade
 %{_libdir}/gedit-2/plugins/externaltools/*.py[co]
 %{_libdir}/gedit-2/plugins/*.gedit-plugin
-%{_libdir}/gedit-2/plugins/*.py[co]
 %{_libdir}/gedit-2/plugins/pythonconsole/*.py[co]
 %{_libdir}/gedit-2/plugins/snippets/*.glade
 %{_libdir}/gedit-2/plugins/snippets/*.py[co]
