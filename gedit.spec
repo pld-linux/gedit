@@ -1,5 +1,5 @@
 Summary:	gedit - small but powerful text editor for X Window
-Summary(pl):	gedit - ma�y ale pot�ny edytor tekstu dla X Window
+Summary(pl.UTF-8):   gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit2
 Version:	2.16.2
 Release:	1
@@ -49,16 +49,16 @@ includes such features as split-screen mode, a plugin API, which
 allows gedit to be extended to support many features while remaining
 small at its core, multiple document editing and many more functions.
 
-%description -l pl
-gedit jest ma�ym ale pot�nym edytorem tekstu dla GTK+ i/lub GNOME.
+%description -l pl.UTF-8
+gedit jest małym ale potężnym edytorem tekstu dla GTK+ i/lub GNOME.
 Zawiera takie funkcje jak tryb podzielonego ekranu, API dla "wtyczek",
-kt�ry umo�liwia rozszerzenie funkcji gedita o dodatkowe mo�liwo�ci,
-nie zwi�kszaj�c rozmiar�w samego programu, mo�liwo�� edycji wielu
-dokument�w naraz i wiele innych.
+który umożliwia rozszerzenie funkcji gedita o dodatkowe możliwości,
+nie zwiększając rozmiarów samego programu, możliwość edycji wielu
+dokumentów naraz i wiele innych.
 
 %package devel
 Summary:	gedit header files
-Summary(pl):	pliki nag��wkowe gedit
+Summary(pl.UTF-8):   pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	eel-devel >= 2.16.0
@@ -70,8 +70,8 @@ Requires:	libgnomeui-devel >= 2.16.0
 %description devel
 gedit header files
 
-%description devel -l pl
-Pliki nag��wkowe gedit.
+%description devel -l pl.UTF-8
+Pliki nagłówkowe gedit.
 
 %prep
 %setup -q -n gedit-%{version}
