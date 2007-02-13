@@ -1,5 +1,5 @@
 Summary:	gedit - small but powerful text editor for X Window
-Summary(pl.UTF-8):   gedit - mały ale potężny edytor tekstu dla X Window
+Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit2
 Version:	2.16.2
 Release:	1
@@ -58,7 +58,7 @@ dokumentów naraz i wiele innych.
 
 %package devel
 Summary:	gedit header files
-Summary(pl.UTF-8):   pliki nagłówkowe gedit
+Summary(pl.UTF-8):	pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	eel-devel >= 2.16.0
