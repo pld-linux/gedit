@@ -1,0 +1,31 @@
+diff -urN gedit-2.18.0.orig/gedit/gedit-plugins-engine.c gedit-2.18.0/gedit/gedit-plugins-engine.c
+--- gedit-2.18.0.orig/gedit/gedit-plugins-engine.c	2007-03-20 20:55:17.000000000 +0100
++++ gedit-2.18.0/gedit/gedit-plugins-engine.c	2007-03-22 21:37:37.000000000 +0100
+@@ -296,6 +296,7 @@
+ 	GError *error = NULL;
+ 	GDir *d;
+ 	const gchar *dirent;
++	GSList *ap;
+ 
+ 	g_return_if_fail (gedit_plugins_engine_gconf_client != NULL);
+ 
+@@ -340,9 +341,16 @@
+ 
+ 			/* Actually, the plugin will be activated when reactivate_all
+ 			 * will be called for the first time. */
+-			info->active = (g_slist_find_custom (active_plugins,
+-							     info->location,
+-							     (GCompareFunc)strcmp) != NULL);
++			ap = active_plugins;
++			while (ap != NULL)
++			{
++				if (strcmp (info->location, (gchar *)ap->data) == 0)
++				{
++					info->active = TRUE;
++				}
++
++				ap = g_slist_next (ap);
++			}
+ 
+ 			gedit_plugins_list = g_list_prepend (gedit_plugins_list, info);
+ 
