@@ -1,12 +1,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.18.0
-Release:	2
+Version:	2.18.1
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.18/gedit-%{version}.tar.bz2
-# Source0-md5:	faf35c2a934aff2a37a58f56c9f11e15
+# Source0-md5:	62def81b36befc79672ff16bc54c2d29
 Patch0:		%{name}-active_plugins.patch
 URL:		http://gedit.sourceforge.net/
 BuildRequires:	GConf2-devel >= 2.18.0.1
@@ -15,32 +15,32 @@ BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	enchant-devel >= 1.2.0
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gnome-doc-utils >= 0.9.2
-BuildRequires:	gnome-menus-devel >= 2.17.92
-BuildRequires:	gnome-vfs2-devel >= 2.17.91
+BuildRequires:	gnome-common >= 2.18.0
+BuildRequires:	gnome-doc-utils >= 0.10.3
+BuildRequires:	gnome-menus-devel >= 2.18.0
+BuildRequires:	gnome-vfs2-devel >= 2.18.1
 BuildRequires:	gtk-doc >= 1.8
-BuildRequires:	gtk+2-devel >= 2:2.10.9
+BuildRequires:	gtk+2-devel >= 2:2.10.10
 BuildRequires:	gtksourceview-devel >= 1.8.4
 BuildRequires:	intltool >= 0.35.5
 BuildRequires:	iso-codes
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeprintui-devel >= 2.17.92
-BuildRequires:	libgnomeui-devel >= 2.17.92
+BuildRequires:	libgnomeprintui-devel >= 2.18.0
+BuildRequires:	libgnomeui-devel >= 2.18.1
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.3
-BuildRequires:	python-gnome-desktop-devel >= 2.17.93
+BuildRequires:	python-gnome-desktop-devel >= 2.18.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.3.12
 Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
-Requires:	libgnomeprintui >= 2.17.92
-Requires:	libgnomeui >= 2.17.92
-Requires:	python-gnome-desktop-gtksourceview >= 2.17.93
-Requires:	gnome-vfs2 >= 2.17.91
+Requires:	libgnomeprintui >= 2.18.0
+Requires:	libgnomeui >= 2.18.1
+Requires:	python-gnome-desktop-gtksourceview >= 2.18.0
+Requires:	gnome-vfs2 >= 2.18.1
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -65,8 +65,8 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gtksourceview-devel >= 1.8.4
 Requires:	libglade2-devel >= 1:2.6.0
-Requires:	libgnomeprintui-devel >= 2.17.92
-Requires:	libgnomeui-devel >= 2.17.92
+Requires:	libgnomeprintui-devel >= 2.18.0
+Requires:	libgnomeui-devel >= 2.18.1
 
 %description devel
 gedit header files
