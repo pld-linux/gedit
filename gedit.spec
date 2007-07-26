@@ -1,12 +1,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.18.1
+Version:	2.18.2
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.18/gedit-%{version}.tar.bz2
-# Source0-md5:	62def81b36befc79672ff16bc54c2d29
+# Source0-md5:	7e8bf29bd6bf0d17ceaf42d9bd5d94e6
 Patch0:		%{name}-active_plugins.patch
 URL:		http://gedit.sourceforge.net/
 BuildRequires:	GConf2-devel >= 2.18.0.1
