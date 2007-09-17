@@ -1,36 +1,35 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.18.2
+Version:	2.20.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gedit/2.18/gedit-%{version}.tar.bz2
-# Source0-md5:	7e8bf29bd6bf0d17ceaf42d9bd5d94e6
-Patch0:		%{name}-active_plugins.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/2.20/gedit-%{version}.tar.bz2
+# Source0-md5:	6c14d4f3583c921bdd551df6cd822289
 URL:		http://gedit.sourceforge.net/
-BuildRequires:	GConf2-devel >= 2.18.0.1
-BuildRequires:	ORBit2-devel >= 1:2.14.7
+BuildRequires:	GConf2-devel >= 2.19.1
+BuildRequires:	ORBit2-devel >= 1:2.14.8
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	enchant-devel >= 1.2.0
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.18.0
-BuildRequires:	gnome-doc-utils >= 0.10.3
-BuildRequires:	gnome-menus-devel >= 2.18.0
-BuildRequires:	gnome-vfs2-devel >= 2.18.1
+BuildRequires:	gnome-doc-utils >= 0.11.2
+BuildRequires:	gnome-menus-devel >= 2.19.90
+BuildRequires:	gnome-vfs2-devel >= 2.19.91
 BuildRequires:	gtk-doc >= 1.8
-BuildRequires:	gtk+2-devel >= 2:2.10.10
-BuildRequires:	gtksourceview-devel >= 1.8.4
-BuildRequires:	intltool >= 0.35.5
+BuildRequires:	gtk+2-devel >= 2:2.11.6
+BuildRequires:	gtksourceview2-devel >= 2.0.0
+BuildRequires:	intltool >= 0.36.1
 BuildRequires:	iso-codes
-BuildRequires:	libglade2-devel >= 1:2.6.0
+BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libgnomeprintui-devel >= 2.18.0
-BuildRequires:	libgnomeui-devel >= 2.18.1
+BuildRequires:	libgnomeui-devel >= 2.19.1
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.3
-BuildRequires:	python-gnome-desktop-devel >= 2.18.0
+BuildRequires:	python-gtksourceview2-devel >= 2.0.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.3.12
@@ -38,9 +37,10 @@ Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires:	libgnomeprintui >= 2.18.0
-Requires:	libgnomeui >= 2.18.1
-Requires:	python-gnome-desktop-gtksourceview >= 2.18.0
-Requires:	gnome-vfs2 >= 2.18.1
+Requires:	libgnomeui >= 2.19.1
+Requires:	gnome-vfs2 >= 2.19.91
+Requires:	python-gtksourceview2 >= 2.0.0
+Suggests:	python-vte
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -63,10 +63,10 @@ Summary:	gedit header files
 Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gtksourceview-devel >= 1.8.4
-Requires:	libglade2-devel >= 1:2.6.0
+Requires:	gtksourceview2-devel >= 1.90.4
+Requires:	libglade2-devel >= 1:2.6.2
 Requires:	libgnomeprintui-devel >= 2.18.0
-Requires:	libgnomeui-devel >= 2.18.1
+Requires:	libgnomeui-devel >= 2.19.1
 
 %description devel
 gedit header files
@@ -77,7 +77,6 @@ Pliki nagłówkowe gedit.
 %prep
 %setup -q -n gedit-%{version}
 sed -i 's/codegen.py/codegen.pyc/' configure.ac
-%patch0 -p1
 
 %build
 %{__gnome_doc_common}
@@ -98,7 +97,7 @@ sed -i 's/codegen.py/codegen.pyc/' configure.ac
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} -j1 install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
