@@ -1,31 +1,31 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.20.0
+Version:	2.20.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/2.20/gedit-%{version}.tar.bz2
-# Source0-md5:	6c14d4f3583c921bdd551df6cd822289
+# Source0-md5:	866757ca52dd402bfc2d7a88642b9767
 URL:		http://gedit.sourceforge.net/
-BuildRequires:	GConf2-devel >= 2.19.1
+BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	ORBit2-devel >= 1:2.14.8
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	enchant-devel >= 1.2.0
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-common >= 2.18.0
-BuildRequires:	gnome-doc-utils >= 0.11.2
-BuildRequires:	gnome-menus-devel >= 2.19.90
-BuildRequires:	gnome-vfs2-devel >= 2.19.91
+BuildRequires:	gnome-common >= 2.20.0
+BuildRequires:	gnome-doc-utils >= 0.12.0
+BuildRequires:	gnome-menus-devel >= 2.20.0
+BuildRequires:	gnome-vfs2-devel >= 2.20.0
 BuildRequires:	gtk-doc >= 1.8
-BuildRequires:	gtk+2-devel >= 2:2.11.6
+BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	gtksourceview2-devel >= 2.0.0
-BuildRequires:	intltool >= 0.36.1
+BuildRequires:	intltool >= 0.36.2
 BuildRequires:	iso-codes
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libgnomeprintui-devel >= 2.18.0
-BuildRequires:	libgnomeui-devel >= 2.19.1
+BuildRequires:	libgnomeui-devel >= 2.20.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.3
@@ -37,8 +37,8 @@ Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires:	libgnomeprintui >= 2.18.0
-Requires:	libgnomeui >= 2.19.1
-Requires:	gnome-vfs2 >= 2.19.91
+Requires:	libgnomeui >= 2.20.0
+Requires:	gnome-vfs2 >= 2.20.0
 Requires:	python-gtksourceview2 >= 2.0.0
 Suggests:	python-vte
 Obsoletes:	gedit-devel
@@ -63,10 +63,10 @@ Summary:	gedit header files
 Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gtksourceview2-devel >= 1.90.4
+Requires:	gtksourceview2-devel >= 2.0.0
 Requires:	libglade2-devel >= 1:2.6.2
 Requires:	libgnomeprintui-devel >= 2.18.0
-Requires:	libgnomeui-devel >= 2.19.1
+Requires:	libgnomeui-devel >= 2.20.0
 
 %description devel
 gedit header files
