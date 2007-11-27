@@ -1,12 +1,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.20.3
-Release:	2
+Version:	2.20.4
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/2.20/gedit-%{version}.tar.bz2
-# Source0-md5:	afc7bb5327c0cba393af4b1f6fa096c1
+# Source0-md5:	6c7d74f9b4339c9ec9e81f6ea3eb19c9
 URL:		http://gedit.sourceforge.net/
 BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	ORBit2-devel >= 1:2.14.8
@@ -31,8 +31,10 @@ BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.3
 BuildRequires:	python-gtksourceview2-devel >= 2.0.0
 BuildRequires:	rpm-build >= 4.1-10
+BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.3.12
+BuildRequires:	sed >= 4.0
 Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
@@ -71,14 +73,29 @@ Requires:	libgnomeprintui-devel >= 2.18.0
 Requires:	libgnomeui-devel >= 2.20.0
 
 %description devel
-gedit header files
+gedit header files.
 
 %description devel -l pl.UTF-8
 Pliki nagłówkowe gedit.
 
+%package apidocs
+Summary:	gedit API documentation
+Summary(pl.UTF-8):	Dokumentacja API gedit
+Group:		Documentation
+Requires:	gtk-doc-common
+
+%description apidocs
+gedit API documentation.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API gedit.
+
 %prep
 %setup -q -n gedit-%{version}
 sed -i 's/codegen.py/codegen.pyc/' configure.ac
+
+sed -i -e 's#sr\@Latn#sr\@latin#' po/LINGUAS
+mv po/sr\@{Latn,latin}.po
 
 %build
 %{__gnome_doc_common}
@@ -92,8 +109,7 @@ sed -i 's/codegen.py/codegen.pyc/' configure.ac
 	--disable-scrollkeeper \
 	--enable-python \
 	--enable-gtk-doc \
-	--with-html-dir=%{_gtkdocdir} \
-	--with-omf-dir=%{_omf_dest_dir}/%{name}
+	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
 %install
@@ -108,9 +124,7 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.la
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.py
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*/*.py
 
-[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
-	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
-%find_lang gedit --with-gnome
+%find_lang gedit --with-gnome --with-omf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -153,11 +167,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gedit-2
 %{_desktopdir}/*.desktop
 %{_mandir}/man1/*
-%{_omf_dest_dir}/%{name}
-%{_omf_dest_dir}/gedit
 
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/gedit-*
 %{_pkgconfigdir}/gedit-*.pc
+
+%files apidocs
+%defattr(644,root,root,755)
 %{_gtkdocdir}/gedit
