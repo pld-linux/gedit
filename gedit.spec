@@ -25,7 +25,6 @@ BuildRequires:	gtksourceview2-devel >= 2.1.0
 BuildRequires:	intltool >= 0.36.2
 BuildRequires:	iso-codes
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomeprintui-devel >= 2.18.0
 BuildRequires:	libgnomeui-devel >= 2.20.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
@@ -39,7 +38,6 @@ BuildRequires:	sed >= 4.0
 Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
-Requires:	libgnomeprintui >= 2.18.0
 Requires:	libgnomeui >= 2.20.0
 Requires:	gnome-vfs2 >= 2.20.0
 Requires:	python-gtksourceview2 >= 2.1.0
@@ -70,7 +68,6 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gtksourceview2-devel >= 2.0.0
 Requires:	libglade2-devel >= 1:2.6.2
-Requires:	libgnomeprintui-devel >= 2.18.0
 Requires:	libgnomeui-devel >= 2.20.0
 
 %description devel
