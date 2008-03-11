@@ -2,7 +2,7 @@ Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit2
 Version:	2.22.0
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/2.22/gedit-%{version}.tar.bz2
@@ -21,7 +21,7 @@ BuildRequires:	gnome-menus-devel >= 2.22.0
 BuildRequires:	gnome-vfs2-devel >= 2.22.0
 BuildRequires:	gtk-doc >= 1.8
 BuildRequires:	gtk+2-devel >= 2:2.12.0
-BuildRequires:	gtksourceview2-devel >= 2.1.0
+BuildRequires:	gtksourceview2-devel >= 2.2.0
 BuildRequires:	intltool >= 0.36.2
 BuildRequires:	iso-codes
 BuildRequires:	libglade2-devel >= 1:2.6.2
@@ -29,7 +29,7 @@ BuildRequires:	libgnomeui-devel >= 2.22.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.3
-BuildRequires:	python-gtksourceview2-devel >= 2.1.0
+BuildRequires:	python-gtksourceview2-devel >= 2.2.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.197
@@ -40,7 +40,7 @@ Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires:	libgnomeui >= 2.22.0
 Requires:	gnome-vfs2 >= 2.22.0
-Requires:	python-gtksourceview2 >= 2.1.0
+Requires:	python-gtksourceview2 >= 2.2.0
 Suggests:	python-vte
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
@@ -66,7 +66,7 @@ Summary:	gedit header files
 Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gtksourceview2-devel >= 2.0.0
+Requires:	gtksourceview2-devel >= 2.2.0
 Requires:	libglade2-devel >= 1:2.6.2
 Requires:	libgnomeui-devel >= 2.22.0
 
