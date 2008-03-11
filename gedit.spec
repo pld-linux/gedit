@@ -1,14 +1,14 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.21.1
+Version:	2.22.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/2.21/gedit-%{version}.tar.bz2
-# Source0-md5:	fc3eae0a51c0cf95e990f58b4867b652
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/2.22/gedit-%{version}.tar.bz2
+# Source0-md5:	ce2e485d7639ed09a3e3b5a791df805a
 URL:		http://gedit.sourceforge.net/
-BuildRequires:	GConf2-devel >= 2.20.0
+BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	ORBit2-devel >= 1:2.14.8
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
@@ -17,15 +17,15 @@ BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.14.0
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gnome-doc-utils >= 0.12.0
-BuildRequires:	gnome-menus-devel >= 2.20.0
-BuildRequires:	gnome-vfs2-devel >= 2.20.0
+BuildRequires:	gnome-menus-devel >= 2.22.0
+BuildRequires:	gnome-vfs2-devel >= 2.22.0
 BuildRequires:	gtk-doc >= 1.8
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	gtksourceview2-devel >= 2.1.0
 BuildRequires:	intltool >= 0.36.2
 BuildRequires:	iso-codes
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomeui-devel >= 2.20.0
+BuildRequires:	libgnomeui-devel >= 2.22.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.3
@@ -38,8 +38,8 @@ BuildRequires:	sed >= 4.0
 Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
-Requires:	libgnomeui >= 2.20.0
-Requires:	gnome-vfs2 >= 2.20.0
+Requires:	libgnomeui >= 2.22.0
+Requires:	gnome-vfs2 >= 2.22.0
 Requires:	python-gtksourceview2 >= 2.1.0
 Suggests:	python-vte
 Obsoletes:	gedit-devel
@@ -68,7 +68,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gtksourceview2-devel >= 2.0.0
 Requires:	libglade2-devel >= 1:2.6.2
-Requires:	libgnomeui-devel >= 2.20.0
+Requires:	libgnomeui-devel >= 2.22.0
 
 %description devel
 gedit header files.
