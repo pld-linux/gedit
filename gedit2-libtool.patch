@@ -1,0 +1,14 @@
+diff -urN gedit-2.22.3/configure.ac gedit-2.22.3.new/configure.ac
+--- gedit-2.22.3/configure.ac	2008-05-27 14:05:34.000000000 +0200
++++ gedit-2.22.3.new/configure.ac	2008-05-28 16:27:21.000000000 +0200
+@@ -232,8 +232,8 @@
+ }
+ EOF
+ 
+-	if /bin/sh ../libtool --mode=compile ${CC} $PYTHON_CFLAGS -c testpython.c >/dev/null 2>&1 && \
+-		/bin/sh ../libtool --mode=link ${CC} -o testpython.la -rpath `pwd` -module -avoid-version -no-undefined $PYTHON_LIB_LOC testpython.lo $PYTHON_LIBS $PYTHON_EXTRA_LIBS >/dev/null 2>&1 && \
++	if /bin/sh /usr/bin/libtool --tag=CC --mode=compile ${CC} $PYTHON_CFLAGS -c testpython.c >/dev/null 2>&1 && \
++		/bin/sh /usr/bin/libtool --tag=CC --mode=link ${CC} -o testpython.la -rpath `pwd` -module -avoid-version -no-undefined $PYTHON_LIB_LOC testpython.lo $PYTHON_LIBS $PYTHON_EXTRA_LIBS >/dev/null 2>&1 && \
+ 		grep 'dlname.*testpython' testpython.la >/dev/null 2>&1; then
+ 		result=yes
+ 	else
