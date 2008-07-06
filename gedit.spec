@@ -7,6 +7,7 @@ License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/2.23/gedit-%{version}.tar.bz2
 # Source0-md5:	ded6b9d21d973fbfb8a619719f43bca2
+Patch0:		%{name}-libtool.patch
 URL:		http://gedit.sourceforge.net/
 BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf >= 2.59
@@ -88,6 +89,7 @@ Dokumentacja API gedit.
 
 %prep
 %setup -q -n gedit-%{version}
+%patch0 -p1
 sed -i 's/codegen.py/codegen.pyc/' configure.ac
 
 sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
