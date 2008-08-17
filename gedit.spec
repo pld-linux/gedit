@@ -1,12 +1,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.23.1
+Version:	2.23.3
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/2.23/gedit-%{version}.tar.bz2
-# Source0-md5:	ded6b9d21d973fbfb8a619719f43bca2
+# Source0-md5:	e510daa7695b380caaac7e83b0bb3349
 Patch0:		%{name}-libtool.patch
 URL:		http://gedit.sourceforge.net/
 BuildRequires:	GConf2-devel >= 2.22.0
@@ -23,7 +23,6 @@ BuildRequires:	gtk-doc >= 1.8
 BuildRequires:	gtksourceview2-devel >= 2.2.0
 BuildRequires:	intltool >= 0.36.2
 BuildRequires:	iso-codes >= 0.35
-BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libgnomeui-devel >= 2.22.1
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
@@ -66,7 +65,6 @@ Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gtksourceview2-devel >= 2.2.0
-Requires:	libglade2-devel >= 1:2.6.2
 Requires:	libgnomeui-devel >= 2.22.1
 
 %description devel
@@ -158,11 +156,11 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/gedit-2/plugins/snippets
 %attr(755,root,root) %{_libdir}/gedit-2/gedit-bugreport.sh
 %attr(755,root,root) %{_libdir}/gedit-2/plugins/*.so
-%{_libdir}/gedit-2/plugins/externaltools/*.glade
+%{_libdir}/gedit-2/plugins/externaltools/*.ui
 %{_libdir}/gedit-2/plugins/externaltools/*.py[co]
 %{_libdir}/gedit-2/plugins/*.gedit-plugin
 %{_libdir}/gedit-2/plugins/pythonconsole/*.py[co]
-%{_libdir}/gedit-2/plugins/snippets/*.glade
+%{_libdir}/gedit-2/plugins/snippets/*.ui
 %{_libdir}/gedit-2/plugins/snippets/*.py[co]
 %{_datadir}/gedit-2
 %{_desktopdir}/gedit.desktop
