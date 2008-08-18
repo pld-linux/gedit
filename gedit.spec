@@ -23,7 +23,6 @@ BuildRequires:	gtk-doc >= 1.8
 BuildRequires:	gtksourceview2-devel >= 2.2.0
 BuildRequires:	intltool >= 0.36.2
 BuildRequires:	iso-codes >= 0.35
-BuildRequires:	libgnomeui-devel >= 2.22.1
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.3
@@ -37,7 +36,6 @@ Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
 Requires:	gnome-vfs2 >= 2.22.0
-Requires:	libgnomeui >= 2.22.1
 Requires:	python-gtksourceview2 >= 2.2.0
 Suggests:	python-vte
 Obsoletes:	gedit-devel
@@ -65,7 +63,6 @@ Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gtksourceview2-devel >= 2.2.0
-Requires:	libgnomeui-devel >= 2.22.1
 
 %description devel
 gedit header files.
