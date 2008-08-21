@@ -1,12 +1,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.23.3
+Version:	2.23.90
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/2.23/gedit-%{version}.tar.bz2
-# Source0-md5:	e510daa7695b380caaac7e83b0bb3349
+# Source0-md5:	965b4b8f7dfd22e5fbbf9ec6da8da15f
 Patch0:		%{name}-libtool.patch
 URL:		http://gedit.sourceforge.net/
 BuildRequires:	GConf2-devel >= 2.22.0
@@ -17,7 +17,6 @@ BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.16.0
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gnome-doc-utils >= 0.12.2
-BuildRequires:	gnome-vfs2-devel >= 2.22.0
 BuildRequires:	gtk+2-devel >= 2:2.12.9
 BuildRequires:	gtk-doc >= 1.8
 BuildRequires:	gtksourceview2-devel >= 2.2.0
@@ -35,7 +34,6 @@ BuildRequires:	sed >= 4.0
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
-Requires:	gnome-vfs2 >= 2.22.0
 Requires:	python-gtksourceview2 >= 2.2.0
 Suggests:	python-vte
 Obsoletes:	gedit-devel
