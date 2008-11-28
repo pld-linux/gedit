@@ -1,14 +1,13 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.24.0
+Version:	2.24.2
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/2.24/gedit-%{version}.tar.bz2
-# Source0-md5:	c6a13bd45ddde3e6a1e45131f430086b
+# Source0-md5:	04bcf226edc5de3a4ac759e97e0e2e6e
 # http://bugzilla.gnome.org/show_bug.cgi?id=552038
-Patch0:		%{name}-python.patch
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	attr-devel
@@ -86,7 +85,6 @@ Dokumentacja API gedit.
 
 %prep
 %setup -q -n gedit-%{version}
-%patch0 -p1
 
 sed -i 's/codegen.py/codegen.pyc/' configure.ac
 
@@ -117,6 +115,7 @@ rm -rf $RPM_BUILD_ROOT
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.la
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.py
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*/*.py
+rm -rf $RPM_BUILD_ROOT%{_localedir}/la
 
 %find_lang gedit --with-gnome --with-omf
 
