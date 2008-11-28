@@ -27,6 +27,7 @@ BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.3
+BuildRequires:	python-gobject >= 2.15.4
 BuildRequires:	python-gtksourceview2-devel >= 2.2.0
 BuildRequires:	python-pygtk-devel >= 2:2.12.0
 BuildRequires:	rpmbuild(find_lang) >= 1.23
