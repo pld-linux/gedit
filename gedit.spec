@@ -1,12 +1,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.24.2
-Release:	2
+Version:	2.26.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/2.24/gedit-%{version}.tar.bz2
-# Source0-md5:	04bcf226edc5de3a4ac759e97e0e2e6e
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/2.26/gedit-%{version}.tar.bz2
+# Source0-md5:	577b30e6f17f6dce0af7be3e522d6058
 # http://bugzilla.gnome.org/show_bug.cgi?id=552038
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	GConf2-devel >= 2.24.0
@@ -147,17 +147,17 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gedit
 %attr(755,root,root) %{_bindir}/gnome-text-editor
 %dir %{_libdir}/gedit-2
+%dir %{_libdir}/gedit-2/plugin-loaders
+%attr(755,root,root) %{_libdir}/gedit-2/plugin-loaders/*.so
 %dir %{_libdir}/gedit-2/plugins
 %dir %{_libdir}/gedit-2/plugins/externaltools
 %dir %{_libdir}/gedit-2/plugins/pythonconsole
 %dir %{_libdir}/gedit-2/plugins/snippets
 %attr(755,root,root) %{_libdir}/gedit-2/gedit-bugreport.sh
 %attr(755,root,root) %{_libdir}/gedit-2/plugins/*.so
-%{_libdir}/gedit-2/plugins/externaltools/*.ui
 %{_libdir}/gedit-2/plugins/externaltools/*.py[co]
 %{_libdir}/gedit-2/plugins/*.gedit-plugin
 %{_libdir}/gedit-2/plugins/pythonconsole/*.py[co]
-%{_libdir}/gedit-2/plugins/snippets/*.ui
 %{_libdir}/gedit-2/plugins/snippets/*.py[co]
 %{_datadir}/gedit-2
 %{_desktopdir}/gedit.desktop
