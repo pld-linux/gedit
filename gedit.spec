@@ -7,12 +7,11 @@ License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/2.26/gedit-%{version}.tar.bz2
 # Source0-md5:	577b30e6f17f6dce0af7be3e522d6058
-# http://bugzilla.gnome.org/show_bug.cgi?id=552038
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	attr-devel
 BuildRequires:	autoconf >= 2.59
-BuildRequires:	automake >= 1:1.8
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	enchant-devel >= 1.2.0
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.18.0
@@ -20,15 +19,15 @@ BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gtk+2-devel >= 2:2.14.0
 BuildRequires:	gtk-doc >= 1.8
-BuildRequires:	gtksourceview2-devel >= 2.2.0
+BuildRequires:	gtksourceview2-devel >= 2.4.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	iso-codes >= 0.35
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.3
-BuildRequires:	python-pygobject-devel >= 2.15.4
 BuildRequires:	python-gtksourceview2-devel >= 2.2.0
+BuildRequires:	python-pygobject-devel >= 2.16.0
 BuildRequires:	python-pygtk-devel >= 2:2.12.0
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.197
@@ -39,6 +38,7 @@ Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
 Requires:	python-gtksourceview2 >= 2.2.0
+Requires:	python-pygobject >= 2.16.0
 Suggests:	python-vte
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
@@ -64,7 +64,7 @@ Summary:	gedit header files
 Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gtksourceview2-devel >= 2.2.0
+Requires:	gtksourceview2-devel >= 2.4.0
 
 %description devel
 gedit header files.
@@ -113,7 +113,7 @@ rm -rf $RPM_BUILD_ROOT
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
 # Remove obsoleted *.la files
-rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.la
+rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/{plugins,plugin-loaders}/*.la
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.py
 rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*/*.py
 rm -rf $RPM_BUILD_ROOT%{_localedir}/la
