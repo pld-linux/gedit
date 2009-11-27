@@ -12,6 +12,7 @@ BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	attr-devel
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
+BuildRequires:	docbook-dtd412-xml
 BuildRequires:	enchant-devel >= 1.2.0
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.18.0
@@ -29,6 +30,7 @@ BuildRequires:	python-devel >= 2.3
 BuildRequires:	python-gtksourceview2-devel >= 2.2.0
 BuildRequires:	python-pygobject-devel >= 2.16.0
 BuildRequires:	python-pygtk-devel >= 2:2.12.0
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.3.12
