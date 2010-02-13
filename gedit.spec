@@ -14,7 +14,7 @@ BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	enchant-devel >= 1.2.0
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.18.0
+BuildRequires:	glib2-devel >= 1:2.23.1
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gtk+2-devel >= 2:2.18.0
