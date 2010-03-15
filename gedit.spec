@@ -1,17 +1,17 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.29.6
+Version:	2.29.9
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/2.29/gedit-%{version}.tar.bz2
-# Source0-md5:	f6b6ec89c80815c29e39e70f06bb012f
+# Source0-md5:	68719e36f5a47c4e6794f16565b50e78
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	attr-devel
-BuildRequires:	autoconf >= 2.59
-BuildRequires:	automake >= 1:1.9
+BuildRequires:	autoconf >= 2.64
+BuildRequires:	automake >= 1:1.10
 BuildRequires:	enchant-devel >= 1.2.0
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.23.1
@@ -19,14 +19,15 @@ BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gtk+2-devel >= 2:2.18.0
 BuildRequires:	gtk-doc >= 1.8
-BuildRequires:	gtksourceview2-devel >= 2.9.4
+BuildRequires:	gtksourceview2-devel >= 2.9.7
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	iso-codes >= 0.35
+BuildRequires:	libsoup-devel
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.3
-BuildRequires:	python-gtksourceview2-devel >= 2.2.0
+BuildRequires:	python-gtksourceview2-devel >= 2.9.2
 BuildRequires:	python-pygobject-devel >= 2.16.0
 BuildRequires:	python-pygtk-devel >= 2:2.12.0
 BuildRequires:	rpmbuild(find_lang) >= 1.23
@@ -64,7 +65,7 @@ Summary:	gedit header files
 Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gtksourceview2-devel >= 2.4.0
+Requires:	gtksourceview2-devel >= 2.9.7
 
 %description devel
 gedit header files.
