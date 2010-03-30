@@ -1,33 +1,34 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.28.3
-Release:	2
+Version:	2.30.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/2.28/gedit-%{version}.tar.bz2
-# Source0-md5:	4720aafdbdcd20876711d768bf1c5d80
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/2.30/gedit-%{version}.tar.bz2
+# Source0-md5:	aebd49797406fdde7b25624b71990860
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	attr-devel
-BuildRequires:	autoconf >= 2.59
-BuildRequires:	automake >= 1:1.9
+BuildRequires:	autoconf >= 2.64
+BuildRequires:	automake >= 1:1.10
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	enchant-devel >= 1.2.0
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.18.0
+BuildRequires:	glib2-devel >= 1:2.24.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gtk+2-devel >= 2:2.18.0
 BuildRequires:	gtk-doc >= 1.8
-BuildRequires:	gtksourceview2-devel >= 2.4.0
+BuildRequires:	gtksourceview2-devel >= 2.10.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	iso-codes >= 0.35
+BuildRequires:	libsoup-devel
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.3
-BuildRequires:	python-gtksourceview2-devel >= 2.2.0
+BuildRequires:	python-gtksourceview2-devel >= 2.10.0
 BuildRequires:	python-pygobject-devel >= 2.16.0
 BuildRequires:	python-pygtk-devel >= 2:2.12.0
 BuildRequires:	rpm-pythonprov
@@ -66,7 +67,7 @@ Summary:	gedit header files
 Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gtksourceview2-devel >= 2.4.0
+Requires:	gtksourceview2-devel >= 2.9.7
 
 %description devel
 gedit header files.
@@ -88,12 +89,14 @@ Dokumentacja API gedit.
 
 %prep
 %setup -q -n gedit-%{version}
+sed -i 's/^en@shaw//' po/LINGUAS
+rm po/en@shaw.po
 
 sed -i 's/codegen.py/codegen.pyc/' configure.ac
 sed -i 's/h2def.py/h2def.pyc/' configure.ac
 
 %build
-%{__gnome_doc_common}
+%{__gtkdocize}
 %{__libtoolize}
 %{__intltoolize}
 %{__aclocal} -I m4
