@@ -28,7 +28,7 @@ BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.3
-BuildRequires:	python-gtksourceview2-devel >= 2.12.0
+BuildRequires:	python-gtksourceview2-devel >= 2.10.0
 BuildRequires:	python-pygobject-devel >= 2.16.0
 BuildRequires:	python-pygtk-devel >= 2:2.12.0
 BuildRequires:	rpm-pythonprov
@@ -40,7 +40,7 @@ BuildRequires:	xorg-lib-libSM-devel
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
-Requires:	python-gtksourceview2 >= 2.12.0
+Requires:	python-gtksourceview2 >= 2.10.0
 Requires:	python-pygobject >= 2.16.0
 Suggests:	python-vte
 Obsoletes:	gedit-devel
