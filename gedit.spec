@@ -28,7 +28,7 @@ BuildRequires:	libpeas-gtk-devel >= 0.7.2
 BuildRequires:	libsoup-devel
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libxml2-devel >= 1:2.6.31
-#BuildRequires:	libzeitgeist-devel >= 0.3.2
+BuildRequires:	libzeitgeist-devel >= 0.3.2
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.3
 BuildRequires:	rpm-pythonprov
