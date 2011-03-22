@@ -1,12 +1,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit2
-Version:	2.91.9
+Version:	2.91.10
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/2.91/gedit-%{version}.tar.bz2
-# Source0-md5:	d1f54d48fb814f06c4ee3504efbca60d
+# Source0-md5:	41ab6ab6106928a86a9053d346aabbec
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake >= 1:1.10
@@ -20,7 +20,7 @@ BuildRequires:	gobject-introspection-devel >= 0.10.0
 BuildRequires:	gsettings-desktop-schemas-devel
 BuildRequires:	gtk+3-devel >= 3.0.2
 BuildRequires:	gtk-doc >= 1.8
-BuildRequires:	gtksourceview3-devel >= 2.91.1
+BuildRequires:	gtksourceview3-devel >= 2.91.9
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	iso-codes >= 0.35
 BuildRequires:	libpeas-devel >= 0.7.2
@@ -70,7 +70,7 @@ Summary:	gedit header files
 Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gtksourceview3-devel >= 2.91.1
+Requires:	gtksourceview3-devel >= 2.91.9
 Requires:	libpeas-devel >= 0.7.2
 Requires:	libpeas-gtk-devel >= 0.7.2
 
