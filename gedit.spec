@@ -89,8 +89,6 @@ Dokumentacja API gedit.
 
 %prep
 %setup -q -n gedit-%{version}
-sed -i 's/^en@shaw//' po/LINGUAS
-rm po/en@shaw.po
 
 sed -i 's/codegen.py/codegen.pyc/' configure.ac
 sed -i 's/h2def.py/h2def.pyc/' configure.ac
@@ -119,10 +117,10 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
-# Remove obsoleted *.la files
-rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/{plugins,plugin-loaders}/*.la
-rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.py
-rm -f $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*/*.py
+# Remove unneeded *.la files
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/gedit-2/{plugins,plugin-loaders}/*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*.py
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/gedit-2/plugins/*/*.py
 
 %find_lang gedit --with-gnome --with-omf
 
