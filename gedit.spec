@@ -1,12 +1,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit2
-Version:	3.0.6
+Version:	3.1.6
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.0/gedit-%{version}.tar.xz
-# Source0-md5:	ca64c92146219662dd5e40210bd4fc9a
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.1/gedit-%{version}.tar.xz
+# Source0-md5:	c37ae3fbb40d4fbf0353519e4446eb67
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake >= 1:1.11
@@ -17,20 +17,21 @@ BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gobject-introspection-devel >= 0.10.0
-BuildRequires:	gsettings-desktop-schemas-devel >= 3.0.0
-BuildRequires:	gtk+3-devel >= 3.0.2
+BuildRequires:	gsettings-desktop-schemas-devel >= 3.1.0
+BuildRequires:	gtk+3-devel >= 3.1.6
 BuildRequires:	gtk-doc >= 1.8
 BuildRequires:	gtksourceview3-devel >= 3.0.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	iso-codes >= 0.35
-BuildRequires:	libpeas-devel >= 1.0.0
-BuildRequires:	libpeas-gtk-devel >= 1.0.0
+BuildRequires:	libpeas-devel >= 1.1.0
+BuildRequires:	libpeas-gtk-devel >= 1.1.0
 BuildRequires:	libsoup-devel
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	libzeitgeist-devel >= 0.3.2
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.3
+BuildRequires:	python-pygobject3-devel >= 3.0.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.601
@@ -42,10 +43,10 @@ BuildRequires:	xz
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires(post,postun):	glib2 >= 1:2.26.0
-Requires:	gsettings-desktop-schemas >= 3.0.0
-Requires:	libpeas-loader-python >= 1.0.0
+Requires:	gsettings-desktop-schemas >= 3.1.0
+Requires:	libpeas-loader-python >= 1.1.0
 Requires:	python-pycairo
-Requires:	python-pygobject >= 2.28.0
+Requires:	python-pygobject3 >= 3.0.0
 Obsoletes:	gedit-devel
 Obsoletes:	gedit-plugins < 2.3.3-2
 # sr@Latn vs. sr@latin
@@ -73,8 +74,8 @@ Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gtksourceview3-devel >= 3.0.0
-Requires:	libpeas-devel >= 1.0.0
-Requires:	libpeas-gtk-devel >= 1.0.0
+Requires:	libpeas-devel >= 1.1.0
+Requires:	libpeas-gtk-devel >= 1.1.0
 
 %description devel
 gedit header files.
