@@ -1,11 +1,11 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit2
-Version:	3.2.6
+Version:	3.3.7
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.2/gedit-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.3/gedit-%{version}.tar.xz
 # Source0-md5:	7da499b88e7cb4d863bfba87ead437cf
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	autoconf >= 2.63.2
@@ -18,7 +18,7 @@ BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gobject-introspection-devel >= 0.10.0
 BuildRequires:	gsettings-desktop-schemas-devel >= 3.1.0
-BuildRequires:	gtk+3-devel >= 3.1.6
+BuildRequires:	gtk+3-devel >= 3.3.15
 BuildRequires:	gtk-doc >= 1.8
 BuildRequires:	gtksourceview3-devel >= 3.0.0
 BuildRequires:	intltool >= 0.40.0
@@ -44,6 +44,8 @@ Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires(post,postun):	glib2 >= 1:2.26.0
 Requires:	gsettings-desktop-schemas >= 3.1.0
+Requires:	gtk+3 >= 3.3.15
+Requires:	iso-codes >= 0.35
 Requires:	libpeas-loader-python >= 1.1.0
 Requires:	python-pycairo
 Requires:	python-pygobject3 >= 3.0.0
@@ -109,6 +111,7 @@ Dokumentacja API gedit.
 %configure \
 	--disable-scrollkeeper \
 	--disable-silent-rules \
+	--disable-updater \
 	--enable-gtk-doc \
 	--disable-static \
 	--with-html-dir=%{_gtkdocdir}
