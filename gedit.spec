@@ -1,12 +1,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit2
-Version:	3.4.0
+Version:	3.4.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.4/gedit-%{version}.tar.xz
-# Source0-md5:	8b928fafb845eeedf4295527daf54d0e
+# Source0-md5:	f3d057140091dc28aef81bbe3bfca029
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	autoconf >= 2.63.2
 BuildRequires:	automake >= 1:1.11
@@ -17,8 +17,8 @@ BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gobject-introspection-devel >= 0.10.0
-BuildRequires:	gsettings-desktop-schemas-devel >= 3.1.0
-BuildRequires:	gtk+3-devel >= 3.3.15
+BuildRequires:	gsettings-desktop-schemas-devel >= 3.2.0
+BuildRequires:	gtk+3-devel >= 3.4.0
 BuildRequires:	gtksourceview3-devel >= 3.0.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	iso-codes >= 0.35
@@ -34,16 +34,14 @@ BuildRequires:	python-pygobject3-devel >= 3.0.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.601
-BuildRequires:	scrollkeeper >= 0.3.12
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	xz
 Requires(post,postun):	desktop-file-utils
-Requires(post,postun):	scrollkeeper
 Requires(post,postun):	glib2 >= 1:2.26.0
 Requires:	gsettings-desktop-schemas >= 3.1.0
-Requires:	gtk+3 >= 3.3.15
+Requires:	gtk+3 >= 3.4.0
 Requires:	iso-codes >= 0.35
 Requires:	libpeas-loader-python >= 1.1.0
 Requires:	python-pycairo
@@ -108,7 +106,6 @@ Dokumentacja API gedit.
 %{__autoheader}
 %{__automake}
 %configure \
-	--disable-scrollkeeper \
 	--disable-silent-rules \
 	--disable-updater \
 	--enable-gtk-doc \
@@ -135,13 +132,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/ldconfig
-%scrollkeeper_update_post
 %update_desktop_database_post
 %glib_compile_schemas
 
 %postun
 /sbin/ldconfig
-%scrollkeeper_update_postun
 %update_desktop_database_postun
 %glib_compile_schemas
 
