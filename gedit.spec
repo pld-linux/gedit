@@ -1,12 +1,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	3.4.1
-Release:	2
+Version:	3.4.2
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.4/%{name}-%{version}.tar.xz
-# Source0-md5:	f3d057140091dc28aef81bbe3bfca029
+# Source0-md5:	1f3e9f255fc16609ca8598a82da18cff
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	autoconf >= 2.63.2
 BuildRequires:	automake >= 1:1.11
@@ -123,7 +123,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/gedit/plugins/*.la \
 	$RPM_BUILD_ROOT%{_libdir}/gedit/plugins/*/*.py \
-	$RPM_BUILD_ROOT%{_libdir}/*.la
+	$RPM_BUILD_ROOT%{_libdir}/gedit/*.la
 
 %py_postclean
 
@@ -133,12 +133,10 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %post
-/sbin/ldconfig
 %update_desktop_database_post
 %glib_compile_schemas
 
 %postun
-/sbin/ldconfig
 %update_desktop_database_postun
 %glib_compile_schemas
 
@@ -147,9 +145,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc README ChangeLog AUTHORS
 %attr(755,root,root) %{_bindir}/gedit
 %attr(755,root,root) %{_bindir}/gnome-text-editor
-%attr(755,root,root) %{_libdir}/libgedit-private.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgedit-private.so.0
 %dir %{_libdir}/gedit
+%attr(755,root,root) %{_libdir}/gedit/libgedit-private.so
 %dir %{_libdir}/gedit/plugins
 %attr(755,root,root) %{_libdir}/gedit/gedit-bugreport.sh
 %attr(755,root,root) %{_libdir}/gedit/plugins/*.so
@@ -181,7 +178,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libgedit-private.so
 %{_includedir}/gedit-3.0
 %{_pkgconfigdir}/gedit.pc
 
