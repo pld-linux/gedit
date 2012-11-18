@@ -1,12 +1,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	3.6.1
+Version:	3.6.2
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.6/%{name}-%{version}.tar.xz
-# Source0-md5:	fd07a79e2d87aea8cae3332f06176800
+# Source0-md5:	7c336819c023a4772cfb48ebe95a7113
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	autoconf >= 2.63.2
 BuildRequires:	automake >= 1:1.11
@@ -18,7 +18,7 @@ BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gobject-introspection-devel >= 0.10.0
 BuildRequires:	gsettings-desktop-schemas-devel >= 3.2.0
-BuildRequires:	gtk+3-devel >= 3.4.0
+BuildRequires:	gtk+3-devel >= 3.6.0
 BuildRequires:	gtksourceview3-devel >= 3.0.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	iso-codes >= 0.35
@@ -42,7 +42,7 @@ BuildRequires:	yelp-tools
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	glib2 >= 1:2.26.0
 Requires:	gsettings-desktop-schemas >= 3.2.0
-Requires:	gtk+3 >= 3.4.0
+Requires:	gtk+3 >= 3.6.0
 Requires:	iso-codes >= 0.35
 Requires:	libpeas-loader-python >= 1.1.0
 Requires:	python-pycairo
