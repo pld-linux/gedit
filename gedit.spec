@@ -1,52 +1,51 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	3.6.2
+Version:	3.8.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.6/%{name}-%{version}.tar.xz
-# Source0-md5:	7c336819c023a4772cfb48ebe95a7113
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.8/%{name}-%{version}.tar.xz
+# Source0-md5:	dc8a377ef1f48e6303d87cfb7c246524
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	autoconf >= 2.63.2
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	enchant-devel >= 1.2.0
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.28.0
+BuildRequires:	glib2-devel >= 1:2.35.4
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gobject-introspection-devel >= 0.10.0
 BuildRequires:	gsettings-desktop-schemas-devel >= 3.2.0
-BuildRequires:	gtk+3-devel >= 3.6.0
-BuildRequires:	gtksourceview3-devel >= 3.0.0
+BuildRequires:	gtk+3-devel >= 3.7.10
+BuildRequires:	gtksourceview3-devel >= 3.2.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	iso-codes >= 0.35
-BuildRequires:	libpeas-devel >= 1.1.0
-BuildRequires:	libpeas-gtk-devel >= 1.1.0
+BuildRequires:	libpeas-devel >= 1.7.0
+BuildRequires:	libpeas-gtk-devel >= 1.7.0
 BuildRequires:	libsoup-devel
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	libzeitgeist-devel >= 0.3.2
 BuildRequires:	pkgconfig
-BuildRequires:	python-devel >= 2.3
-BuildRequires:	python-pygobject3-devel >= 3.0.0
+BuildRequires:	python3-devel >= 3.2.3
+BuildRequires:	python3-pygobject3-devel >= 3.0.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.601
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	desktop-file-utils
-Requires(post,postun):	glib2 >= 1:2.26.0
+Requires(post,postun):	glib2 >= 1:2.35.4
 Requires:	gsettings-desktop-schemas >= 3.2.0
-Requires:	gtk+3 >= 3.6.0
+Requires:	gtk+3 >= 3.7.10
 Requires:	iso-codes >= 0.35
-Requires:	libpeas-loader-python >= 1.1.0
-Requires:	python-pycairo
-Requires:	python-pygobject3 >= 3.0.0
+Requires:	libpeas-loader-python3 >= 1.7.0
+Requires:	python3-pycairo
+Requires:	python3-pygobject3 >= 3.0.0
 Obsoletes:	gedit-plugins < 2.3.3-2
 # sr@Latn vs. sr@latin
 Obsoletes:	gedit2
@@ -73,9 +72,9 @@ Summary:	gedit header files
 Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gtksourceview3-devel >= 3.0.0
-Requires:	libpeas-devel >= 1.1.0
-Requires:	libpeas-gtk-devel >= 1.1.0
+Requires:	gtksourceview3-devel >= 3.2.0
+Requires:	libpeas-devel >= 1.7.0
+Requires:	libpeas-gtk-devel >= 1.7.0
 Obsoletes:	gedit2-devel
 
 %description devel
@@ -104,7 +103,7 @@ Dokumentacja API gedit.
 %{__gtkdocize}
 %{__libtoolize}
 %{__intltoolize}
-%{__aclocal} -I m4
+%{__aclocal} -I m4 -I libgd
 %{__autoconf}
 %{__autoheader}
 %{__automake}
@@ -123,12 +122,11 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/gedit/plugins/*.la \
-	$RPM_BUILD_ROOT%{_libdir}/gedit/plugins/*/*.py \
 	$RPM_BUILD_ROOT%{_libdir}/gedit/*.la
 
 %py_postclean
 
-%find_lang gedit --with-gnome --with-omf
+%find_lang gedit --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -152,14 +150,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/gedit/gedit-bugreport.sh
 %attr(755,root,root) %{_libdir}/gedit/plugins/*.so
 %{_libdir}/gedit/plugins/*.plugin
-%dir %{_libdir}/gedit/plugins/externaltools
-%{_libdir}/gedit/plugins/externaltools/*.py[co]
-%dir %{_libdir}/gedit/plugins/pythonconsole
-%{_libdir}/gedit/plugins/pythonconsole/*.py[co]
-%dir %{_libdir}/gedit/plugins/snippets
-%{_libdir}/gedit/plugins/snippets/*.py[co]
-%dir %{_libdir}/gedit/plugins/quickopen
-%{_libdir}/gedit/plugins/quickopen/*.py[co]
+%{_libdir}/gedit/plugins/externaltools
+%{_libdir}/gedit/plugins/pythonconsole
+%{_libdir}/gedit/plugins/snippets
+%{_libdir}/gedit/plugins/quickopen
 %dir %{_libdir}/gedit/girepository-1.0
 %{_libdir}/gedit/girepository-1.0/Gedit-3.0.typelib
 %{_datadir}/gedit
@@ -175,7 +169,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.gedit.plugins.time.gschema.xml
 %{_desktopdir}/gedit.desktop
 %{_mandir}/man1/gedit.1*
-%{py_sitedir}/gi/overrides/*.py[co]
+%{py3_sitedir}/gi/overrides/*.py
+%{py3_sitedir}/gi/overrides/__pycache__/*.py[co]
 
 %files devel
 %defattr(644,root,root,755)
