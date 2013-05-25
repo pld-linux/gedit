@@ -1,12 +1,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	3.8.0
+Version:	3.8.2
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.8/%{name}-%{version}.tar.xz
-# Source0-md5:	dc8a377ef1f48e6303d87cfb7c246524
+# Source0-md5:	672031ade67a302000ce1c85d895ce72
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	autoconf >= 2.63.2
 BuildRequires:	automake >= 1:1.11
@@ -27,7 +27,6 @@ BuildRequires:	libpeas-gtk-devel >= 1.7.0
 BuildRequires:	libsoup-devel
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libxml2-devel >= 1:2.6.31
-BuildRequires:	libzeitgeist-devel >= 0.3.2
 BuildRequires:	pkgconfig
 BuildRequires:	python3-devel >= 3.2.3
 BuildRequires:	python3-pygobject3-devel >= 3.0.0
@@ -38,6 +37,7 @@ BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	yelp-tools
+BuildRequires:	zeitgeist-devel >= 0.9.12
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	glib2 >= 1:2.35.4
 Requires:	gsettings-desktop-schemas >= 3.2.0
