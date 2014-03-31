@@ -1,26 +1,26 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	3.10.4
+Version:	3.12.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.10/%{name}-%{version}.tar.xz
-# Source0-md5:	62f9e61297487bcd2ea21ec229e8e284
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.12/%{name}-%{version}.tar.xz
+# Source0-md5:	d603299a2f885e48d8ba1cf8f16e3b6c
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	autoconf >= 2.63.2
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	enchant-devel >= 1.2.0
 BuildRequires:	gettext-devel >= 0.18
-BuildRequires:	glib2-devel >= 1:2.38.0
+BuildRequires:	glib2-devel >= 1:2.40.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gobject-introspection-devel >= 0.10.0
 BuildRequires:	gsettings-desktop-schemas-devel >= 3.2.0
-BuildRequires:	gtk+3-devel >= 3.10.0
+BuildRequires:	gtk+3-devel >= 3.12.0
 BuildRequires:	gtk-doc >= 1.0
-BuildRequires:	gtksourceview3-devel >= 3.10.0
+BuildRequires:	gtksourceview3-devel >= 3.12.0
 BuildRequires:	intltool >= 0.50.1
 BuildRequires:	iso-codes >= 0.35
 BuildRequires:	libpeas-devel >= 1.7.0
@@ -35,17 +35,18 @@ BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.601
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	vala
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
 BuildRequires:	yelp-tools
 BuildRequires:	zeitgeist-devel >= 0.9.12
 Requires(post,postun):	desktop-file-utils
-Requires(post,postun):	glib2 >= 1:2.38.0
+Requires(post,postun):	glib2 >= 1:2.40.0
 Requires:	enchant >= 1.2.0
-Requires:	glib2 >= 1:2.38.0
+Requires:	glib2 >= 1:2.40.0
 Requires:	gsettings-desktop-schemas >= 3.2.0
-Requires:	gtk+3 >= 3.10.0
-Requires:	gtksourceview3 >= 3.10.0
+Requires:	gtk+3 >= 3.12.0
+Requires:	gtksourceview3 >= 3.12.0
 Requires:	iso-codes >= 0.35
 Requires:	libpeas-loader-python3 >= 1.7.0
 Requires:	python3-pycairo
@@ -77,9 +78,9 @@ Summary:	gedit header files
 Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 # doesn't require base
-Requires:	glib2-devel >= 1:2.38.0
-Requires:	gtk+3-devel >= 3.10.0
-Requires:	gtksourceview3-devel >= 3.10.0
+Requires:	glib2-devel >= 1:2.40.0
+Requires:	gtk+3-devel >= 3.12.0
+Requires:	gtksourceview3-devel >= 3.12.0
 Requires:	libpeas-devel >= 1.7.0
 Requires:	libpeas-gtk-devel >= 1.7.0
 Obsoletes:	gedit2-devel
@@ -102,6 +103,19 @@ gedit API documentation.
 
 %description apidocs -l pl.UTF-8
 Dokumentacja API gedit.
+
+%package -n vala-gedit
+Summary:	gedit API for Vala language
+Summary(pl.UTF-8):	API gedit dla języka Vala
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+Requires:	vala
+
+%description -n vala-gedit
+gedit API for Vala language.
+
+%description -n vala-gedit -l pl.UTF-8
+API gedit dla języka Vala.
 
 %prep
 %setup -q
@@ -180,9 +194,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/gedit-3.0
+%{_includedir}/gedit-3.12
 %{_pkgconfigdir}/gedit.pc
 
 %files apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/gedit
+
+%files -n vala-gedit
+%defattr(644,root,root,755)
+%{_datadir}/vala/vapi/gedit.deps
+%{_datadir}/vala/vapi/gedit.vapi
