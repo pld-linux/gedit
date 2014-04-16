@@ -1,12 +1,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	3.12.0
-Release:	2
+Version:	3.12.1
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.12/%{name}-%{version}.tar.xz
-# Source0-md5:	d603299a2f885e48d8ba1cf8f16e3b6c
+# Source0-md5:	c7773745c31d2723c32d159d1e64d461
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	autoconf >= 2.63.2
 BuildRequires:	automake >= 1:1.11
@@ -167,7 +167,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gedit
 %attr(755,root,root) %{_bindir}/gnome-text-editor
 %dir %{_libdir}/gedit
-%attr(755,root,root) %{_libdir}/gedit/libgedit-private.so
+%attr(755,root,root) %{_libdir}/gedit/libgedit.so
 %dir %{_libdir}/gedit/plugins
 %attr(755,root,root) %{_libdir}/gedit/gedit-bugreport.sh
 %attr(755,root,root) %{_libdir}/gedit/plugins/*.so
