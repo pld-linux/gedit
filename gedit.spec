@@ -1,12 +1,13 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	3.12.2
-Release:	2
+Version:	3.14.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.12/%{name}-%{version}.tar.xz
-# Source0-md5:	a23644771605c4226059d0b92faf70d2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.14/%{name}-%{version}.tar.xz
+# Source0-md5:	fae6439f950bf3f00101a16c2c924bdf
+Patch0:		%{name}-env.patch
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	autoconf >= 2.63.2
 BuildRequires:	automake >= 1:1.11
@@ -18,9 +19,9 @@ BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gobject-introspection-devel >= 0.10.0
 BuildRequires:	gsettings-desktop-schemas-devel >= 3.2.0
-BuildRequires:	gtk+3-devel >= 3.12.0
+BuildRequires:	gtk+3-devel >= 3.14.0
 BuildRequires:	gtk-doc >= 1.0
-BuildRequires:	gtksourceview3-devel >= 3.12.0
+BuildRequires:	gtksourceview3-devel >= 3.14.0
 BuildRequires:	intltool >= 0.50.1
 BuildRequires:	iso-codes >= 0.35
 BuildRequires:	libpeas-devel >= 1.7.0
@@ -45,8 +46,8 @@ Requires(post,postun):	glib2 >= 1:2.40.0
 Requires:	enchant >= 1.2.0
 Requires:	glib2 >= 1:2.40.0
 Requires:	gsettings-desktop-schemas >= 3.2.0
-Requires:	gtk+3 >= 3.12.0
-Requires:	gtksourceview3 >= 3.12.0
+Requires:	gtk+3 >= 3.14.0
+Requires:	gtksourceview3 >= 3.14.0
 Requires:	iso-codes >= 0.35
 Requires:	libpeas-loader-python3 >= 1.7.0
 Requires:	python3-pycairo
@@ -122,6 +123,7 @@ API gedit dla języka Vala.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__gtkdocize}
@@ -178,7 +180,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gedit/plugins/quickopen
 %dir %{_libdir}/gedit/girepository-1.0
 %{_libdir}/gedit/girepository-1.0/Gedit-3.0.typelib
-%{_datadir}/appdata/gedit.appdata.xml
+%{_datadir}/appdata/org.gnome.gedit.appdata.xml
 %{_datadir}/gedit
 %{_datadir}/GConf/gsettings/gedit.convert
 %{_datadir}/dbus-1/services/org.gnome.gedit.service
@@ -190,7 +192,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.gedit.plugins.pythonconsole.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gedit.plugins.time.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gedit.plugins.time.gschema.xml
-%{_desktopdir}/gedit.desktop
+%{_desktopdir}/org.gnome.gedit.desktop
 %{_mandir}/man1/gedit.1*
 %{py3_sitedir}/gi/overrides/*.py
 %{py3_sitedir}/gi/overrides/__pycache__/*.py[co]
