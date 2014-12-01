@@ -1,13 +1,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	3.14.0
+Version:	3.14.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.14/%{name}-%{version}.tar.xz
-# Source0-md5:	fae6439f950bf3f00101a16c2c924bdf
-Patch0:		%{name}-env.patch
+# Source0-md5:	1790151fd93ed4dee40215b3b10885ec
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	autoconf >= 2.63.2
 BuildRequires:	automake >= 1:1.11
@@ -80,8 +79,8 @@ Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 # doesn't require base
 Requires:	glib2-devel >= 1:2.40.0
-Requires:	gtk+3-devel >= 3.12.0
-Requires:	gtksourceview3-devel >= 3.12.0
+Requires:	gtk+3-devel >= 3.14.0
+Requires:	gtksourceview3-devel >= 3.14.0
 Requires:	libpeas-devel >= 1.7.0
 Requires:	libpeas-gtk-devel >= 1.7.0
 Obsoletes:	gedit2-devel
@@ -123,7 +122,6 @@ API gedit dla języka Vala.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__gtkdocize}
