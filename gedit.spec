@@ -12,7 +12,7 @@ BuildRequires:	autoconf >= 2.63.2
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	enchant-devel >= 1.2.0
-BuildRequires:	gettext-devel >= 0.18
+BuildRequires:	gettext-tools >= 0.18
 BuildRequires:	glib2-devel >= 1:2.40.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
