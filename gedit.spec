@@ -1,12 +1,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	3.14.2
+Version:	3.14.3
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.14/%{name}-%{version}.tar.xz
-# Source0-md5:	38a1ac40cf2f042cadf1dbdb65adde80
+# Source0-md5:	267beb4476f48a106fb693bb55819caf
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	autoconf >= 2.63.2
 BuildRequires:	automake >= 1:1.11
@@ -20,7 +20,7 @@ BuildRequires:	gobject-introspection-devel >= 0.10.0
 BuildRequires:	gsettings-desktop-schemas-devel >= 3.2.0
 BuildRequires:	gtk+3-devel >= 3.14.0
 BuildRequires:	gtk-doc >= 1.0
-BuildRequires:	gtksourceview3-devel >= 3.14.0
+BuildRequires:	gtksourceview3-devel >= 3.14.3
 BuildRequires:	intltool >= 0.50.1
 BuildRequires:	iso-codes >= 0.35
 BuildRequires:	libpeas-devel >= 1.7.0
@@ -46,7 +46,7 @@ Requires:	enchant >= 1.2.0
 Requires:	glib2 >= 1:2.40.0
 Requires:	gsettings-desktop-schemas >= 3.2.0
 Requires:	gtk+3 >= 3.14.0
-Requires:	gtksourceview3 >= 3.14.0
+Requires:	gtksourceview3 >= 3.14.3
 Requires:	iso-codes >= 0.35
 Requires:	libpeas-loader-python3 >= 1.7.0
 Requires:	python3-pycairo
@@ -80,7 +80,7 @@ Group:		X11/Development/Libraries
 # doesn't require base
 Requires:	glib2-devel >= 1:2.40.0
 Requires:	gtk+3-devel >= 3.14.0
-Requires:	gtksourceview3-devel >= 3.14.0
+Requires:	gtksourceview3-devel >= 3.14.3
 Requires:	libpeas-devel >= 1.7.0
 Requires:	libpeas-gtk-devel >= 1.7.0
 Obsoletes:	gedit2-devel
