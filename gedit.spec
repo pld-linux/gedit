@@ -1,12 +1,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	3.14.3
-Release:	2
+Version:	3.16.1
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.14/%{name}-%{version}.tar.xz
-# Source0-md5:	267beb4476f48a106fb693bb55819caf
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.16/%{name}-%{version}.tar.xz
+# Source0-md5:	45af095c4128c4a5126d6d938e5de667
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	autoconf >= 2.63.2
 BuildRequires:	automake >= 1:1.11
@@ -18,9 +18,9 @@ BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gobject-introspection-devel >= 0.10.0
 BuildRequires:	gsettings-desktop-schemas-devel >= 3.2.0
-BuildRequires:	gtk+3-devel >= 3.14.0
+BuildRequires:	gtk+3-devel >= 3.16.0
 BuildRequires:	gtk-doc >= 1.0
-BuildRequires:	gtksourceview3-devel >= 3.14.3
+BuildRequires:	gtksourceview3-devel >= 3.16
 BuildRequires:	intltool >= 0.50.1
 BuildRequires:	iso-codes >= 0.35
 BuildRequires:	libpeas-devel >= 1.7.0
@@ -28,14 +28,14 @@ BuildRequires:	libpeas-gtk-devel >= 1.7.0
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	pkgconfig
-BuildRequires:	python3-devel >= 3.2.3
+BuildRequires:	python3-devel >= 1:3.2.3
 BuildRequires:	python3-pygobject3-devel >= 3.0.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.601
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	vala
+BuildRequires:	vala >= 2:0.25.1
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
 BuildRequires:	yelp-tools
@@ -45,10 +45,11 @@ Requires(post,postun):	glib2 >= 1:2.40.0
 Requires:	enchant >= 1.2.0
 Requires:	glib2 >= 1:2.40.0
 Requires:	gsettings-desktop-schemas >= 3.2.0
-Requires:	gtk+3 >= 3.14.0
-Requires:	gtksourceview3 >= 3.14.3
+Requires:	gtk+3 >= 3.16.0
+Requires:	gtksourceview3 >= 3.16
 Requires:	iso-codes >= 0.35
 Requires:	libpeas-loader-python3 >= 1.7.0
+Requires:	python3-libs >= 1:3.2.3
 Requires:	python3-pycairo
 Requires:	python3-pygobject3 >= 3.0.0
 Requires:	zeitgeist-libs >= 0.9.12
@@ -79,8 +80,8 @@ Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 # doesn't require base
 Requires:	glib2-devel >= 1:2.40.0
-Requires:	gtk+3-devel >= 3.14.0
-Requires:	gtksourceview3-devel >= 3.14.3
+Requires:	gtk+3-devel >= 3.16.0
+Requires:	gtksourceview3-devel >= 3.16
 Requires:	libpeas-devel >= 1.7.0
 Requires:	libpeas-gtk-devel >= 1.7.0
 Obsoletes:	gedit2-devel
@@ -112,7 +113,7 @@ Summary:	gedit API for Vala language
 Summary(pl.UTF-8):	API gedit dla języka Vala
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
-Requires:	vala
+Requires:	vala >= 2:0.25.1
 
 %description -n vala-gedit
 gedit API for Vala language.
@@ -197,7 +198,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/gedit-3.12
+%{_includedir}/gedit-3.14
 %{_pkgconfigdir}/gedit.pc
 
 %files apidocs
