@@ -1,30 +1,29 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	3.16.3
-Release:	2
+Version:	3.18.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.16/%{name}-%{version}.tar.xz
-# Source0-md5:	23c67110f2be200c304b31ef833b5a27
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.18/%{name}-%{version}.tar.xz
+# Source0-md5:	d0656fba61df4f7588d63031c4563bf8
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	autoconf >= 2.63.2
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	enchant-devel >= 1.2.0
 BuildRequires:	gettext-tools >= 0.18
-BuildRequires:	glib2-devel >= 1:2.40.0
+BuildRequires:	glib2-devel >= 1:2.44.0
 BuildRequires:	gnome-common >= 2.24.0
-BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gobject-introspection-devel >= 0.10.0
 BuildRequires:	gsettings-desktop-schemas-devel >= 3.2.0
 BuildRequires:	gtk+3-devel >= 3.16.0
 BuildRequires:	gtk-doc >= 1.0
-BuildRequires:	gtksourceview3-devel >= 3.16
+BuildRequires:	gtksourceview3-devel >= 3.18
 BuildRequires:	intltool >= 0.50.1
 BuildRequires:	iso-codes >= 0.35
-BuildRequires:	libpeas-devel >= 1.7.0
-BuildRequires:	libpeas-gtk-devel >= 1.7.0
+BuildRequires:	libpeas-devel >= 1.14.1
+BuildRequires:	libpeas-gtk-devel >= 1.14.1
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	pkgconfig
@@ -39,20 +38,18 @@ BuildRequires:	vala >= 2:0.25.1
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
 BuildRequires:	yelp-tools
-BuildRequires:	zeitgeist-devel >= 0.9.12
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	glib2 >= 1:2.40.0
 Requires:	enchant >= 1.2.0
-Requires:	glib2 >= 1:2.40.0
+Requires:	glib2 >= 1:2.44.0
 Requires:	gsettings-desktop-schemas >= 3.2.0
 Requires:	gtk+3 >= 3.16.0
-Requires:	gtksourceview3 >= 3.16
+Requires:	gtksourceview3 >= 3.18
 Requires:	iso-codes >= 0.35
-Requires:	libpeas-loader-python3 >= 1.7.0
+Requires:	libpeas-loader-python3 >= 1.14.1
 Requires:	python3-libs >= 1:3.2.3
 Requires:	python3-pycairo
 Requires:	python3-pygobject3 >= 3.0.0
-Requires:	zeitgeist-libs >= 0.9.12
 Obsoletes:	gedit-plugins < 2.3.3-2
 # sr@Latn vs. sr@latin
 Obsoletes:	gedit2
@@ -79,11 +76,11 @@ Summary:	gedit header files
 Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 # doesn't require base
-Requires:	glib2-devel >= 1:2.40.0
+Requires:	glib2-devel >= 1:2.44.0
 Requires:	gtk+3-devel >= 3.16.0
-Requires:	gtksourceview3-devel >= 3.16
-Requires:	libpeas-devel >= 1.7.0
-Requires:	libpeas-gtk-devel >= 1.7.0
+Requires:	gtksourceview3-devel >= 3.18
+Requires:	libpeas-devel >= 1.14.1
+Requires:	libpeas-gtk-devel >= 1.14.1
 Obsoletes:	gedit2-devel
 
 %description devel
@@ -164,7 +161,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f gedit.lang
 %defattr(644,root,root,755)
-%doc AUTHORS BUGS ChangeLog MAINTAINERS NEWS README
+%doc AUTHORS ChangeLog MAINTAINERS NEWS README
 %attr(755,root,root) %{_bindir}/gedit
 %attr(755,root,root) %{_bindir}/gnome-text-editor
 %dir %{_libdir}/gedit
