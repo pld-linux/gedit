@@ -39,7 +39,7 @@ BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	desktop-file-utils
-Requires(post,postun):	glib2 >= 1:2.40.0
+Requires(post,postun):	glib2 >= 1:2.44.0
 Requires:	enchant >= 1.2.0
 Requires:	glib2 >= 1:2.44.0
 Requires:	gsettings-desktop-schemas >= 3.2.0
@@ -47,6 +47,7 @@ Requires:	gtk+3 >= 3.16.0
 Requires:	gtksourceview3 >= 3.18
 Requires:	iso-codes >= 0.35
 Requires:	libpeas-loader-python3 >= 1.14.1
+Requires:	libxml2 >= 1:2.6.31
 Requires:	python3-libs >= 1:3.2.3
 Requires:	python3-pycairo
 Requires:	python3-pygobject3 >= 3.0.0
