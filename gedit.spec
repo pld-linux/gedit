@@ -1,25 +1,25 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	3.18.3
-Release:	2
+Version:	3.20.1
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.18/%{name}-%{version}.tar.xz
-# Source0-md5:	f42f979245daf2115f9741c1d4ebd3d1
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.20/%{name}-%{version}.tar.xz
+# Source0-md5:	a318bfd6e9716c7a135e509dfe7f4117
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	autoconf >= 2.63.2
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	enchant-devel >= 1.2.0
 BuildRequires:	gettext-tools >= 0.18
 BuildRequires:	glib2-devel >= 1:2.44.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gobject-introspection-devel >= 0.10.0
+BuildRequires:	gspell-devel >= 0.2.5
 BuildRequires:	gsettings-desktop-schemas-devel >= 3.2.0
-BuildRequires:	gtk+3-devel >= 3.16.0
+BuildRequires:	gtk+3-devel >= 3.20.0
 BuildRequires:	gtk-doc >= 1.0
-BuildRequires:	gtksourceview3-devel >= 3.18
+BuildRequires:	gtksourceview3-devel >= 3.20
 BuildRequires:	intltool >= 0.50.1
 BuildRequires:	iso-codes >= 0.35
 BuildRequires:	libpeas-devel >= 1.14.1
@@ -40,11 +40,13 @@ BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	glib2 >= 1:2.44.0
-Requires:	enchant >= 1.2.0
+Requires(post,postun):	gtk-update-icon-cache
 Requires:	glib2 >= 1:2.44.0
+Requires:	gspell >= 0.2.5
 Requires:	gsettings-desktop-schemas >= 3.2.0
-Requires:	gtk+3 >= 3.16.0
-Requires:	gtksourceview3 >= 3.18
+Requires:	gtk+3 >= 3.20.0
+Requires:	gtksourceview3 >= 3.20
+Requires:	hicolor-icon-theme
 Requires:	iso-codes >= 0.35
 Requires:	libpeas-loader-python3 >= 1.14.1
 Requires:	libxml2 >= 1:2.6.31
@@ -78,8 +80,8 @@ Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 # doesn't require base
 Requires:	glib2-devel >= 1:2.44.0
-Requires:	gtk+3-devel >= 3.16.0
-Requires:	gtksourceview3-devel >= 3.18
+Requires:	gtk+3-devel >= 3.20.0
+Requires:	gtksourceview3-devel >= 3.20
 Requires:	libpeas-devel >= 1.14.1
 Requires:	libpeas-gtk-devel >= 1.14.1
 Obsoletes:	gedit2-devel
@@ -156,10 +158,12 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %post
+%update_icon_cache hicolor
 %update_desktop_database_post
 %glib_compile_schemas
 
 %postun
+%update_icon_cache hicolor
 %update_desktop_database_postun
 %glib_compile_schemas
 
@@ -193,6 +197,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.gedit.plugins.time.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gedit.plugins.time.gschema.xml
 %{_desktopdir}/org.gnome.gedit.desktop
+%{_iconsdir}/hicolor/*/apps/gedit.png
+%{_iconsdir}/hicolor/symbolic/apps/gedit-symbolic.svg
 %{_mandir}/man1/gedit.1*
 %{py3_sitedir}/gi/overrides/*.py
 %{py3_sitedir}/gi/overrides/__pycache__/*.py[co]
