@@ -1,12 +1,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	3.22.1
+Version:	3.28.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.22/%{name}-%{version}.tar.xz
-# Source0-md5:	b3ee39faa2f905c83cb158a9b4d3fb44
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.28/%{name}-%{version}.tar.xz
+# Source0-md5:	a886fa9707e8e5e3926d968826ca3606
 URL:		http://www.gnome.org/projects/gedit/
 BuildRequires:	autoconf >= 2.63.2
 BuildRequires:	automake >= 1:1.11
@@ -35,6 +35,7 @@ BuildRequires:	rpmbuild(macros) >= 1.601
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala >= 2:0.25.1
+BuildRequires:	vala-gtksourceview
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
 BuildRequires:	yelp-tools
@@ -176,8 +177,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/gedit
 %attr(755,root,root) %{_libdir}/gedit/libgedit.so
 %dir %{_libdir}/gedit/plugins
-%attr(755,root,root) %{_libdir}/gedit/gedit-bugreport.sh
 %attr(755,root,root) %{_libdir}/gedit/plugins/*.so
+%dir %{_libexecdir}/gedit
+%attr(755,root,root) %{_libexecdir}/gedit/gedit-bugreport.sh
 %{_libdir}/gedit/plugins/*.plugin
 %{_libdir}/gedit/plugins/externaltools
 %{_libdir}/gedit/plugins/pythonconsole
@@ -185,7 +187,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gedit/plugins/quickopen
 %dir %{_libdir}/gedit/girepository-1.0
 %{_libdir}/gedit/girepository-1.0/Gedit-3.0.typelib
-%{_datadir}/appdata/org.gnome.gedit.appdata.xml
+%{_datadir}/metainfo/org.gnome.gedit.appdata.xml
 %{_datadir}/gedit
 %{_datadir}/GConf/gsettings/gedit.convert
 %{_datadir}/dbus-1/services/org.gnome.gedit.service
