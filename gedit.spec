@@ -193,6 +193,8 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/gedit-3.14
+# dir shared with base
+%dir %{_datadir}/gedit
 %dir %{_datadir}/gedit/gir-1.0
 %{_datadir}/gedit/gir-1.0/Gedit-3.0.gir
 %{_pkgconfigdir}/gedit.pc
