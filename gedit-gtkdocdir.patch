@@ -1,0 +1,11 @@
+--- gedit-3.34.0/meson.build.orig	2019-09-09 15:33:23.000000000 +0200
++++ gedit-3.34.0/meson.build	2019-11-07 19:11:38.130835763 +0100
+@@ -42,7 +42,7 @@
+ 
+ dbusdir = join_paths(datadir, 'dbus-1')
+ glibdir = join_paths(datadir, 'glib-2.0')
+-gtkdocdir = join_paths(datadir, 'gtk-doc')
++gtkdocdir = join_paths(datadir, 'doc', 'gtk-doc')
+ localdir = join_paths(datadir, 'local')
+ vapidir = join_paths(datadir, 'vala', 'vapi')
+ 
