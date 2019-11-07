@@ -41,6 +41,7 @@ BuildRequires:	yelp-tools
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	glib2 >= 1:2.44.0
 Requires(post,postun):	gtk-update-icon-cache
+Requires:	%{name}-libs = %{version}-%{release}
 Requires:	glib2 >= 1:2.44.0
 Requires:	gspell >= 0.2.5
 Requires:	gsettings-desktop-schemas >= 3.2.0
@@ -71,11 +72,22 @@ który umożliwia rozszerzenie funkcji gedita o dodatkowe możliwości,
 nie zwiększając rozmiarów samego programu, możliwość edycji wielu
 dokumentów naraz i wiele innych.
 
+%package libs
+Summary:	gedit shared library
+Summary(pl.UTF-8):	Biblioteka współdzielona gedit
+Group:		Libraries
+
+%description libs
+gedit shared library.
+
+%description libs -l pl.UTF-8
+Biblioteka współdzielona gedit.
+
 %package devel
 Summary:	gedit header files
 Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
-# doesn't require base
+Requires:	%{name}-libs = %{version}-%{release}
 Requires:	glib2-devel >= 1:2.44.0
 Requires:	gtk+3-devel >= 3.22.0
 Requires:	gtksourceview4-devel >= 4.0.2
@@ -159,8 +171,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README.md
 %attr(755,root,root) %{_bindir}/gedit
-%dir %{_libdir}/gedit
-%attr(755,root,root) %{_libdir}/gedit/libgedit-3.14.so
 %dir %{_libdir}/gedit/plugins
 %attr(755,root,root) %{_libdir}/gedit/plugins/*.so
 %{_libdir}/gedit/plugins/*.plugin
@@ -168,12 +178,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gedit/plugins/pythonconsole
 %{_libdir}/gedit/plugins/snippets
 %{_libdir}/gedit/plugins/quickopen
-%dir %{_libdir}/gedit/girepository-1.0
-%{_libdir}/gedit/girepository-1.0/Gedit-3.0.typelib
 %{py3_sitedir}/gi/overrides/Gedit.py
 %{py3_sitedir}/gi/overrides/__pycache__/Gedit.cpython-*.py[co]
 %{_datadir}/dbus-1/services/org.gnome.gedit.service
-%dir %{_datadir}/gedit
 %{_datadir}/gedit/plugins
 %{_datadir}/glib-2.0/schemas/org.gnome.gedit.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gedit.gschema.xml
@@ -190,11 +197,17 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/symbolic/apps/org.gnome.gedit-symbolic.svg
 %{_mandir}/man1/gedit.1*
 
+%files libs
+%defattr(644,root,root,755)
+%dir %{_libdir}/gedit
+%attr(755,root,root) %{_libdir}/gedit/libgedit-3.14.so
+%dir %{_libdir}/gedit/girepository-1.0
+%{_libdir}/gedit/girepository-1.0/Gedit-3.0.typelib
+%dir %{_datadir}/gedit
+
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/gedit-3.14
-# dir shared with base
-%dir %{_datadir}/gedit
 %dir %{_datadir}/gedit/gir-1.0
 %{_datadir}/gedit/gir-1.0/Gedit-3.0.gir
 %{_pkgconfigdir}/gedit.pc
