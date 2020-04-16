@@ -1,11 +1,11 @@
---- gedit-3.34.0/meson.build.orig	2019-09-09 15:33:23.000000000 +0200
-+++ gedit-3.34.0/meson.build	2019-11-07 19:11:38.130835763 +0100
-@@ -42,7 +42,7 @@
+--- gedit-3.36.1/meson.build.orig	2020-04-16 18:16:08.510741221 +0200
++++ gedit-3.36.1/meson.build	2020-04-16 18:21:02.075817509 +0200
+@@ -31,7 +31,7 @@
+ pkgdatadir = join_paths(datadir, meson.project_name())
  
- dbusdir = join_paths(datadir, 'dbus-1')
  glibdir = join_paths(datadir, 'glib-2.0')
 -gtkdocdir = join_paths(datadir, 'gtk-doc')
 +gtkdocdir = join_paths(datadir, 'doc', 'gtk-doc')
- localdir = join_paths(datadir, 'local')
  vapidir = join_paths(datadir, 'vala', 'vapi')
  
+ # Subprojects
