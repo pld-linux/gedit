@@ -1,29 +1,32 @@
+#
+# Conditional build:
+%bcond_without	apidocs	# plugins API documentation
+
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	3.36.2
+Version:	3.38.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.36/%{name}-%{version}.tar.xz
-# Source0-md5:	438217bbbcf92a17c4f259b4a5426b03
-Patch0:		%{name}-gtkdocdir.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.38/%{name}-%{version}.tar.xz
+# Source0-md5:	c5afa1eab08f7ac69ed809f5d6d0c51b
 URL:		https://wiki.gnome.org/Apps/Gedit
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.18
-BuildRequires:	glib2-devel >= 1:2.52
+BuildRequires:	glib2-devel >= 1:2.64
 BuildRequires:	gobject-introspection-devel >= 0.10.0
 BuildRequires:	gspell-devel >= 1.0
 BuildRequires:	gsettings-desktop-schemas-devel >= 3.2.0
 BuildRequires:	gtk+3-devel >= 3.22.0
-BuildRequires:	gtk-doc >= 1.0
+%{?with_apidocs:BuildRequires:	gtk-doc >= 1.0}
 BuildRequires:	gtksourceview4-devel >= 4.0.2
 BuildRequires:	iso-codes >= 0.35
 BuildRequires:	libpeas-devel >= 1.14.1
 BuildRequires:	libpeas-gtk-devel >= 1.14.1
 BuildRequires:	libsoup-devel >= 2.60.0
 BuildRequires:	libxml2-devel >= 1:2.6.31
-BuildRequires:	meson >= 0.49
+BuildRequires:	meson >= 0.53
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	python3-devel >= 1:3.2.3
@@ -33,17 +36,16 @@ BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	tepl-devel >= 4.4
+BuildRequires:	tepl-devel >= 5.0
 BuildRequires:	vala >= 2:0.25.1
 BuildRequires:	vala-gtksourceview4 >= 4.0.2
-BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	desktop-file-utils
-Requires(post,postun):	glib2 >= 1:2.52
+Requires(post,postun):	glib2 >= 1:2.64
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	glib2 >= 1:2.52
+Requires:	glib2 >= 1:2.64
 Requires:	gspell >= 1.0
 Requires:	gsettings-desktop-schemas >= 3.2.0
 Requires:	gtk+3 >= 3.22.0
@@ -60,7 +62,7 @@ Obsoletes:	gedit-plugins < 2.3.3-2
 Obsoletes:	gedit2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		api_ver		3.36
+%define		api_ver		3.38
 
 %description
 gedit is a small but powerful text editor for GTK+ and/or GNOME. It
@@ -91,7 +93,7 @@ Summary:	gedit header files
 Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	glib2-devel >= 1:2.52
+Requires:	glib2-devel >= 1:2.64
 Requires:	gtk+3-devel >= 3.22.0
 Requires:	gtksourceview4-devel >= 4.0.2
 Requires:	libpeas-devel >= 1.14.1
@@ -139,11 +141,10 @@ API gedit dla języka Vala.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %meson build \
-	-Dgtk_doc=true
+	%{?with_apidocs:-Dgtk_doc=true}
 
 %ninja_build -C build
 
@@ -172,7 +173,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f gedit.lang
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README.md
+%doc NEWS README.md
 %attr(755,root,root) %{_bindir}/gedit
 %dir %{_libdir}/gedit/plugins
 %attr(755,root,root) %{_libdir}/gedit/plugins/*.so
@@ -215,9 +216,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gedit/gir-1.0/Gedit-3.0.gir
 %{_pkgconfigdir}/gedit.pc
 
+%if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/gedit
+%endif
 
 %files -n vala-gedit
 %defattr(644,root,root,755)
