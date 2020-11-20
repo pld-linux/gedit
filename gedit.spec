@@ -5,12 +5,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	3.38.0
+Version:	3.38.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gedit/3.38/%{name}-%{version}.tar.xz
-# Source0-md5:	c5afa1eab08f7ac69ed809f5d6d0c51b
+Source0:	https://download.gnome.org/sources/gedit/3.38/%{name}-%{version}.tar.xz
+# Source0-md5:	19dcfd1631256ab85d9394225dddf167
 URL:		https://wiki.gnome.org/Apps/Gedit
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.18
@@ -33,7 +33,7 @@ BuildRequires:	python3-devel >= 1:3.2.3
 BuildRequires:	python3-pygobject3-devel >= 3.0.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(find_lang) >= 1.23
-BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	tepl-devel >= 5.0
@@ -112,9 +112,7 @@ Summary(pl.UTF-8):	Dokumentacja API gedit
 Group:		Documentation
 Requires:	gtk-doc-common
 Obsoletes:	gedit2-apidocs
-%if "%{_rpmversion}" >= "4.6"
-BuildArch:	noarch
-%endif
+%{?noarchpackage}
 
 %description apidocs
 gedit API documentation.
@@ -129,9 +127,7 @@ Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala >= 2:0.25.1
 Requires:	vala-gtksourceview4 >= 4.0.2
-%if "%{_rpmversion}" >= "4.6"
-BuildArch:	noarch
-%endif
+%{?noarchpackage}
 
 %description -n vala-gedit
 gedit API for Vala language.
