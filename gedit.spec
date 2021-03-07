@@ -112,7 +112,7 @@ Summary(pl.UTF-8):	Dokumentacja API gedit
 Group:		Documentation
 Requires:	gtk-doc-common
 Obsoletes:	gedit2-apidocs
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description apidocs
 gedit API documentation.
@@ -127,7 +127,7 @@ Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala >= 2:0.25.1
 Requires:	vala-gtksourceview4 >= 4.0.2
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description -n vala-gedit
 gedit API for Vala language.
