@@ -5,12 +5,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	3.38.2
+Version:	40.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
-Source0:	https://download.gnome.org/sources/gedit/3.38/%{name}-%{version}.tar.xz
-# Source0-md5:	c9535549572d35f67aa52e7bf4df8968
+Source0:	https://download.gnome.org/sources/gedit/40/%{name}-%{version}.tar.xz
+# Source0-md5:	993332e9e6c5b6577d5fe891021bba04
 URL:		https://wiki.gnome.org/Apps/Gedit
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.18
@@ -29,15 +29,14 @@ BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	meson >= 0.53
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
-BuildRequires:	python3-devel >= 1:3.2.3
-BuildRequires:	python3-pygobject3-devel >= 3.0.0
+BuildRequires:	python3 >= 1:3.2.3
 BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	tepl-devel >= 5.0
+BuildRequires:	tepl-devel >= 6.0
 BuildRequires:	vala >= 2:0.25.1
 BuildRequires:	vala-gtksourceview4 >= 4.0.2
 BuildRequires:	xz
@@ -63,7 +62,7 @@ Obsoletes:	gedit-plugins < 2.3.3-2
 Obsoletes:	gedit2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		api_ver		3.38
+%define		api_ver		40.0
 
 %description
 gedit is a small but powerful text editor for GTK+ and/or GNOME. It
