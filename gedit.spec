@@ -151,8 +151,6 @@ rm -rf $RPM_BUILD_ROOT
 %py3_comp $RPM_BUILD_ROOT%{py3_sitedir}
 %py3_ocomp $RPM_BUILD_ROOT%{py3_sitedir}
 
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ab
-
 %find_lang gedit --with-gnome
 
 %clean
