@@ -177,8 +177,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gedit/plugins/pythonconsole
 %{_libdir}/gedit/plugins/snippets
 %{_libdir}/gedit/plugins/quickopen
-%{py3_sitedir}/gi/overrides/Gedit.py
-%{py3_sitedir}/gi/overrides/__pycache__/Gedit.cpython-*.py[co]
+%{py3_sitescriptdir}/gi/overrides/Gedit.py
 %{_datadir}/dbus-1/services/org.gnome.gedit.service
 %{_datadir}/gedit/plugins
 %{_datadir}/glib-2.0/schemas/org.gnome.gedit.enums.xml
