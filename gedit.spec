@@ -6,7 +6,7 @@ Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
 Version:	41.0
-Release:	5
+Release:	6
 License:	GPL v2+
 Group:		X11/Applications/Editors
 Source0:	https://download.gnome.org/sources/gedit/41/%{name}-%{version}.tar.xz
@@ -177,8 +177,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gedit/plugins/pythonconsole
 %{_libdir}/gedit/plugins/snippets
 %{_libdir}/gedit/plugins/quickopen
-%dir %{py3_sitescriptdir}/gi
-%dir %{py3_sitescriptdir}/gi/overrides
 %{py3_sitescriptdir}/gi/overrides/Gedit.py
 %{_datadir}/dbus-1/services/org.gnome.gedit.service
 %{_datadir}/gedit/plugins
