@@ -5,12 +5,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	41.0
-Release:	6
+Version:	42.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
-Source0:	https://download.gnome.org/sources/gedit/41/%{name}-%{version}.tar.xz
-# Source0-md5:	0f5ab93e046bba825b784d5410817cec
+Source0:	https://download.gnome.org/sources/gedit/42/%{name}-%{version}.tar.xz
+# Source0-md5:	5c2eacd31f3feb2b7b2b69cafac17c87
 URL:		https://wiki.gnome.org/Apps/Gedit
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.18
@@ -58,10 +58,12 @@ Requires:	python3-libs >= 1:3.2.3
 Requires:	python3-pycairo
 Requires:	python3-pygobject3 >= 3.0.0
 Obsoletes:	gedit-plugins < 2.3.3-2
-Obsoletes:	gedit2
+Obsoletes:	gedit2 < 3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		api_ver		41
+
+%define		py3_gi_overridesdir	%{py3_sitescriptdir}/gi/overrides
 
 %description
 gedit is a small but powerful text editor for GTK+ and/or GNOME. It
@@ -97,7 +99,7 @@ Requires:	gtk+3-devel >= 3.22.0
 Requires:	gtksourceview4-devel >= 4.0.2
 Requires:	libpeas-devel >= 1.14.1
 Requires:	libpeas-gtk-devel >= 1.14.1
-Obsoletes:	gedit2-devel
+Obsoletes:	gedit2-devel < 3
 
 %description devel
 gedit header files.
@@ -110,7 +112,7 @@ Summary:	gedit API documentation
 Summary(pl.UTF-8):	Dokumentacja API gedit
 Group:		Documentation
 Requires:	gtk-doc-common
-Obsoletes:	gedit2-apidocs
+Obsoletes:	gedit2-apidocs < 3
 BuildArch:	noarch
 
 %description apidocs
@@ -148,8 +150,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %ninja_install -C build
 
-%py3_comp $RPM_BUILD_ROOT%{py3_sitedir}
-%py3_ocomp $RPM_BUILD_ROOT%{py3_sitedir}
+%py3_comp $RPM_BUILD_ROOT%{py3_gi_overridesdir}
+%py3_ocomp $RPM_BUILD_ROOT%{py3_gi_overridesdir}
 
 %find_lang gedit --with-gnome
 
@@ -177,7 +179,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gedit/plugins/pythonconsole
 %{_libdir}/gedit/plugins/snippets
 %{_libdir}/gedit/plugins/quickopen
-%{py3_sitescriptdir}/gi/overrides/Gedit.py
+%{py3_gi_overridesdir}/Gedit.py
+%{py3_gi_overridesdir}/__pycache__/Gedit.cpython-*.py[co]
 %{_datadir}/dbus-1/services/org.gnome.gedit.service
 %{_datadir}/gedit/plugins
 %{_datadir}/glib-2.0/schemas/org.gnome.gedit.enums.xml
