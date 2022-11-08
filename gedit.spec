@@ -5,16 +5,17 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	42.2
+Version:	43.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
-Source0:	https://download.gnome.org/sources/gedit/42/%{name}-%{version}.tar.xz
-# Source0-md5:	733fcdd4db8e344460995857381cfaac
+Source0:	https://download.gnome.org/sources/gedit/43/%{name}-%{version}.tar.xz
+# Source0-md5:	6fef37e967e7ffdceb2ed3a6c96f8a59
 URL:		https://wiki.gnome.org/Apps/Gedit
+BuildRequires:	amtk-devel >= 5.6
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.18
-BuildRequires:	glib2-devel >= 1:2.64
+BuildRequires:	glib2-devel >= 1:2.70
 BuildRequires:	gobject-introspection-devel >= 0.10.0
 BuildRequires:	gspell-devel >= 1.0
 BuildRequires:	gsettings-desktop-schemas-devel >= 3.2.0
@@ -36,15 +37,16 @@ BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	tepl-devel >= 6.2
 BuildRequires:	vala >= 2:0.25.1
 BuildRequires:	vala-gtksourceview4 >= 4.0.2
 BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	desktop-file-utils
-Requires(post,postun):	glib2 >= 1:2.64
+Requires(post,postun):	glib2 >= 1:2.70
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	glib2 >= 1:2.64
+Requires:	glib2 >= 1:2.70
 Requires:	gspell >= 1.0
 Requires:	gsettings-desktop-schemas >= 3.2.0
 Requires:	gtk+3 >= 3.22.0
@@ -61,7 +63,7 @@ Obsoletes:	gedit-plugins < 2.3.3-2
 Obsoletes:	gedit2 < 3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		api_ver		41
+%define		api_ver		3.38
 
 %define		py3_gi_overridesdir	%{py3_sitescriptdir}/gi/overrides
 
@@ -82,6 +84,13 @@ dokumentów naraz i wiele innych.
 Summary:	gedit shared library
 Summary(pl.UTF-8):	Biblioteka współdzielona gedit
 Group:		Libraries
+Requires:	amtk >= 5.6
+Requires:	glib2 >= 1:2.70
+Requires:	gtk+3 >= 3.22.0
+Requires:	gtksourceview4 >= 4.0.2
+Requires:	libpeas >= 1.14.1
+Requires:	libpeas-gtk >= 1.14.1
+Requires:	tepl >= 6.2
 
 %description libs
 gedit shared library.
@@ -94,11 +103,13 @@ Summary:	gedit header files
 Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	glib2-devel >= 1:2.64
+Requires:	amtk-devel >= 5.6
+Requires:	glib2-devel >= 1:2.70
 Requires:	gtk+3-devel >= 3.22.0
 Requires:	gtksourceview4-devel >= 4.0.2
 Requires:	libpeas-devel >= 1.14.1
 Requires:	libpeas-gtk-devel >= 1.14.1
+Requires:	tepl-devel >= 6.2
 Obsoletes:	gedit2-devel < 3
 
 %description devel
