@@ -162,6 +162,9 @@ rm -rf $RPM_BUILD_ROOT
 %py3_comp $RPM_BUILD_ROOT%{py3_gi_overridesdir}
 %py3_ocomp $RPM_BUILD_ROOT%{py3_gi_overridesdir}
 
+# not supported by glibc (as of 2.37)
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ie
+
 %find_lang gedit --with-gnome
 
 %clean
