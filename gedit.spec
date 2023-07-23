@@ -5,12 +5,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	43.2
-Release:	2
+Version:	44.2
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
-Source0:	https://download.gnome.org/sources/gedit/43/%{name}-%{version}.tar.xz
-# Source0-md5:	7de5ce6a7bf002e59b2f68eb5d9c8f3a
+Source0:	https://download.gnome.org/sources/gedit/44/%{name}-%{version}.tar.xz
+# Source0-md5:	fc257c0bce2ee900208032913f94053f
 URL:		https://wiki.gnome.org/Apps/Gedit
 BuildRequires:	amtk-devel >= 5.6
 BuildRequires:	docbook-dtd412-xml
@@ -25,7 +25,6 @@ BuildRequires:	gtksourceview4-devel >= 4.0.2
 BuildRequires:	iso-codes >= 0.35
 BuildRequires:	libpeas-devel >= 1.14.1
 BuildRequires:	libpeas-gtk-devel >= 1.14.1
-BuildRequires:	libsoup-devel >= 2.60.0
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	meson >= 0.53
 BuildRequires:	ninja >= 1.5
@@ -37,7 +36,7 @@ BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	tepl-devel >= 6.2
+BuildRequires:	tepl-devel >= 6.4
 BuildRequires:	vala >= 2:0.25.1
 BuildRequires:	vala-gtksourceview4 >= 4.0.2
 BuildRequires:	xz
@@ -54,7 +53,6 @@ Requires:	gtksourceview4 >= 4.0.2
 Requires:	hicolor-icon-theme
 Requires:	iso-codes >= 0.35
 Requires:	libpeas-loader-python3 >= 1.14.1
-Requires:	libsoup >= 2.60.0
 Requires:	libxml2 >= 1:2.6.31
 Requires:	python3-libs >= 1:3.2.3
 Requires:	python3-pycairo
@@ -63,7 +61,7 @@ Obsoletes:	gedit-plugins < 2.3.3-2
 Obsoletes:	gedit2 < 3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		api_ver		43
+%define		api_ver		44
 
 %define		py3_gi_overridesdir	%{py3_sitescriptdir}/gi/overrides
 
@@ -90,7 +88,7 @@ Requires:	gtk+3 >= 3.22.0
 Requires:	gtksourceview4 >= 4.0.2
 Requires:	libpeas >= 1.14.1
 Requires:	libpeas-gtk >= 1.14.1
-Requires:	tepl >= 6.2
+Requires:	tepl >= 6.4
 
 %description libs
 gedit shared library.
@@ -109,7 +107,7 @@ Requires:	gtk+3-devel >= 3.22.0
 Requires:	gtksourceview4-devel >= 4.0.2
 Requires:	libpeas-devel >= 1.14.1
 Requires:	libpeas-gtk-devel >= 1.14.1
-Requires:	tepl-devel >= 6.2
+Requires:	tepl-devel >= 6.4
 Obsoletes:	gedit2-devel < 3
 
 %description devel
