@@ -5,12 +5,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	44.2
+Version:	45.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
-Source0:	https://download.gnome.org/sources/gedit/44/%{name}-%{version}.tar.xz
-# Source0-md5:	fc257c0bce2ee900208032913f94053f
+Source0:	https://download.gnome.org/sources/gedit/45/%{name}-%{version}.tar.xz
+# Source0-md5:	dca62f35c6364e1fc4f16c271af687ab
 URL:		https://wiki.gnome.org/Apps/Gedit
 BuildRequires:	amtk-devel >= 5.6
 BuildRequires:	docbook-dtd412-xml
@@ -21,12 +21,12 @@ BuildRequires:	gspell-devel >= 1.0
 BuildRequires:	gsettings-desktop-schemas-devel >= 3.2.0
 BuildRequires:	gtk+3-devel >= 3.22.0
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.0}
-BuildRequires:	gtksourceview4-devel >= 4.0.2
+BuildRequires:	libgedit-gtksourceview-devel >= 299
 BuildRequires:	iso-codes >= 0.35
 BuildRequires:	libpeas-devel >= 1.14.1
 BuildRequires:	libpeas-gtk-devel >= 1.14.1
 BuildRequires:	libxml2-devel >= 1:2.6.31
-BuildRequires:	meson >= 0.53
+BuildRequires:	meson >= 0.59
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	python3 >= 1:3.2.3
@@ -36,9 +36,8 @@ BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	tepl-devel >= 6.4
+BuildRequires:	tepl-devel >= 6.5.1
 BuildRequires:	vala >= 2:0.25.1
-BuildRequires:	vala-gtksourceview4 >= 4.0.2
 BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	desktop-file-utils
@@ -49,7 +48,6 @@ Requires:	glib2 >= 1:2.70
 Requires:	gspell >= 1.0
 Requires:	gsettings-desktop-schemas >= 3.2.0
 Requires:	gtk+3 >= 3.22.0
-Requires:	gtksourceview4 >= 4.0.2
 Requires:	hicolor-icon-theme
 Requires:	iso-codes >= 0.35
 Requires:	libpeas-loader-python3 >= 1.14.1
@@ -61,7 +59,7 @@ Obsoletes:	gedit-plugins < 2.3.3-2
 Obsoletes:	gedit2 < 3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		api_ver		44
+%define		api_ver		45
 
 %define		py3_gi_overridesdir	%{py3_sitescriptdir}/gi/overrides
 
@@ -85,10 +83,9 @@ Group:		Libraries
 Requires:	amtk >= 5.6
 Requires:	glib2 >= 1:2.70
 Requires:	gtk+3 >= 3.22.0
-Requires:	gtksourceview4 >= 4.0.2
 Requires:	libpeas >= 1.14.1
 Requires:	libpeas-gtk >= 1.14.1
-Requires:	tepl >= 6.4
+Requires:	tepl >= 6.5.1
 
 %description libs
 gedit shared library.
@@ -104,11 +101,11 @@ Requires:	%{name}-libs = %{version}-%{release}
 Requires:	amtk-devel >= 5.6
 Requires:	glib2-devel >= 1:2.70
 Requires:	gtk+3-devel >= 3.22.0
-Requires:	gtksourceview4-devel >= 4.0.2
 Requires:	libpeas-devel >= 1.14.1
 Requires:	libpeas-gtk-devel >= 1.14.1
-Requires:	tepl-devel >= 6.4
+Requires:	tepl-devel >= 6.5.1
 Obsoletes:	gedit2-devel < 3
+Obsoletes:	vala-gedit < 45
 
 %description devel
 gedit header files.
@@ -129,21 +126,6 @@ gedit API documentation.
 
 %description apidocs -l pl.UTF-8
 Dokumentacja API gedit.
-
-%package -n vala-gedit
-Summary:	gedit API for Vala language
-Summary(pl.UTF-8):	API gedit dla języka Vala
-Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
-Requires:	vala >= 2:0.25.1
-Requires:	vala-gtksourceview4 >= 4.0.2
-BuildArch:	noarch
-
-%description -n vala-gedit
-gedit API for Vala language.
-
-%description -n vala-gedit -l pl.UTF-8
-API gedit dla języka Vala.
 
 %prep
 %setup -q
@@ -230,8 +212,3 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_gtkdocdir}/gedit
 %endif
-
-%files -n vala-gedit
-%defattr(644,root,root,755)
-%{_datadir}/vala/vapi/gedit.deps
-%{_datadir}/vala/vapi/gedit.vapi
