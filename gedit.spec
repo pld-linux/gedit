@@ -5,27 +5,24 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	45.0
+Version:	46.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
-Source0:	https://download.gnome.org/sources/gedit/45/%{name}-%{version}.tar.xz
-# Source0-md5:	dca62f35c6364e1fc4f16c271af687ab
+Source0:	https://download.gnome.org/sources/gedit/46/%{name}-%{version}.tar.xz
+# Source0-md5:	74cc927f8c41e7ccd2352c90d1086974
 URL:		https://wiki.gnome.org/Apps/Gedit
-BuildRequires:	amtk-devel >= 5.6
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.18
 BuildRequires:	glib2-devel >= 1:2.70
 BuildRequires:	gobject-introspection-devel >= 0.10.0
 BuildRequires:	gspell-devel >= 1.0
-BuildRequires:	gsettings-desktop-schemas-devel >= 3.2.0
 BuildRequires:	gtk+3-devel >= 3.22.0
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.0}
+BuildRequires:	libgedit-amtk-devel >= 5.8
 BuildRequires:	libgedit-gtksourceview-devel >= 299
-BuildRequires:	iso-codes >= 0.35
 BuildRequires:	libpeas-devel >= 1.14.1
 BuildRequires:	libpeas-gtk-devel >= 1.14.1
-BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	meson >= 0.59
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
@@ -36,7 +33,7 @@ BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	tepl-devel >= 6.5.1
+BuildRequires:	tepl-devel >= 6.8
 BuildRequires:	vala >= 2:0.25.1
 BuildRequires:	xz
 BuildRequires:	yelp-tools
@@ -51,7 +48,6 @@ Requires:	gtk+3 >= 3.22.0
 Requires:	hicolor-icon-theme
 Requires:	iso-codes >= 0.35
 Requires:	libpeas-loader-python3 >= 1.14.1
-Requires:	libxml2 >= 1:2.6.31
 Requires:	python3-libs >= 1:3.2.3
 Requires:	python3-pycairo
 Requires:	python3-pygobject3 >= 3.0.0
@@ -59,7 +55,7 @@ Obsoletes:	gedit-plugins < 2.3.3-2
 Obsoletes:	gedit2 < 3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		api_ver		45
+%define		api_ver		46
 
 %define		py3_gi_overridesdir	%{py3_sitescriptdir}/gi/overrides
 
@@ -80,12 +76,12 @@ dokumentów naraz i wiele innych.
 Summary:	gedit shared library
 Summary(pl.UTF-8):	Biblioteka współdzielona gedit
 Group:		Libraries
-Requires:	amtk >= 5.6
 Requires:	glib2 >= 1:2.70
 Requires:	gtk+3 >= 3.22.0
+Requires:	libgedit-amtk >= 5.8
 Requires:	libpeas >= 1.14.1
 Requires:	libpeas-gtk >= 1.14.1
-Requires:	tepl >= 6.5.1
+Requires:	tepl >= 6.8
 
 %description libs
 gedit shared library.
@@ -98,12 +94,12 @@ Summary:	gedit header files
 Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	amtk-devel >= 5.6
 Requires:	glib2-devel >= 1:2.70
 Requires:	gtk+3-devel >= 3.22.0
+Requires:	libgedit-amtk-devel >= 5.8
 Requires:	libpeas-devel >= 1.14.1
 Requires:	libpeas-gtk-devel >= 1.14.1
-Requires:	tepl-devel >= 6.5.1
+Requires:	tepl-devel >= 6.8
 Obsoletes:	gedit2-devel < 3
 Obsoletes:	vala-gedit < 45
 
