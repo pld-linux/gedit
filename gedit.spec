@@ -5,13 +5,13 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	46.1
+Version:	46.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
 Source0:	https://download.gnome.org/sources/gedit/46/%{name}-%{version}.tar.xz
-# Source0-md5:	74cc927f8c41e7ccd2352c90d1086974
-URL:		https://wiki.gnome.org/Apps/Gedit
+# Source0-md5:	01327f0d35778d8f3a914fffb69e8cd6
+URL:		https://gedit-technology.github.io/apps/gedit/
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.18
 BuildRequires:	glib2-devel >= 1:2.70
