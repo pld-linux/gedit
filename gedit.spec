@@ -5,22 +5,23 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	46.2
+Version:	47.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
-Source0:	https://download.gnome.org/sources/gedit/46/%{name}-%{version}.tar.xz
-# Source0-md5:	01327f0d35778d8f3a914fffb69e8cd6
+Source0:	https://download.gnome.org/sources/gedit/47/%{name}-%{version}.tar.xz
+# Source0-md5:	88aa416009439007815a3c01ce45e4fe
 URL:		https://gedit-technology.github.io/apps/gedit/
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.18
-BuildRequires:	glib2-devel >= 1:2.70
+BuildRequires:	glib2-devel >= 1:2.76
 BuildRequires:	gobject-introspection-devel >= 0.10.0
 BuildRequires:	gspell-devel >= 1.0
 BuildRequires:	gtk+3-devel >= 3.22.0
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.0}
 BuildRequires:	libgedit-amtk-devel >= 5.8
 BuildRequires:	libgedit-gtksourceview-devel >= 299
+BuildRequires:	libgedit-tepl-devel >= 6.10
 BuildRequires:	libpeas-devel >= 1.14.1
 BuildRequires:	libpeas-gtk-devel >= 1.14.1
 BuildRequires:	meson >= 0.59
@@ -33,15 +34,13 @@ BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	tepl-devel >= 6.8
-BuildRequires:	vala >= 2:0.25.1
 BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	desktop-file-utils
-Requires(post,postun):	glib2 >= 1:2.70
+Requires(post,postun):	glib2 >= 1:2.76
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	glib2 >= 1:2.70
+Requires:	glib2 >= 1:2.76
 Requires:	gspell >= 1.0
 Requires:	gsettings-desktop-schemas >= 3.2.0
 Requires:	gtk+3 >= 3.22.0
@@ -55,7 +54,7 @@ Obsoletes:	gedit-plugins < 2.3.3-2
 Obsoletes:	gedit2 < 3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		api_ver		46
+%define		api_ver		47
 
 %define		py3_gi_overridesdir	%{py3_sitescriptdir}/gi/overrides
 
@@ -76,12 +75,12 @@ dokumentów naraz i wiele innych.
 Summary:	gedit shared library
 Summary(pl.UTF-8):	Biblioteka współdzielona gedit
 Group:		Libraries
-Requires:	glib2 >= 1:2.70
+Requires:	glib2 >= 1:2.76
 Requires:	gtk+3 >= 3.22.0
 Requires:	libgedit-amtk >= 5.8
+Requires:	libgedit-tepl >= 6.10
 Requires:	libpeas >= 1.14.1
 Requires:	libpeas-gtk >= 1.14.1
-Requires:	tepl >= 6.8
 
 %description libs
 gedit shared library.
@@ -94,12 +93,12 @@ Summary:	gedit header files
 Summary(pl.UTF-8):	Pliki nagłówkowe gedit
 Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	glib2-devel >= 1:2.70
+Requires:	glib2-devel >= 1:2.76
 Requires:	gtk+3-devel >= 3.22.0
 Requires:	libgedit-amtk-devel >= 5.8
+Requires:	libgedit-tepl-devel >= 6.10
 Requires:	libpeas-devel >= 1.14.1
 Requires:	libpeas-gtk-devel >= 1.14.1
-Requires:	tepl-devel >= 6.8
 Obsoletes:	gedit2-devel < 3
 Obsoletes:	vala-gedit < 45
 
@@ -182,9 +181,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.gedit.plugins.spell.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gedit.plugins.time.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gedit.plugins.time.gschema.xml
-%{_datadir}/metainfo/org.gnome.gedit.appdata.xml
+%{_datadir}/metainfo/org.gnome.gedit.metainfo.xml
 %{_desktopdir}/org.gnome.gedit.desktop
-%{_iconsdir}/hicolor/scalable/apps/org.gnome.gedit.svg
+%{_iconsdir}/hicolor/*x*/apps/org.gnome.gedit.png
 %{_iconsdir}/hicolor/symbolic/apps/org.gnome.gedit-symbolic.svg
 %{_mandir}/man1/gedit.1*
 
