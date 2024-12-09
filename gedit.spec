@@ -5,12 +5,12 @@
 Summary:	gedit - small but powerful text editor for X Window
 Summary(pl.UTF-8):	gedit - mały ale potężny edytor tekstu dla X Window
 Name:		gedit
-Version:	48.0
+Version:	48.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
 Source0:	https://download.gnome.org/sources/gedit/48/%{name}-%{version}.tar.xz
-# Source0-md5:	dd651a387f3e845a1ed937b3d066fc60
+# Source0-md5:	1aa72a59d51be4597490220af3ad0421
 URL:		https://gedit-technology.github.io/apps/gedit/
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.18
@@ -21,7 +21,7 @@ BuildRequires:	gtk+3-devel >= 3.22.0
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.0}
 BuildRequires:	libgedit-amtk-devel >= 5.8
 BuildRequires:	libgedit-gtksourceview-devel >= 299
-BuildRequires:	libgedit-tepl-devel >= 6.11
+BuildRequires:	libgedit-tepl-devel >= 6.12
 BuildRequires:	libpeas-devel >= 1.14.1
 BuildRequires:	libpeas-gtk-devel >= 1.14.1
 BuildRequires:	meson >= 0.59
@@ -54,7 +54,7 @@ Obsoletes:	gedit-plugins < 2.3.3-2
 Obsoletes:	gedit2 < 3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		api_ver		48
+%define		api_ver		48.1
 
 %define		py3_gi_overridesdir	%{py3_sitescriptdir}/gi/overrides
 
@@ -78,7 +78,7 @@ Group:		Libraries
 Requires:	glib2 >= 1:2.76
 Requires:	gtk+3 >= 3.22.0
 Requires:	libgedit-amtk >= 5.8
-Requires:	libgedit-tepl >= 6.11
+Requires:	libgedit-tepl >= 6.12
 Requires:	libpeas >= 1.14.1
 Requires:	libpeas-gtk >= 1.14.1
 
@@ -96,7 +96,7 @@ Requires:	%{name}-libs = %{version}-%{release}
 Requires:	glib2-devel >= 1:2.76
 Requires:	gtk+3-devel >= 3.22.0
 Requires:	libgedit-amtk-devel >= 5.8
-Requires:	libgedit-tepl-devel >= 6.11
+Requires:	libgedit-tepl-devel >= 6.12
 Requires:	libpeas-devel >= 1.14.1
 Requires:	libpeas-gtk-devel >= 1.14.1
 Obsoletes:	gedit2-devel < 3
@@ -164,8 +164,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/gedit/plugins
 %attr(755,root,root) %{_libdir}/gedit/plugins/*.so
 %{_libdir}/gedit/plugins/*.plugin
-%{_libdir}/gedit/plugins/pythonconsole
-%{_libdir}/gedit/plugins/textsize
 %{py3_gi_overridesdir}/Gedit.py
 %{py3_gi_overridesdir}/__pycache__/Gedit.cpython-*.py[co]
 %{_datadir}/dbus-1/services/org.gnome.gedit.service
@@ -174,7 +172,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.gedit.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gedit.plugins.filebrowser.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gedit.plugins.filebrowser.gschema.xml
-%{_datadir}/glib-2.0/schemas/org.gnome.gedit.plugins.pythonconsole.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gedit.plugins.spell.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gedit.plugins.time.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gedit.plugins.time.gschema.xml
