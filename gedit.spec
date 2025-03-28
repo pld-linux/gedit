@@ -31,7 +31,7 @@ BuildRequires:	python3 >= 1:3.2.3
 BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(find_lang) >= 1.23
-BuildRequires:	rpmbuild(macros) >= 1.752
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -126,15 +126,15 @@ Dokumentacja API gedit.
 %setup -q
 
 %build
-%meson build \
+%meson \
 	%{?with_apidocs:-Dgtk_doc=true}
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 %py3_comp $RPM_BUILD_ROOT%{py3_gi_overridesdir}
 %py3_ocomp $RPM_BUILD_ROOT%{py3_gi_overridesdir}
